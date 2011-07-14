@@ -1,0 +1,49 @@
+*javax.swing.table.TableStringConverter* *TableStringConverter* TableStringConverter is used to convert objects from the model i
+
+public abstract class TableStringConverter
+  extends    |java.lang.Object|
+
+|javax.swing.table.TableStringConverter_Description|
+|javax.swing.table.TableStringConverter_Fields|
+|javax.swing.table.TableStringConverter_Constructors|
+|javax.swing.table.TableStringConverter_Methods|
+
+================================================================================================================================
+
+*javax.swing.table.TableStringConverter_Constructors*
+|javax.swing.table.TableStringConverter()|
+
+*javax.swing.table.TableStringConverter_Methods*
+|javax.swing.table.TableStringConverter.toString(TableModel,int,int)|Returns the string representation of the value at the spec
+
+*javax.swing.table.TableStringConverter_Description*
+
+TableStringConverter is used to convert objects from the model into strings. This is useful in filtering and searching when the 
+model returns objects that do not have meaningful toString implementations. 
+
+
+
+*javax.swing.table.TableStringConverter()*
+
+public TableStringConverter()
+
+
+
+
+*javax.swing.table.TableStringConverter.toString(TableModel,int,int)*
+
+public abstract |java.lang.String| toString(
+  javax.swing.table.TableModel model,
+  int row,
+  int column)
+
+Returns the string representation of the value at the specified location. 
+
+
+    model - the TableModel to fetch the value from 
+    row - the row the string is being requested for 
+    column - the column the string is being requested for 
+
+    Returns: the string representation. This should never return null. 
+
+

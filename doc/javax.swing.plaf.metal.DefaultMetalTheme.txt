@@ -1,0 +1,201 @@
+*javax.swing.plaf.metal.DefaultMetalTheme* *DefaultMetalTheme* A concrete implementation ofMetalThemeproviding
+ the original loo
+
+public class DefaultMetalTheme
+  extends    |javax.swing.plaf.metal.MetalTheme|
+
+|javax.swing.plaf.metal.DefaultMetalTheme_Description|
+|javax.swing.plaf.metal.DefaultMetalTheme_Fields|
+|javax.swing.plaf.metal.DefaultMetalTheme_Constructors|
+|javax.swing.plaf.metal.DefaultMetalTheme_Methods|
+
+================================================================================================================================
+
+*javax.swing.plaf.metal.DefaultMetalTheme_Constructors*
+|javax.swing.plaf.metal.DefaultMetalTheme()|Creates and returns an instance ofDefaultMetalTheme.
+
+*javax.swing.plaf.metal.DefaultMetalTheme_Methods*
+|javax.swing.plaf.metal.DefaultMetalTheme.getControlTextFont()|Returns the control text font.
+|javax.swing.plaf.metal.DefaultMetalTheme.getMenuTextFont()|Returns the menu text font.
+|javax.swing.plaf.metal.DefaultMetalTheme.getName()|Returns the name of this theme.
+|javax.swing.plaf.metal.DefaultMetalTheme.getPrimary1()|Returns the primary 1 color.
+|javax.swing.plaf.metal.DefaultMetalTheme.getPrimary2()|Returns the primary 2 color.
+|javax.swing.plaf.metal.DefaultMetalTheme.getPrimary3()|Returns the primary 3 color.
+|javax.swing.plaf.metal.DefaultMetalTheme.getSecondary1()|Returns the secondary 1 color.
+|javax.swing.plaf.metal.DefaultMetalTheme.getSecondary2()|Returns the secondary 2 color.
+|javax.swing.plaf.metal.DefaultMetalTheme.getSecondary3()|Returns the secondary 3 color.
+|javax.swing.plaf.metal.DefaultMetalTheme.getSubTextFont()|Returns the sub-text font.
+|javax.swing.plaf.metal.DefaultMetalTheme.getSystemTextFont()|Returns the system text font.
+|javax.swing.plaf.metal.DefaultMetalTheme.getUserTextFont()|Returns the user text font.
+|javax.swing.plaf.metal.DefaultMetalTheme.getWindowTitleFont()|Returns the window title font.
+
+*javax.swing.plaf.metal.DefaultMetalTheme_Description*
+
+A concrete implementation ofMetalThemeproviding the original look of the Java Look and Feel, code-named "Steel". Refer to 
+(|javax.swing.plaf.metal.MetalLookAndFeel|) for details on changing the default theme. 
+
+All colors returned byDefaultMetalThemeare completely opaque. 
+
+Font StyleDefaultMetalThemeuses bold fonts for many controls. To make all controls (with the exception of the internal frame 
+title bars and client decorated frame title bars) use plain fonts you can do either of the following: 
+
+Set the system property swing.boldMetal to false. For example, java-Dswing.boldMetal=falseMyApp. Set the defaults property 
+swing.boldMetal to Boolean.FALSE. For example: UIManager.put("swing.boldMetal",Boolean.FALSE); 
+
+The defaults property swing.boldMetal, if set, takes precendence over the system property of the same name. After setting this 
+defaults property you need to re-install MetalLookAndFeel, as well as update the UI of any previously created widgets. 
+Otherwise the results are undefined. The following illustrates how to do this: 
+
+// turn off bold fonts UIManager.put("swing.boldMetal", Boolean.FALSE); 
+
+// re-install the Metal Look and Feel UIManager.setLookAndFeel(new MetalLookAndFeel()); 
+
+// Update the ComponentUIs for all Components. This // needs to be invoked for all windows. 
+SwingUtilities.updateComponentTreeUI(rootComponent); 
+
+Warning: Serialized objects of this class will not be compatible with future Swing releases. The current serialization support 
+is appropriate for short term storage or RMI between applications running the same version of Swing. As of 1.4, support for 
+long term storage of all JavaBeansTM has been added to the java.beans package. Please see (|java.beans.XMLEncoder|) . 
+
+
+
+*javax.swing.plaf.metal.DefaultMetalTheme()*
+
+public DefaultMetalTheme()
+
+Creates and returns an instance ofDefaultMetalTheme. 
+
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getControlTextFont()*
+
+public |javax.swing.plaf.FontUIResource| getControlTextFont()
+
+Returns the control text font. This returns Dialog, 12pt. If plain fonts have been enabled as described in font style, the font 
+style is plain. Otherwise the font style is bold. 
+
+
+
+    Returns: the control text font 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getMenuTextFont()*
+
+public |javax.swing.plaf.FontUIResource| getMenuTextFont()
+
+Returns the menu text font. This returns Dialog, 12pt. If plain fonts have been enabled as described in font style, the font 
+style is plain. Otherwise the font style is bold. 
+
+
+
+    Returns: the menu text font 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getName()*
+
+public |java.lang.String| getName()
+
+Returns the name of this theme. This returns"Steel". 
+
+
+
+    Returns: the name of this theme. 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getPrimary1()*
+
+protected |javax.swing.plaf.ColorUIResource| getPrimary1()
+
+Returns the primary 1 color. This returns a color with rgb values of 102, 102, and 153, respectively. 
+
+
+
+    Returns: the primary 1 color 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getPrimary2()*
+
+protected |javax.swing.plaf.ColorUIResource| getPrimary2()
+
+Returns the primary 2 color. This returns a color with rgb values of 153, 153, 204, respectively. 
+
+
+
+    Returns: the primary 2 color 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getPrimary3()*
+
+protected |javax.swing.plaf.ColorUIResource| getPrimary3()
+
+Returns the primary 3 color. This returns a color with rgb values 204, 204, 255, respectively. 
+
+
+
+    Returns: the primary 3 color 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getSecondary1()*
+
+protected |javax.swing.plaf.ColorUIResource| getSecondary1()
+
+Returns the secondary 1 color. This returns a color with rgb values 102, 102, and 102, respectively. 
+
+
+
+    Returns: the secondary 1 color 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getSecondary2()*
+
+protected |javax.swing.plaf.ColorUIResource| getSecondary2()
+
+Returns the secondary 2 color. This returns a color with rgb values 153, 153, and 153, respectively. 
+
+
+
+    Returns: the secondary 2 color 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getSecondary3()*
+
+protected |javax.swing.plaf.ColorUIResource| getSecondary3()
+
+Returns the secondary 3 color. This returns a color with rgb values 204, 204, and 204, respectively. 
+
+
+
+    Returns: the secondary 3 color 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getSubTextFont()*
+
+public |javax.swing.plaf.FontUIResource| getSubTextFont()
+
+Returns the sub-text font. This returns Dialog, 10pt, plain. 
+
+
+
+    Returns: the sub-text font 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getSystemTextFont()*
+
+public |javax.swing.plaf.FontUIResource| getSystemTextFont()
+
+Returns the system text font. This returns Dialog, 12pt, plain. 
+
+
+
+    Returns: the sytem text font 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getUserTextFont()*
+
+public |javax.swing.plaf.FontUIResource| getUserTextFont()
+
+Returns the user text font. This returns Dialog, 12pt, plain. 
+
+
+
+    Returns: the user text font 
+
+*javax.swing.plaf.metal.DefaultMetalTheme.getWindowTitleFont()*
+
+public |javax.swing.plaf.FontUIResource| getWindowTitleFont()
+
+Returns the window title font. This returns Dialog, 12pt, bold. 
+
+
+
+    Returns: the window title font 
+
+

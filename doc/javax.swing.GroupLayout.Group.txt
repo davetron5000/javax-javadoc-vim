@@ -1,0 +1,120 @@
+*javax.swing.GroupLayout.Group* *GroupLayout.Group* Groupprovides the basis for the two types of
+ operations supported byGroupLa
+
+public abstract class GroupLayout.Group
+  extends    |javax.swing.GroupLayout.Spring|
+
+|javax.swing.GroupLayout.Group_Description|
+|javax.swing.GroupLayout.Group_Fields|
+|javax.swing.GroupLayout.Group_Constructors|
+|javax.swing.GroupLayout.Group_Methods|
+
+================================================================================================================================
+
+*javax.swing.GroupLayout.Group_Methods*
+|javax.swing.GroupLayout.Group.addComponent(Component)|Adds aComponentto thisGroup.
+|javax.swing.GroupLayout.Group.addComponent(Component,int,int,int)|Adds aComponentto thisGroupwith the specified size.
+|javax.swing.GroupLayout.Group.addGap(int)|Adds a rigid gap to thisGroup.
+|javax.swing.GroupLayout.Group.addGap(int,int,int)|Adds a gap to thisGroupwith the specified size.
+|javax.swing.GroupLayout.Group.addGroup(GroupLayout.Group)|Adds aGroupto thisGroup.
+
+*javax.swing.GroupLayout.Group_Description*
+
+Groupprovides the basis for the two types of operations supported byGroupLayout: laying out components one after another ( 
+SequentialGroup(|javax.swing.GroupLayout.SequentialGroup|) ) or aligned ( 
+ParallelGroup(|javax.swing.GroupLayout.ParallelGroup|) ).Groupand its subclasses have no public constructor; to create one use 
+one ofcreateSequentialGrouporcreateParallelGroup. Additionally, taking aGroupcreated from oneGroupLayoutand using it with 
+another will produce undefined results. 
+
+Various methods inGroupand its subclasses allow you to explicitly specify the range. The arguments to these methods can take 
+two forms, either a value greater than or equal to 0, or one ofDEFAULT_SIZEorPREFERRED_SIZE. A value greater than or equal 
+to0indicates a specific size.DEFAULT_SIZEindicates the corresponding size from the component should be used. For example, 
+ifDEFAULT_SIZEis passed as the minimum size argument, the minimum size is obtained from invokinggetMinimumSizeon the component. 
+Likewise,PREFERRED_SIZEindicates the value fromgetPreferredSizeshould be used. The following example addsmyComponenttogroupwith 
+specific values for the range. That is, the minimum is explicitly specified as 100, preferred as 200, and maximum as 300. 
+
+group.addComponent(myComponent, 100, 200, 300); 
+
+The following example addsmyComponenttogroupusing a combination of the forms. The minimum size is forced to be the same as the 
+preferred size, the preferred size is determined by usingmyComponent.getPreferredSizeand the maximum is determined by 
+invokinggetMaximumSizeon the component. 
+
+group.addComponent(myComponent, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE); 
+
+Unless otherwise specified all the methods ofGroupand its subclasses that allow you to specify a range throw 
+anIllegalArgumentExceptionif passed an invalid range. An invalid range is one in which any of the values are < 0 and not one 
+ofPREFERRED_SIZEorDEFAULT_SIZE, or the following is not met (for specific values):min<=pref<=max. 
+
+Similarly any methods that take aComponentthrow aNullPointerExceptionif passednulland any methods that take aGroupthrow 
+anIllegalArgumentExceptionif passednull. 
+
+
+
+*javax.swing.GroupLayout.Group.addComponent(Component)*
+
+public |javax.swing.GroupLayout.Group| addComponent(java.awt.Component component)
+
+Adds aComponentto thisGroup. 
+
+
+    component - the {@code Component} to add 
+
+    Returns: this {@code Group} 
+
+*javax.swing.GroupLayout.Group.addComponent(Component,int,int,int)*
+
+public |javax.swing.GroupLayout.Group| addComponent(
+  java.awt.Component component,
+  int min,
+  int pref,
+  int max)
+
+Adds aComponentto thisGroupwith the specified size. 
+
+
+    component - the {@code Component} to add 
+    min - the minimum size or one of {@code DEFAULT_SIZE} or {@code PREFERRED_SIZE} 
+    pref - the preferred size or one of {@code DEFAULT_SIZE} or {@code PREFERRED_SIZE} 
+    max - the maximum size or one of {@code DEFAULT_SIZE} or {@code PREFERRED_SIZE} 
+
+    Returns: this {@code Group} 
+
+*javax.swing.GroupLayout.Group.addGap(int)*
+
+public |javax.swing.GroupLayout.Group| addGap(int size)
+
+Adds a rigid gap to thisGroup. 
+
+
+    size - the size of the gap 
+
+    Returns: this {@code Group} 
+
+*javax.swing.GroupLayout.Group.addGap(int,int,int)*
+
+public |javax.swing.GroupLayout.Group| addGap(
+  int min,
+  int pref,
+  int max)
+
+Adds a gap to thisGroupwith the specified size. 
+
+
+    min - the minimum size of the gap 
+    pref - the preferred size of the gap 
+    max - the maximum size of the gap 
+
+    Returns: this {@code Group} 
+
+*javax.swing.GroupLayout.Group.addGroup(GroupLayout.Group)*
+
+public |javax.swing.GroupLayout.Group| addGroup(javax.swing.GroupLayout.Group group)
+
+Adds aGroupto thisGroup. 
+
+
+    group - the {@code Group} to add 
+
+    Returns: this {@code Group} 
+
+

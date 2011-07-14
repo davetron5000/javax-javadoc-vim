@@ -1,0 +1,143 @@
+*javax.tools.Diagnostic* *Diagnostic* Interface for diagnostics from tools.
+
+public interface interface Diagnostic<S>
+
+
+|javax.tools.Diagnostic_Description|
+|javax.tools.Diagnostic_Fields|
+|javax.tools.Diagnostic_Constructors|
+|javax.tools.Diagnostic_Methods|
+
+================================================================================================================================
+
+*javax.tools.Diagnostic_Fields*
+|long_javax.tools.Diagnostic.NOPOS|
+
+*javax.tools.Diagnostic_Methods*
+|javax.tools.Diagnostic.getCode()|Gets a diagnostic code indicating the type of diagnostic.
+|javax.tools.Diagnostic.getColumnNumber()|Gets the column number of the character offset returned by#getPosition().
+|javax.tools.Diagnostic.getEndPosition()|Gets the character offset from the beginning of the file  associated with this diagnos
+|javax.tools.Diagnostic.getKind()|Gets the kind of this diagnostic, for example, error or  warning.
+|javax.tools.Diagnostic.getLineNumber()|Gets the line number of the character offset returned by#getPosition().
+|javax.tools.Diagnostic.getMessage(Locale)|Gets a localized message for the given locale.
+|javax.tools.Diagnostic.getPosition()|Gets a character offset from the beginning of the source object  associated with this dia
+|javax.tools.Diagnostic.getSource()|Gets the source object associated with this diagnostic.
+|javax.tools.Diagnostic.getStartPosition()|Gets the character offset from the beginning of the file  associated with this diagn
+
+*javax.tools.Diagnostic_Description*
+
+Interface for diagnostics from tools. A diagnostic usually reports a problem at a specific position in a source file. However, 
+not all diagnostics are associated with a position or a file. 
+
+A position is a zero-based character offset from the beginning of a file. Negative values (except (|javax.tools.Diagnostic|) ) 
+are not valid positions. 
+
+Line and column numbers begin at 1. Negative values (except (|javax.tools.Diagnostic|) ) and 0 are not valid line or column 
+numbers. 
+
+
+
+*long_javax.tools.Diagnostic.NOPOS*
+
+Used to signal that no position is available. 
+
+
+
+*javax.tools.Diagnostic.getCode()*
+
+public |java.lang.String| getCode()
+
+Gets a diagnostic code indicating the type of diagnostic. The code is implementation-dependent and might benull. 
+
+
+
+    Returns: a diagnostic code 
+
+*javax.tools.Diagnostic.getColumnNumber()*
+
+public long getColumnNumber()
+
+Gets the column number of the character offset returned by (|javax.tools.Diagnostic|) . 
+
+
+
+    Returns: a column number or {@link #NOPOS} if and only if {@link #getPosition()} returns {@link #NOPOS} 
+
+*javax.tools.Diagnostic.getEndPosition()*
+
+public long getEndPosition()
+
+Gets the character offset from the beginning of the file associated with this diagnostic that indicates the end of the problem. 
+
+
+
+    Returns: offset from beginning of file; {@link #NOPOS} if and only if {@link #getPosition()} returns {@link #NOPOS} 
+
+*javax.tools.Diagnostic.getKind()*
+
+public |javax.tools.Diagnostic.Kind| getKind()
+
+Gets the kind of this diagnostic, for example, error or warning. 
+
+
+
+    Returns: the kind of this diagnostic 
+
+*javax.tools.Diagnostic.getLineNumber()*
+
+public long getLineNumber()
+
+Gets the line number of the character offset returned by (|javax.tools.Diagnostic|) . 
+
+
+
+    Returns: a line number or {@link #NOPOS} if and only if {@link #getPosition()} returns {@link #NOPOS} 
+
+*javax.tools.Diagnostic.getMessage(Locale)*
+
+public |java.lang.String| getMessage(java.util.Locale locale)
+
+Gets a localized message for the given locale. The actual message is implementation-dependent. If the locale isnulluse the 
+default locale. 
+
+
+    locale - a locale; might be {@code null} 
+
+    Returns: a localized message 
+
+*javax.tools.Diagnostic.getPosition()*
+
+public long getPosition()
+
+Gets a character offset from the beginning of the source object associated with this diagnostic that indicates the location of 
+the problem. In addition, the following must be true: 
+
+getStartPostion() <= getPosition()getPosition() <= getEndPosition() 
+
+
+
+    Returns: character offset from beginning of source; {@link #NOPOS} if {@link #getSource()} would return {@code null} or if no location 
+             is suitable 
+
+*javax.tools.Diagnostic.getSource()*
+
+public |S| getSource()
+
+Gets the source object associated with this diagnostic. 
+
+
+
+    Returns: the source object associated with this diagnostic. {@code null} if no source object is associated with the diagnostic. 
+
+*javax.tools.Diagnostic.getStartPosition()*
+
+public long getStartPosition()
+
+Gets the character offset from the beginning of the file associated with this diagnostic that indicates the start of the 
+problem. 
+
+
+
+    Returns: offset from beginning of file; {@link #NOPOS} if and only if {@link #getPosition()} returns {@link #NOPOS} 
+
+

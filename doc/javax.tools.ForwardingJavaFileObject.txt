@@ -1,0 +1,72 @@
+*javax.tools.ForwardingJavaFileObject* *ForwardingJavaFileObject* Forwards calls to a given file object.
+
+public class ForwardingJavaFileObject<F extends javax.tools.JavaFileObject>
+  extends    |javax.tools.ForwardingFileObject|
+  implements |javax.tools.JavaFileObject|
+
+|javax.tools.ForwardingJavaFileObject_Description|
+|javax.tools.ForwardingJavaFileObject_Fields|
+|javax.tools.ForwardingJavaFileObject_Constructors|
+|javax.tools.ForwardingJavaFileObject_Methods|
+
+================================================================================================================================
+
+*javax.tools.ForwardingJavaFileObject_Constructors*
+|javax.tools.ForwardingJavaFileObject(F)|Creates a new instance of ForwardingJavaFileObject.
+
+*javax.tools.ForwardingJavaFileObject_Methods*
+|javax.tools.ForwardingJavaFileObject.getAccessLevel()|
+|javax.tools.ForwardingJavaFileObject.getKind()|
+|javax.tools.ForwardingJavaFileObject.getNestingKind()|
+|javax.tools.ForwardingJavaFileObject.isNameCompatible(String,JavaFileObject.Kind)|
+
+*javax.tools.ForwardingJavaFileObject_Description*
+
+Forwards calls to a given file object. Subclasses of this class might override some of these methods and might also provide 
+additional fields and methods. 
+
+
+
+*javax.tools.ForwardingJavaFileObject(F)*
+
+protected ForwardingJavaFileObject(F extends javax.tools.JavaFileObject fileObject)
+
+Creates a new instance of ForwardingJavaFileObject. 
+
+    fileObject - delegate to this file object 
+
+*javax.tools.ForwardingJavaFileObject.getAccessLevel()*
+
+public |javax.lang.model.element.Modifier| getAccessLevel()
+
+
+
+
+
+*javax.tools.ForwardingJavaFileObject.getKind()*
+
+public |javax.tools.JavaFileObject.Kind| getKind()
+
+
+
+
+
+*javax.tools.ForwardingJavaFileObject.getNestingKind()*
+
+public |javax.lang.model.element.NestingKind| getNestingKind()
+
+
+
+
+
+*javax.tools.ForwardingJavaFileObject.isNameCompatible(String,JavaFileObject.Kind)*
+
+public boolean isNameCompatible(
+  java.lang.String simpleName,
+  javax.tools.JavaFileObject.Kind kind)
+
+
+
+
+
+

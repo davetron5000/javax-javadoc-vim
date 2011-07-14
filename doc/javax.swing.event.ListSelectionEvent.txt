@@ -1,0 +1,91 @@
+*javax.swing.event.ListSelectionEvent* *ListSelectionEvent* An event that characterizes a change in selection.
+
+public class ListSelectionEvent
+  extends    |java.util.EventObject|
+
+|javax.swing.event.ListSelectionEvent_Description|
+|javax.swing.event.ListSelectionEvent_Fields|
+|javax.swing.event.ListSelectionEvent_Constructors|
+|javax.swing.event.ListSelectionEvent_Methods|
+
+================================================================================================================================
+
+*javax.swing.event.ListSelectionEvent_Constructors*
+|javax.swing.event.ListSelectionEvent(Object,int,int,boolean)|Represents a change in selection status betweenfirstIndexandlastI
+
+*javax.swing.event.ListSelectionEvent_Methods*
+|javax.swing.event.ListSelectionEvent.getFirstIndex()|Returns the index of the first row whose selection may have changed.
+|javax.swing.event.ListSelectionEvent.getLastIndex()|Returns the index of the last row whose selection may have changed.
+|javax.swing.event.ListSelectionEvent.getValueIsAdjusting()|Returns whether or not this is one in a series of multiple events, 
+|javax.swing.event.ListSelectionEvent.toString()|Returns aStringthat displays and identifies this  object's properties.
+
+*javax.swing.event.ListSelectionEvent_Description*
+
+An event that characterizes a change in selection. The change is limited to a a single inclusive interval. The selection of at 
+least one index within the range will have changed. A decentListSelectionModelimplementation will keep the range as small as 
+possible.ListSelectionListenerswill generally query the source of the event for the new selected status of each potentially 
+changed row. 
+
+Warning: Serialized objects of this class will not be compatible with future Swing releases. The current serialization support 
+is appropriate for short term storage or RMI between applications running the same version of Swing. As of 1.4, support for 
+long term storage of all JavaBeansTM has been added to the java.beans package. Please see (|java.beans.XMLEncoder|) . 
+
+
+
+*javax.swing.event.ListSelectionEvent(Object,int,int,boolean)*
+
+public ListSelectionEvent(
+  java.lang.Object source,
+  int firstIndex,
+  int lastIndex,
+  boolean isAdjusting)
+
+Represents a change in selection status betweenfirstIndexandlastIndex, inclusive.firstIndexis less than or equal tolastIndex. 
+The selection of at least one index within the range will have changed. 
+
+    firstIndex - the first index in the range, <= lastIndex 
+    lastIndex - the last index in the range, >= firstIndex 
+    isAdjusting - whether or not this is one in a series of multiple events, where changes are still being made 
+
+*javax.swing.event.ListSelectionEvent.getFirstIndex()*
+
+public int getFirstIndex()
+
+Returns the index of the first row whose selection may have changed.getFirstIndex() <= getLastIndex() 
+
+
+
+    Returns: the first row whose selection value may have changed, where zero is the first row 
+
+*javax.swing.event.ListSelectionEvent.getLastIndex()*
+
+public int getLastIndex()
+
+Returns the index of the last row whose selection may have changed.getLastIndex() >= getFirstIndex() 
+
+
+
+    Returns: the last row whose selection value may have changed, where zero is the first row 
+
+*javax.swing.event.ListSelectionEvent.getValueIsAdjusting()*
+
+public boolean getValueIsAdjusting()
+
+Returns whether or not this is one in a series of multiple events, where changes are still being made. See the documentation 
+for (|javax.swing.ListSelectionModel|) for more details on how this is used. 
+
+
+
+    Returns: {@code true} if this is one in a series of multiple events, where changes are still being made 
+
+*javax.swing.event.ListSelectionEvent.toString()*
+
+public |java.lang.String| toString()
+
+Returns aStringthat displays and identifies this object's properties. 
+
+
+
+    Returns: a String representation of this object 
+
+

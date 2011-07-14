@@ -1,0 +1,31 @@
+*javax.tools.DiagnosticListener* *DiagnosticListener* Interface for receiving diagnostics from tools.
+
+public interface interface DiagnosticListener<S>
+
+
+|javax.tools.DiagnosticListener_Description|
+|javax.tools.DiagnosticListener_Fields|
+|javax.tools.DiagnosticListener_Constructors|
+|javax.tools.DiagnosticListener_Methods|
+
+================================================================================================================================
+
+*javax.tools.DiagnosticListener_Methods*
+|javax.tools.DiagnosticListener.report(Diagnostic<?extendsS>)|Invoked when a problem is found.
+
+*javax.tools.DiagnosticListener_Description*
+
+Interface for receiving diagnostics from tools. 
+
+
+
+*javax.tools.DiagnosticListener.report(Diagnostic<?extendsS>)*
+
+public void report(javax.tools.Diagnostic<? extends S> diagnostic)
+
+Invoked when a problem is found. 
+
+
+    diagnostic - a diagnostic representing the problem that was found 
+
+

@@ -1,0 +1,33 @@
+*javax.swing.event.RowSorterListener* *RowSorterListener* RowSorterListeners are notified of changes to a
+ RowSorter.
+
+public interface interface RowSorterListener
+
+  implements |java.util.EventListener|
+
+|javax.swing.event.RowSorterListener_Description|
+|javax.swing.event.RowSorterListener_Fields|
+|javax.swing.event.RowSorterListener_Constructors|
+|javax.swing.event.RowSorterListener_Methods|
+
+================================================================================================================================
+
+*javax.swing.event.RowSorterListener_Methods*
+|javax.swing.event.RowSorterListener.sorterChanged(RowSorterEvent)|Notification that the RowSorter has changed.
+
+*javax.swing.event.RowSorterListener_Description*
+
+RowSorterListeners are notified of changes to a RowSorter. 
+
+
+
+*javax.swing.event.RowSorterListener.sorterChanged(RowSorterEvent)*
+
+public void sorterChanged(javax.swing.event.RowSorterEvent e)
+
+Notification that the RowSorter has changed. The event describes the scope of the change. 
+
+
+    e - the event, will not be null 
+
+

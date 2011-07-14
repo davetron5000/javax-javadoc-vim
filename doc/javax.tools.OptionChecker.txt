@@ -1,0 +1,33 @@
+*javax.tools.OptionChecker* *OptionChecker* Interface for recognizing options.
+
+public interface interface OptionChecker
+
+
+|javax.tools.OptionChecker_Description|
+|javax.tools.OptionChecker_Fields|
+|javax.tools.OptionChecker_Constructors|
+|javax.tools.OptionChecker_Methods|
+
+================================================================================================================================
+
+*javax.tools.OptionChecker_Methods*
+|javax.tools.OptionChecker.isSupportedOption(String)|Determines if the given option is supported and if so, the  number of argu
+
+*javax.tools.OptionChecker_Description*
+
+Interface for recognizing options. 
+
+
+
+*javax.tools.OptionChecker.isSupportedOption(String)*
+
+public int isSupportedOption(java.lang.String option)
+
+Determines if the given option is supported and if so, the number of arguments the option takes. 
+
+
+    option - an option 
+
+    Returns: the number of arguments the given option takes or -1 if the option is not supported 
+
+

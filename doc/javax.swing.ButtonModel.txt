@@ -1,0 +1,262 @@
+*javax.swing.ButtonModel* *ButtonModel* State model for buttons.
+
+public interface interface ButtonModel
+
+  implements |java.awt.ItemSelectable|
+
+|javax.swing.ButtonModel_Description|
+|javax.swing.ButtonModel_Fields|
+|javax.swing.ButtonModel_Constructors|
+|javax.swing.ButtonModel_Methods|
+
+================================================================================================================================
+
+*javax.swing.ButtonModel_Methods*
+|javax.swing.ButtonModel.addActionListener(ActionListener)|Adds an ActionListener to the model.
+|javax.swing.ButtonModel.addChangeListener(ChangeListener)|Adds a ChangeListener to the model.
+|javax.swing.ButtonModel.addItemListener(ItemListener)|Adds an ItemListener to the model.
+|javax.swing.ButtonModel.getActionCommand()|Returns the action command string for the button.
+|javax.swing.ButtonModel.getMnemonic()|Gets the keyboard mnemonic for the button.
+|javax.swing.ButtonModel.isArmed()|Indicates partial commitment towards triggering the  button.
+|javax.swing.ButtonModel.isEnabled()|Indicates if the button can be selected or triggered by  an input device, such as a mouse 
+|javax.swing.ButtonModel.isPressed()|Indicates if the button is pressed.
+|javax.swing.ButtonModel.isRollover()|Indicates that the mouse is over the button.
+|javax.swing.ButtonModel.isSelected()|Indicates if the button has been selected.
+|javax.swing.ButtonModel.removeActionListener(ActionListener)|Removes an ActionListener from the model.
+|javax.swing.ButtonModel.removeChangeListener(ChangeListener)|Removes a ChangeListener from the model.
+|javax.swing.ButtonModel.removeItemListener(ItemListener)|Removes an ItemListener from the model.
+|javax.swing.ButtonModel.setActionCommand(String)|Sets the action command string that gets sent as part of the  ActionEvent whe
+|javax.swing.ButtonModel.setArmed(boolean)|Marks the button as armed or unarmed.
+|javax.swing.ButtonModel.setEnabled(boolean)|Enables or disables the button.
+|javax.swing.ButtonModel.setGroup(ButtonGroup)|Identifies the group the button belongs to --  needed for radio buttons, which a
+|javax.swing.ButtonModel.setMnemonic(int)|Sets the keyboard mnemonic (shortcut key or  accelerator key) for the button.
+|javax.swing.ButtonModel.setPressed(boolean)|Sets the button to pressed or unpressed.
+|javax.swing.ButtonModel.setRollover(boolean)|Sets or clears the button's rollover state
+|javax.swing.ButtonModel.setSelected(boolean)|Selects or deselects the button.
+
+*javax.swing.ButtonModel_Description*
+
+State model for buttons. 
+
+This model is used for regular buttons, as well as check boxes and radio buttons, which are special kinds of buttons. In 
+practice, a button's UI takes the responsibility of calling methods on its model to manage the state, as detailed below: 
+
+In simple terms, pressing and releasing the mouse over a regular button triggers the button and causes and ActionEvent to be 
+fired. The same behavior can be produced via a keyboard key defined by the look and feel of the button (typically the SPACE 
+BAR). Pressing and releasing this key while the button has focus will give the same results. For check boxes and radio buttons, 
+the mouse or keyboard equivalent sequence just described causes the button to become selected. 
+
+In details, the state model for buttons works as follows when used with the mouse: 
+
+Pressing the mouse on top of a button makes the model both armed and pressed. As long as the mouse remains down, the model 
+remains pressed, even if the mouse moves outside the button. On the contrary, the model is only armed while the mouse remains 
+pressed within the bounds of the button (it can move in or out of the button, but the model is only armed during the portion of 
+time spent within the button). A button is triggered, and an ActionEvent is fired, when the mouse is released while the model 
+is armed - meaning when it is released over top of the button after the mouse has previously been pressed on that button (and 
+not already released). Upon mouse release, the model becomes unarmed and unpressed. 
+
+In details, the state model for buttons works as follows when used with the keyboard: 
+
+Pressing the look and feel defined keyboard key while the button has focus makes the model both armed and pressed. As long as 
+this key remains down, the model remains in this state. Releasing the key sets the model to unarmed and unpressed, triggers the 
+button, and causes an ActionEvent to be fired. 
+
+
+
+*javax.swing.ButtonModel.addActionListener(ActionListener)*
+
+public void addActionListener(java.awt.event.ActionListener l)
+
+Adds an ActionListener to the model. 
+
+
+    l - the listener to add 
+
+*javax.swing.ButtonModel.addChangeListener(ChangeListener)*
+
+public void addChangeListener(javax.swing.event.ChangeListener l)
+
+Adds a ChangeListener to the model. 
+
+
+    l - the listener to add 
+
+*javax.swing.ButtonModel.addItemListener(ItemListener)*
+
+public void addItemListener(java.awt.event.ItemListener l)
+
+Adds an ItemListener to the model. 
+
+
+    l - the listener to add 
+
+*javax.swing.ButtonModel.getActionCommand()*
+
+public |java.lang.String| getActionCommand()
+
+Returns the action command string for the button. 
+
+
+
+    Returns: the String that identifies the generated event 
+
+*javax.swing.ButtonModel.getMnemonic()*
+
+public int getMnemonic()
+
+Gets the keyboard mnemonic for the button. 
+
+
+
+    Returns: an int specifying the accelerator key 
+
+*javax.swing.ButtonModel.isArmed()*
+
+public boolean isArmed()
+
+Indicates partial commitment towards triggering the button. 
+
+
+
+    Returns: true if the button is armed, and ready to be triggered 
+
+*javax.swing.ButtonModel.isEnabled()*
+
+public boolean isEnabled()
+
+Indicates if the button can be selected or triggered by an input device, such as a mouse pointer. 
+
+
+
+    Returns: true if the button is enabled 
+
+*javax.swing.ButtonModel.isPressed()*
+
+public boolean isPressed()
+
+Indicates if the button is pressed. 
+
+
+
+    Returns: true if the button is pressed 
+
+*javax.swing.ButtonModel.isRollover()*
+
+public boolean isRollover()
+
+Indicates that the mouse is over the button. 
+
+
+
+    Returns: true if the mouse is over the button 
+
+*javax.swing.ButtonModel.isSelected()*
+
+public boolean isSelected()
+
+Indicates if the button has been selected. Only needed for certain types of buttons - such as radio buttons and check boxes. 
+
+
+
+    Returns: true if the button is selected 
+
+*javax.swing.ButtonModel.removeActionListener(ActionListener)*
+
+public void removeActionListener(java.awt.event.ActionListener l)
+
+Removes an ActionListener from the model. 
+
+
+    l - the listener to remove 
+
+*javax.swing.ButtonModel.removeChangeListener(ChangeListener)*
+
+public void removeChangeListener(javax.swing.event.ChangeListener l)
+
+Removes a ChangeListener from the model. 
+
+
+    l - the listener to remove 
+
+*javax.swing.ButtonModel.removeItemListener(ItemListener)*
+
+public void removeItemListener(java.awt.event.ItemListener l)
+
+Removes an ItemListener from the model. 
+
+
+    l - the listener to remove 
+
+*javax.swing.ButtonModel.setActionCommand(String)*
+
+public void setActionCommand(java.lang.String s)
+
+Sets the action command string that gets sent as part of the ActionEvent when the button is triggered. 
+
+
+    s - the String that identifies the generated event 
+
+*javax.swing.ButtonModel.setArmed(boolean)*
+
+public void setArmed(boolean b)
+
+Marks the button as armed or unarmed. 
+
+
+    b - whether or not the button should be armed 
+
+*javax.swing.ButtonModel.setEnabled(boolean)*
+
+public void setEnabled(boolean b)
+
+Enables or disables the button. 
+
+
+    b - whether or not the button should be enabled 
+
+*javax.swing.ButtonModel.setGroup(ButtonGroup)*
+
+public void setGroup(javax.swing.ButtonGroup group)
+
+Identifies the group the button belongs to -- needed for radio buttons, which are mutually exclusive within their group. 
+
+
+    group - the ButtonGroup the button belongs to 
+
+*javax.swing.ButtonModel.setMnemonic(int)*
+
+public void setMnemonic(int key)
+
+Sets the keyboard mnemonic (shortcut key or accelerator key) for the button. 
+
+
+    key - an int specifying the accelerator key 
+
+*javax.swing.ButtonModel.setPressed(boolean)*
+
+public void setPressed(boolean b)
+
+Sets the button to pressed or unpressed. 
+
+
+    b - whether or not the button should be pressed 
+
+*javax.swing.ButtonModel.setRollover(boolean)*
+
+public void setRollover(boolean b)
+
+Sets or clears the button's rollover state 
+
+
+    b - whether or not the button is in the rollover state 
+
+*javax.swing.ButtonModel.setSelected(boolean)*
+
+public void setSelected(boolean b)
+
+Selects or deselects the button. 
+
+
+    b - true selects the button, false deselects the button 
+
+

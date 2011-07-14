@@ -1,0 +1,56 @@
+*javax.swing.text.JTextComponent.DropLocation* *JTextComponent.DropLocation* Represents a drop location for JTextComponents.
+
+public static final class JTextComponent.DropLocation
+  extends    |javax.swing.TransferHandler.DropLocation|
+
+|javax.swing.text.JTextComponent.DropLocation_Description|
+|javax.swing.text.JTextComponent.DropLocation_Fields|
+|javax.swing.text.JTextComponent.DropLocation_Constructors|
+|javax.swing.text.JTextComponent.DropLocation_Methods|
+
+================================================================================================================================
+
+*javax.swing.text.JTextComponent.DropLocation_Methods*
+|javax.swing.text.JTextComponent.DropLocation.getBias()|Returns the bias for the drop index.
+|javax.swing.text.JTextComponent.DropLocation.getIndex()|Returns the index where dropped data should be inserted into the  asso
+|javax.swing.text.JTextComponent.DropLocation.toString()|Returns a string representation of this drop location.
+
+*javax.swing.text.JTextComponent.DropLocation_Description*
+
+Represents a drop location for JTextComponents. 
+
+
+
+*javax.swing.text.JTextComponent.DropLocation.getBias()*
+
+public |javax.swing.text.Position.Bias| getBias()
+
+Returns the bias for the drop index. 
+
+
+
+    Returns: the drop bias 
+
+*javax.swing.text.JTextComponent.DropLocation.getIndex()*
+
+public int getIndex()
+
+Returns the index where dropped data should be inserted into the associated component. This index represents a position between 
+characters, as would be interpreted by a caret. 
+
+
+
+    Returns: the drop index 
+
+*javax.swing.text.JTextComponent.DropLocation.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string representation of this drop location. This method is intended to be used for debugging purposes, and the 
+content and format of the returned string may vary between implementations. 
+
+
+
+    Returns: a string representation of this drop location 
+
+

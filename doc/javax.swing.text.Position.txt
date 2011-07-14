@@ -1,0 +1,40 @@
+*javax.swing.text.Position* *Position* Represents a location within a document.
+
+public interface interface Position
+
+
+|javax.swing.text.Position_Description|
+|javax.swing.text.Position_Fields|
+|javax.swing.text.Position_Constructors|
+|javax.swing.text.Position_Methods|
+
+================================================================================================================================
+
+*javax.swing.text.Position_Methods*
+|javax.swing.text.Position.getOffset()|Fetches the current offset within the document.
+
+*javax.swing.text.Position_Description*
+
+Represents a location within a document. It is intended to abstract away implementation details of the document and enable 
+specification of positions within the document that are capable of tracking of change as the document is edited. 
+
+APositionobject points at a location between two characters. As the surrounding content is altered, thePositionobject adjusts 
+its offset automatically to reflect the changes. If content is inserted or removed before thePositionobject's location, then 
+thePositionincrements or decrements its offset, respectively, so as to point to the same location. If a portion of the document 
+is removed that contains aPosition's offset, then thePosition's offset becomes that of the beginning of the removed region. For 
+example, if aPositionhas an offset of 5 and the region 2-10 is removed, then thePosition's offset becomes 2. Positionwith an 
+offset of 0 is a special case. It never changes its offset while document content is altered. 
+
+
+
+*javax.swing.text.Position.getOffset()*
+
+public int getOffset()
+
+Fetches the current offset within the document. 
+
+
+
+    Returns: the offset >= 0 
+
+

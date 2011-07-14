@@ -1,0 +1,236 @@
+*javax.swing.GroupLayout.SequentialGroup* *GroupLayout.SequentialGroup* AGroupthat positions and sizes its elements
+ sequentiall
+
+public class GroupLayout.SequentialGroup
+  extends    |javax.swing.GroupLayout.Group|
+
+|javax.swing.GroupLayout.SequentialGroup_Description|
+|javax.swing.GroupLayout.SequentialGroup_Fields|
+|javax.swing.GroupLayout.SequentialGroup_Constructors|
+|javax.swing.GroupLayout.SequentialGroup_Methods|
+
+================================================================================================================================
+
+*javax.swing.GroupLayout.SequentialGroup_Methods*
+|javax.swing.GroupLayout.SequentialGroup.addComponent(boolean,Component)|Adds aComponentto thisGroup.
+|javax.swing.GroupLayout.SequentialGroup.addComponent(boolean,Component,int,int,int)|Adds aComponentto thisGroupwith the specif
+|javax.swing.GroupLayout.SequentialGroup.addComponent(Component)|
+|javax.swing.GroupLayout.SequentialGroup.addComponent(Component,int,int,int)|
+|javax.swing.GroupLayout.SequentialGroup.addContainerGap()|Adds an element representing the preferred gap between an edge  the 
+|javax.swing.GroupLayout.SequentialGroup.addContainerGap(int,int)|Adds an element representing the preferred gap between one  e
+|javax.swing.GroupLayout.SequentialGroup.addGap(int)|
+|javax.swing.GroupLayout.SequentialGroup.addGap(int,int,int)|
+|javax.swing.GroupLayout.SequentialGroup.addGroup(boolean,GroupLayout.Group)|Adds aGroupto thisGroup.
+|javax.swing.GroupLayout.SequentialGroup.addGroup(GroupLayout.Group)|
+|javax.swing.GroupLayout.SequentialGroup.addPreferredGap(JComponent,JComponent,LayoutStyle.ComponentPlacement)|Adds an element 
+|javax.swing.GroupLayout.SequentialGroup.addPreferredGap(JComponent,JComponent,LayoutStyle.ComponentPlacement,int,int)|Adds an 
+|javax.swing.GroupLayout.SequentialGroup.addPreferredGap(LayoutStyle.ComponentPlacement)|Adds an element representing the prefe
+|javax.swing.GroupLayout.SequentialGroup.addPreferredGap(LayoutStyle.ComponentPlacement,int,int)|Adds an element representing t
+
+*javax.swing.GroupLayout.SequentialGroup_Description*
+
+AGroupthat positions and sizes its elements sequentially, one after another. This class has no public constructor, use 
+thecreateSequentialGroupmethod to create one. 
+
+In order to align aSequentialGroupalong the baseline of a baseline alignedParallelGroupyou need to specify which of the 
+elements of theSequentialGroupis used to determine the baseline. The element used to calculate the baseline is specified using 
+one of theaddmethods that take aboolean. The last element added with a value oftrueforuseAsBaselineis used to calculate the 
+baseline. 
+
+
+
+*javax.swing.GroupLayout.SequentialGroup.addComponent(boolean,Component)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addComponent(
+  boolean useAsBaseline,
+  java.awt.Component component)
+
+Adds aComponentto thisGroup. 
+
+
+    useAsBaseline - whether the specified {@code Component} should be used to calculate the baseline for this {@code Group} 
+    component - the {@code Component} to add 
+
+    Returns: this {@code Group} 
+
+*javax.swing.GroupLayout.SequentialGroup.addComponent(boolean,Component,int,int,int)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addComponent(
+  boolean useAsBaseline,
+  java.awt.Component component,
+  int min,
+  int pref,
+  int max)
+
+Adds aComponentto thisGroupwith the specified size. 
+
+
+    useAsBaseline - whether the specified {@code Component} should be used to calculate the baseline for this {@code Group} 
+    component - the {@code Component} to add 
+    min - the minimum size or one of {@code DEFAULT_SIZE} or {@code PREFERRED_SIZE} 
+    pref - the preferred size or one of {@code DEFAULT_SIZE} or {@code PREFERRED_SIZE} 
+    max - the maximum size or one of {@code DEFAULT_SIZE} or {@code PREFERRED_SIZE} 
+
+    Returns: this {@code Group} 
+
+*javax.swing.GroupLayout.SequentialGroup.addComponent(Component)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addComponent(java.awt.Component component)
+
+
+
+
+
+*javax.swing.GroupLayout.SequentialGroup.addComponent(Component,int,int,int)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addComponent(
+  java.awt.Component component,
+  int min,
+  int pref,
+  int max)
+
+
+
+
+
+*javax.swing.GroupLayout.SequentialGroup.addContainerGap()*
+
+public |javax.swing.GroupLayout.SequentialGroup| addContainerGap()
+
+Adds an element representing the preferred gap between an edge the container and components that touch the border of the 
+container. This has no effect if the added gap does not touch an edge of the parent container. 
+
+The element created to represent the gap is not resizable. 
+
+
+
+    Returns: this {@code SequentialGroup} 
+
+*javax.swing.GroupLayout.SequentialGroup.addContainerGap(int,int)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addContainerGap(
+  int pref,
+  int max)
+
+Adds an element representing the preferred gap between one edge of the container and the next or previousComponentwith the 
+specified size. This has no effect if the next or previous element is not aComponentand does not touch one edge of the parent 
+container. 
+
+
+    pref - the preferred size; one of {@code DEFAULT_SIZE} or a value >= 0 
+    max - the maximum size; one of {@code DEFAULT_SIZE}, {@code PREFERRED_SIZE} or a value >= 0 
+
+    Returns: this {@code SequentialGroup} 
+
+*javax.swing.GroupLayout.SequentialGroup.addGap(int)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addGap(int size)
+
+
+
+
+
+*javax.swing.GroupLayout.SequentialGroup.addGap(int,int,int)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addGap(
+  int min,
+  int pref,
+  int max)
+
+
+
+
+
+*javax.swing.GroupLayout.SequentialGroup.addGroup(boolean,GroupLayout.Group)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addGroup(
+  boolean useAsBaseline,
+  javax.swing.GroupLayout.Group group)
+
+Adds aGroupto thisGroup. 
+
+
+    group - the {@code Group} to add 
+    useAsBaseline - whether the specified {@code Group} should be used to calculate the baseline for this {@code Group} 
+
+    Returns: this {@code Group} 
+
+*javax.swing.GroupLayout.SequentialGroup.addGroup(GroupLayout.Group)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addGroup(javax.swing.GroupLayout.Group group)
+
+
+
+
+
+*javax.swing.GroupLayout.SequentialGroup.addPreferredGap(JComponent,JComponent,LayoutStyle.ComponentPlacement)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addPreferredGap(
+  javax.swing.JComponent comp1,
+  javax.swing.JComponent comp2,
+  javax.swing.LayoutStyle.ComponentPlacement type)
+
+Adds an element representing the preferred gap between two components. The element created to represent the gap is not 
+resizable. 
+
+
+    comp1 - the first component 
+    comp2 - the second component 
+    type - the type of gap; one of the constants defined by {@code LayoutStyle} 
+
+    Returns: this {@code SequentialGroup} 
+
+*javax.swing.GroupLayout.SequentialGroup.addPreferredGap(JComponent,JComponent,LayoutStyle.ComponentPlacement,int,int)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addPreferredGap(
+  javax.swing.JComponent comp1,
+  javax.swing.JComponent comp2,
+  javax.swing.LayoutStyle.ComponentPlacement type,
+  int pref,
+  int max)
+
+Adds an element representing the preferred gap between two components. 
+
+
+    comp1 - the first component 
+    comp2 - the second component 
+    type - the type of gap 
+    pref - the preferred size of the grap; one of {@code DEFAULT_SIZE} or a value >= 0 
+    max - the maximum size of the gap; one of {@code DEFAULT_SIZE}, {@code PREFERRED_SIZE} or a value >= 0 
+
+    Returns: this {@code SequentialGroup} 
+
+*javax.swing.GroupLayout.SequentialGroup.addPreferredGap(LayoutStyle.ComponentPlacement)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement type)
+
+Adds an element representing the preferred gap between the nearest components. During layout, neighboring components are found, 
+and the size of the added gap is set based on the preferred gap between the components. If no neighboring components are found 
+the gap has a size of0. 
+
+The element created to represent the gap is not resizable. 
+
+
+    type - the type of gap; one of {@code LayoutStyle.ComponentPlacement.RELATED} or {@code LayoutStyle.ComponentPlacement.UNRELATED} 
+
+    Returns: this {@code SequentialGroup} 
+
+*javax.swing.GroupLayout.SequentialGroup.addPreferredGap(LayoutStyle.ComponentPlacement,int,int)*
+
+public |javax.swing.GroupLayout.SequentialGroup| addPreferredGap(
+  javax.swing.LayoutStyle.ComponentPlacement type,
+  int pref,
+  int max)
+
+Adds an element representing the preferred gap between the nearest components. During layout, neighboring components are found, 
+and the minimum of this gap is set based on the size of the preferred gap between the neighboring components. If no neighboring 
+components are found the minimum size is set to 0. 
+
+
+    type - the type of gap; one of {@code LayoutStyle.ComponentPlacement.RELATED} or {@code LayoutStyle.ComponentPlacement.UNRELATED} 
+    pref - the preferred size of the grap; one of {@code DEFAULT_SIZE} or a value >= 0 
+    max - the maximum size of the gap; one of {@code DEFAULT_SIZE}, {@code PREFERRED_SIZE} or a value >= 0 
+
+    Returns: this {@code SequentialGroup} 
+
+

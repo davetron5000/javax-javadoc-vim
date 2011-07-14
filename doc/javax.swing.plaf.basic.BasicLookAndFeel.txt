@@ -1,0 +1,203 @@
+*javax.swing.plaf.basic.BasicLookAndFeel* *BasicLookAndFeel* A base class to use in creating a look and feel for Swing.
+
+public abstract class BasicLookAndFeel
+  extends    |javax.swing.LookAndFeel|
+  implements |java.io.Serializable|
+
+|javax.swing.plaf.basic.BasicLookAndFeel_Description|
+|javax.swing.plaf.basic.BasicLookAndFeel_Fields|
+|javax.swing.plaf.basic.BasicLookAndFeel_Constructors|
+|javax.swing.plaf.basic.BasicLookAndFeel_Methods|
+
+================================================================================================================================
+
+*javax.swing.plaf.basic.BasicLookAndFeel_Constructors*
+|javax.swing.plaf.basic.BasicLookAndFeel()|
+
+*javax.swing.plaf.basic.BasicLookAndFeel_Methods*
+|javax.swing.plaf.basic.BasicLookAndFeel.createAudioAction(Object)|Creates and returns anActionused to play a sound.
+|javax.swing.plaf.basic.BasicLookAndFeel.getAudioActionMap()|Returns an ActionMap containing the audio actions  for this look a
+|javax.swing.plaf.basic.BasicLookAndFeel.getDefaults()|Returns the look and feel defaults.
+|javax.swing.plaf.basic.BasicLookAndFeel.initClassDefaults(UIDefaults)|Populatestablewith mappings fromuiClassIDto the  fully q
+|javax.swing.plaf.basic.BasicLookAndFeel.initComponentDefaults(UIDefaults)|Populatestablewith the defaults for the basic look a
+|javax.swing.plaf.basic.BasicLookAndFeel.initialize()|
+|javax.swing.plaf.basic.BasicLookAndFeel.initSystemColorDefaults(UIDefaults)|Populatestablewith system colors.
+|javax.swing.plaf.basic.BasicLookAndFeel.loadSystemColors(UIDefaults,String[],boolean)|Populatestablewith thename-colorpairs in
+|javax.swing.plaf.basic.BasicLookAndFeel.playSound(Action)|If necessary, invokesactionPerformedonaudioActionto play a sound.
+|javax.swing.plaf.basic.BasicLookAndFeel.uninitialize()|
+
+*javax.swing.plaf.basic.BasicLookAndFeel_Description*
+
+A base class to use in creating a look and feel for Swing. 
+
+Each of theComponentUIs provided byBasicLookAndFeelderives its behavior from the defaults table. Unless otherwise noted each of 
+theComponentUIimplementations in this package document the set of defaults they use. Unless otherwise noted the defaults are 
+installed at the timeinstallUIis invoked, and follow the recommendations outlined inLookAndFeelfor installing defaults. 
+
+Warning: Serialized objects of this class will not be compatible with future Swing releases. The current serialization support 
+is appropriate for short term storage or RMI between applications running the same version of Swing. As of 1.4, support for 
+long term storage of all JavaBeansTM has been added to the java.beans package. Please see (|java.beans.XMLEncoder|) . 
+
+
+
+*javax.swing.plaf.basic.BasicLookAndFeel()*
+
+public BasicLookAndFeel()
+
+
+
+
+*javax.swing.plaf.basic.BasicLookAndFeel.createAudioAction(Object)*
+
+protected |javax.swing.Action| createAudioAction(java.lang.Object key)
+
+Creates and returns anActionused to play a sound. 
+
+Ifkeyisnon-null, anActionis created using the value from the defaults with keykey. The value identifies the sound resource to 
+load whenactionPerformedis invoked on theAction. The sound resource is loaded into abyte[]by way 
+ofgetClass().getResourceAsStream(). 
+
+
+    key - the key identifying the audio action 
+
+    Returns: an {@code Action} used to play the source, or {@code null} if {@code key} is {@code null} 
+
+*javax.swing.plaf.basic.BasicLookAndFeel.getAudioActionMap()*
+
+protected |javax.swing.ActionMap| getAudioActionMap()
+
+Returns an ActionMap containing the audio actions for this look and feel. 
+
+The returned ActionMap contains Actions that embody the ability to render an auditory cue. These auditory cues map onto user 
+and system activities that may be useful for an end user to know about (such as a dialog box appearing). 
+
+At the appropriate time, theComponentUIis responsible for obtaining an Action out of the ActionMap and passing it to playSound. 
+
+This method first looks up theActionMapfrom the defaults using the key"AuditoryCues.actionMap". 
+
+If the value isnon-null, it is returned. If the value of the default"AuditoryCues.actionMap"isnulland the value of the 
+default"AuditoryCues.cueList"isnon-null, anActionMapUIResourceis created and populated. Population is done by iterating over 
+each of the elements of the"AuditoryCues.cueList"array, and invokingcreateAudioAction()to create anActionfor each element. The 
+resultingActionis placed in theActionMapUIResource, using the array element as the key. For example, if 
+the"AuditoryCues.cueList"array contains a single-element,"audioKey", theActionMapUIResourceis created, then populated by way 
+ofactionMap.put(cueList[0], createAudioAction(cueList[0])). 
+
+If the value of the default"AuditoryCues.actionMap"isnulland the value of the default"AuditoryCues.cueList"isnull, an 
+emptyActionMapUIResourceis created. 
+
+
+
+    Returns: an ActionMap containing {@code Actions} responsible for playing auditory cues 
+
+*javax.swing.plaf.basic.BasicLookAndFeel.getDefaults()*
+
+public |javax.swing.UIDefaults| getDefaults()
+
+Returns the look and feel defaults. The returnedUIDefaultsis populated by invoking, in 
+order,initClassDefaults,initSystemColorDefaultsandinitComponentDefaults. 
+
+While this method is public, it should only be invoked by theUIManagerwhen the look and feel is set as the current look and 
+feel and afterinitializehas been invoked. 
+
+
+
+    Returns: the look and feel defaults 
+
+*javax.swing.plaf.basic.BasicLookAndFeel.initClassDefaults(UIDefaults)*
+
+protected void initClassDefaults(javax.swing.UIDefaults table)
+
+Populatestablewith mappings fromuiClassIDto the fully qualified name of the ui class. The value for a 
+particularuiClassIDis"javax.swing.plaf.basic.Basic + uiClassID". For example, the value for 
+theuiClassIDTreeUIis"javax.swing.plaf.basic.BasicTreeUI". 
+
+
+    table - the {@code UIDefaults} instance the entries are added to 
+
+*javax.swing.plaf.basic.BasicLookAndFeel.initComponentDefaults(UIDefaults)*
+
+protected void initComponentDefaults(javax.swing.UIDefaults table)
+
+Populatestablewith the defaults for the basic look and feel. 
+
+
+    table - the {@code UIDefaults} to add the values to 
+
+*javax.swing.plaf.basic.BasicLookAndFeel.initialize()*
+
+public void initialize()
+
+
+
+
+
+*javax.swing.plaf.basic.BasicLookAndFeel.initSystemColorDefaults(UIDefaults)*
+
+protected void initSystemColorDefaults(javax.swing.UIDefaults table)
+
+Populatestablewith system colors. This creates an array ofname-colorpairs and invokesloadSystemColors. 
+
+The name is aStringthat corresponds to the name of one of the staticSystemColorfields in theSystemColorclass. A name-color pair 
+is created for every suchSystemColorfield. 
+
+Thecolorcorresponds to a hexStringas understood byColor.decode. For example, one of thename-colorpairs is"desktop"-"#005C5C". 
+This corresponds to theSystemColorfielddesktop, with a color value ofnew Color(0x005C5C). 
+
+The following shows two of thename-colorpairs: 
+
+String[] nameColorPairs = new String[] { "desktop", "#005C5C", "activeCaption", "#000080" }; loadSystemColors(table, 
+nameColorPairs, isNativeLookAndFeel()); 
+
+As previously stated, this invokesloadSystemColorswith the suppliedtableandname-colorpair array. The last argument 
+toloadSystemColorsindicates whether the value of the field inSystemColorshould be used. This method passes the value 
+ofisNativeLookAndFeel()as the last argument toloadSystemColors. 
+
+
+    table - the {@code UIDefaults} object the values are added to 
+
+*javax.swing.plaf.basic.BasicLookAndFeel.loadSystemColors(UIDefaults,String[],boolean)*
+
+protected void loadSystemColors(
+  javax.swing.UIDefaults table,
+  java.lang.String[] systemColors,
+  boolean useNative)
+
+Populatestablewith thename-colorpairs insystemColors. Refer to (|javax.swing.plaf.basic.BasicLookAndFeel|) for details on the 
+format ofsystemColors. 
+
+An entry is added totablefor each of thename-colorpairs insystemColors. The entry key is thenameof thename-colorpair. 
+
+The value of the entry corresponds to thecolorof thename-colorpair. The value of the entry is calculated in one of two ways. 
+With either approach the value is always aColorUIResource. 
+
+IfuseNativeisfalse, thecoloris created by usingColor.decodeto convert theStringinto aColor. Ifdecodecan not convert 
+theStringinto aColor(NumberFormatExceptionis thrown) then aColorUIResourceof black is used. 
+
+IfuseNativeistrue, thecoloris the value of the field inSystemColorwith the same name as thenameof thename-colorpair. If the 
+field is not valid, aColorUIResourceof black is used. 
+
+
+    table - the {@code UIDefaults} object the values are added to 
+    systemColors - array of {@code name-color} pairs as described in {@link #initSystemColorDefaults(UIDefaults)} 
+    useNative - whether the color is obtained from {@code SystemColor} or {@code Color.decode} 
+
+*javax.swing.plaf.basic.BasicLookAndFeel.playSound(Action)*
+
+protected void playSound(javax.swing.Action audioAction)
+
+If necessary, invokesactionPerformedonaudioActionto play a sound. TheactionPerformedmethod is invoked if the value of 
+the"AuditoryCues.playList"default is anon-nullObject[]containing aStringentry equal to the name of theaudioAction. 
+
+
+    audioAction - an Action that knows how to render the audio associated with the system or user activity that is occurring; a value of {@code 
+       null}, is ignored 
+
+*javax.swing.plaf.basic.BasicLookAndFeel.uninitialize()*
+
+public void uninitialize()
+
+
+
+
+
+

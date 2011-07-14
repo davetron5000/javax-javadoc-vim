@@ -1,0 +1,49 @@
+*javax.tools.JavaFileObject.Kind* *JavaFileObject.Kind* Kinds of JavaFileObjects.
+
+public static final enumJavaFileObject.Kind
+  extends    |java.lang.Enum|
+
+|javax.tools.JavaFileObject.Kind_Description|
+|javax.tools.JavaFileObject.Kind_Fields|
+|javax.tools.JavaFileObject.Kind_Constructors|
+|javax.tools.JavaFileObject.Kind_Methods|
+
+================================================================================================================================
+
+*javax.tools.JavaFileObject.Kind_Fields*
+|java.lang.String_javax.tools.JavaFileObject.Kind.extension|
+
+*javax.tools.JavaFileObject.Kind_Methods*
+|javax.tools.JavaFileObject.Kind.valueOf(String)|
+|javax.tools.JavaFileObject.Kind.values()|
+
+*javax.tools.JavaFileObject.Kind_Description*
+
+Kinds of JavaFileObjects. 
+
+
+
+*java.lang.String_javax.tools.JavaFileObject.Kind.extension*
+
+The extension which (by convention) is normally used for this kind of file object. If no convention exists, the empty string 
+("") is used. 
+
+
+
+*javax.tools.JavaFileObject.Kind.valueOf(String)*
+
+public static |javax.tools.JavaFileObject.Kind| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.tools.JavaFileObject.Kind.values()*
+
+public static |javax.tools.JavaFileObject.Kind|[] values()
+
+
+
+
+
+

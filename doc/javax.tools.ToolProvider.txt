@@ -1,0 +1,46 @@
+*javax.tools.ToolProvider* *ToolProvider* Provides methods for locating tool providers, for example,
+ providers of compilers.
+
+public class ToolProvider
+  extends    |java.lang.Object|
+
+|javax.tools.ToolProvider_Description|
+|javax.tools.ToolProvider_Fields|
+|javax.tools.ToolProvider_Constructors|
+|javax.tools.ToolProvider_Methods|
+
+================================================================================================================================
+
+*javax.tools.ToolProvider_Methods*
+|javax.tools.ToolProvider.getSystemJavaCompiler()|Gets the Java programming language compiler provided with this platform.
+|javax.tools.ToolProvider.getSystemToolClassLoader()|Returns the class loader for tools provided with this platform.
+
+*javax.tools.ToolProvider_Description*
+
+Provides methods for locating tool providers, for example, providers of compilers. This class complements the functionality of 
+(|java.util.ServiceLoader|) . 
+
+
+
+*javax.tools.ToolProvider.getSystemJavaCompiler()*
+
+public static |javax.tools.JavaCompiler| getSystemJavaCompiler()
+
+Gets the Java programming language compiler provided with this platform. 
+
+
+
+    Returns: the compiler provided with this platform or {@code null} if no compiler is provided 
+
+*javax.tools.ToolProvider.getSystemToolClassLoader()*
+
+public static |java.lang.ClassLoader| getSystemToolClassLoader()
+
+Returns the class loader for tools provided with this platform. This does not include user-installed tools. Use the service 
+provider mechanism(|java.util.ServiceLoader|) for locating user installed tools. 
+
+
+
+    Returns: the class loader for tools provided with this platform or {@code null} if no tools are provided 
+
+

@@ -1,0 +1,52 @@
+*javax.tools.DiagnosticCollector* *DiagnosticCollector* Provides an easy way to collect diagnostics in a list.
+
+public final class DiagnosticCollector<S>
+  extends    |java.lang.Object|
+  implements |javax.tools.DiagnosticListener|
+
+|javax.tools.DiagnosticCollector_Description|
+|javax.tools.DiagnosticCollector_Fields|
+|javax.tools.DiagnosticCollector_Constructors|
+|javax.tools.DiagnosticCollector_Methods|
+
+================================================================================================================================
+
+*javax.tools.DiagnosticCollector_Constructors*
+|javax.tools.DiagnosticCollector()|
+
+*javax.tools.DiagnosticCollector_Methods*
+|javax.tools.DiagnosticCollector.getDiagnostics()|Gets a list view of diagnostics collected by this object.
+|javax.tools.DiagnosticCollector.report(Diagnostic<?extendsS>)|
+
+*javax.tools.DiagnosticCollector_Description*
+
+Provides an easy way to collect diagnostics in a list. 
+
+
+
+*javax.tools.DiagnosticCollector()*
+
+public DiagnosticCollector()
+
+
+
+
+*javax.tools.DiagnosticCollector.getDiagnostics()*
+
+public |java.util.List|<Diagnostic<? extends S>> getDiagnostics()
+
+Gets a list view of diagnostics collected by this object. 
+
+
+
+    Returns: a list view of diagnostics 
+
+*javax.tools.DiagnosticCollector.report(Diagnostic<?extendsS>)*
+
+public void report(javax.tools.Diagnostic<? extends S> diagnostic)
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+*javax.tools.Diagnostic.Kind* *Diagnostic.Kind* Kinds of diagnostics, for example, error or warning.
+
+public static final enumDiagnostic.Kind
+  extends    |java.lang.Enum|
+
+|javax.tools.Diagnostic.Kind_Description|
+|javax.tools.Diagnostic.Kind_Fields|
+|javax.tools.Diagnostic.Kind_Constructors|
+|javax.tools.Diagnostic.Kind_Methods|
+
+================================================================================================================================
+
+*javax.tools.Diagnostic.Kind_Methods*
+|javax.tools.Diagnostic.Kind.valueOf(String)|
+|javax.tools.Diagnostic.Kind.values()|
+
+*javax.tools.Diagnostic.Kind_Description*
+
+Kinds of diagnostics, for example, error or warning. 
+
+
+
+*javax.tools.Diagnostic.Kind.valueOf(String)*
+
+public static |javax.tools.Diagnostic.Kind| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.tools.Diagnostic.Kind.values()*
+
+public static |javax.tools.Diagnostic.Kind|[] values()
+
+
+
+
+
+

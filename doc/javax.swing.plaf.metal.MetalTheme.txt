@@ -1,0 +1,597 @@
+*javax.swing.plaf.metal.MetalTheme* *MetalTheme* MetalThemeprovides the color palette and fonts used by
+ the Java Look and Feel.
+
+public abstract class MetalTheme
+  extends    |java.lang.Object|
+
+|javax.swing.plaf.metal.MetalTheme_Description|
+|javax.swing.plaf.metal.MetalTheme_Fields|
+|javax.swing.plaf.metal.MetalTheme_Constructors|
+|javax.swing.plaf.metal.MetalTheme_Methods|
+
+================================================================================================================================
+
+*javax.swing.plaf.metal.MetalTheme_Constructors*
+|javax.swing.plaf.metal.MetalTheme()|
+
+*javax.swing.plaf.metal.MetalTheme_Methods*
+|javax.swing.plaf.metal.MetalTheme.addCustomEntriesToTable(UIDefaults)|Adds values specific to this theme to the defaults table
+|javax.swing.plaf.metal.MetalTheme.getAcceleratorForeground()|Returns the accelerator foreground color.
+|javax.swing.plaf.metal.MetalTheme.getAcceleratorSelectedForeground()|Returns the accelerator selected foreground color.
+|javax.swing.plaf.metal.MetalTheme.getBlack()|Returns the black color.
+|javax.swing.plaf.metal.MetalTheme.getControl()|Returns the control color.
+|javax.swing.plaf.metal.MetalTheme.getControlDarkShadow()|Returns the control dark shadow color.
+|javax.swing.plaf.metal.MetalTheme.getControlDisabled()|Returns the control disabled color.
+|javax.swing.plaf.metal.MetalTheme.getControlHighlight()|Returns the control highlight color.
+|javax.swing.plaf.metal.MetalTheme.getControlInfo()|Returns the control info color.
+|javax.swing.plaf.metal.MetalTheme.getControlShadow()|Returns the control shadow color.
+|javax.swing.plaf.metal.MetalTheme.getControlTextColor()|Returns the control text color.
+|javax.swing.plaf.metal.MetalTheme.getControlTextFont()|Returns the control text font.
+|javax.swing.plaf.metal.MetalTheme.getDesktopColor()|Returns the desktop color.
+|javax.swing.plaf.metal.MetalTheme.getFocusColor()|Returns the focus color.
+|javax.swing.plaf.metal.MetalTheme.getHighlightedTextColor()|Returns the highlighted text color.
+|javax.swing.plaf.metal.MetalTheme.getInactiveControlTextColor()|Returns the inactive control text color.
+|javax.swing.plaf.metal.MetalTheme.getInactiveSystemTextColor()|Returns the inactive system text color.
+|javax.swing.plaf.metal.MetalTheme.getMenuBackground()|Returns the menu background color.
+|javax.swing.plaf.metal.MetalTheme.getMenuDisabledForeground()|Returns the menu disabled foreground color.
+|javax.swing.plaf.metal.MetalTheme.getMenuForeground()|Returns the menu foreground color.
+|javax.swing.plaf.metal.MetalTheme.getMenuSelectedBackground()|Returns the menu selected background color.
+|javax.swing.plaf.metal.MetalTheme.getMenuSelectedForeground()|Returns the menu selected foreground color.
+|javax.swing.plaf.metal.MetalTheme.getMenuTextFont()|Returns the menu text font.
+|javax.swing.plaf.metal.MetalTheme.getName()|Returns the name of this theme.
+|javax.swing.plaf.metal.MetalTheme.getPrimary1()|Returns the primary 1 color.
+|javax.swing.plaf.metal.MetalTheme.getPrimary2()|Returns the primary 2 color.
+|javax.swing.plaf.metal.MetalTheme.getPrimary3()|Returns the primary 3 color.
+|javax.swing.plaf.metal.MetalTheme.getPrimaryControl()|Returns the primary control color.
+|javax.swing.plaf.metal.MetalTheme.getPrimaryControlDarkShadow()|Returns the primary control dark shadow color.
+|javax.swing.plaf.metal.MetalTheme.getPrimaryControlHighlight()|Returns the primary control highlight color.
+|javax.swing.plaf.metal.MetalTheme.getPrimaryControlInfo()|Returns the primary control info color.
+|javax.swing.plaf.metal.MetalTheme.getPrimaryControlShadow()|Returns the primary control shadow color.
+|javax.swing.plaf.metal.MetalTheme.getSecondary1()|Returns the secondary 1 color.
+|javax.swing.plaf.metal.MetalTheme.getSecondary2()|Returns the secondary 2 color.
+|javax.swing.plaf.metal.MetalTheme.getSecondary3()|Returns the secondary 3 color.
+|javax.swing.plaf.metal.MetalTheme.getSeparatorBackground()|Returns the separator background color.
+|javax.swing.plaf.metal.MetalTheme.getSeparatorForeground()|Returns the separator foreground color.
+|javax.swing.plaf.metal.MetalTheme.getSubTextFont()|Returns the sub-text font.
+|javax.swing.plaf.metal.MetalTheme.getSystemTextColor()|Returns the system text color.
+|javax.swing.plaf.metal.MetalTheme.getSystemTextFont()|Returns the system text font.
+|javax.swing.plaf.metal.MetalTheme.getTextHighlightColor()|Returns the text highlight color.
+|javax.swing.plaf.metal.MetalTheme.getUserTextColor()|Returns the user text color.
+|javax.swing.plaf.metal.MetalTheme.getUserTextFont()|Returns the user text font.
+|javax.swing.plaf.metal.MetalTheme.getWhite()|Returns the white color.
+|javax.swing.plaf.metal.MetalTheme.getWindowBackground()|Returns the window background color.
+|javax.swing.plaf.metal.MetalTheme.getWindowTitleBackground()|Returns the window title background color.
+|javax.swing.plaf.metal.MetalTheme.getWindowTitleFont()|Returns the window title font.
+|javax.swing.plaf.metal.MetalTheme.getWindowTitleForeground()|Returns the window title foreground color.
+|javax.swing.plaf.metal.MetalTheme.getWindowTitleInactiveBackground()|Returns the window title inactive background color.
+|javax.swing.plaf.metal.MetalTheme.getWindowTitleInactiveForeground()|Returns the window title inactive foreground color.
+
+*javax.swing.plaf.metal.MetalTheme_Description*
+
+MetalThemeprovides the color palette and fonts used by the Java Look and Feel. MetalThemeis abstract, 
+seeDefaultMetalThemeandOceanThemefor concrete implementations. MetalLookAndFeelmaintains the current theme that the 
+theComponentUIimplementations for metal use. Refer to 
+MetalLookAndFeel.setCurrentTheme(MetalTheme)(|javax.swing.plaf.metal.MetalLookAndFeel|) for details on changing the current 
+theme. MetalThemeprovides a number of public methods for getting colors. These methods are implemented in terms of a handful of 
+protected abstract methods. A subclass need only override the protected abstract methods 
+(getPrimary1,getPrimary2,getPrimary3,getSecondary1,getSecondary2, andgetSecondary3); although a subclass may override the other 
+public methods for more control over the set of colors that are used. 
+
+Concrete implementations ofMetalThememust returnnon-nullvalues from all methods. While the behavior of returningnullis not 
+specified, returningnullwill result in incorrect behavior. 
+
+It is strongly recommended that subclasses return completely opaque colors. To do otherwise may result in rendering problems, 
+such as visual garbage. 
+
+
+
+*javax.swing.plaf.metal.MetalTheme()*
+
+public MetalTheme()
+
+
+
+
+*javax.swing.plaf.metal.MetalTheme.addCustomEntriesToTable(UIDefaults)*
+
+public void addCustomEntriesToTable(javax.swing.UIDefaults table)
+
+Adds values specific to this theme to the defaults table. This method is invoked when the look and feel defaults are obtained 
+fromMetalLookAndFeel. 
+
+This implementation does nothing; it is provided for subclasses that wish to customize the defaults table. 
+
+
+    table - the {@code UIDefaults} to add the values to 
+
+*javax.swing.plaf.metal.MetalTheme.getAcceleratorForeground()*
+
+public |javax.swing.plaf.ColorUIResource| getAcceleratorForeground()
+
+Returns the accelerator foreground color. This returns the value ofgetPrimary1(). 
+
+
+
+    Returns: the accelerator foreground color 
+
+*javax.swing.plaf.metal.MetalTheme.getAcceleratorSelectedForeground()*
+
+public |javax.swing.plaf.ColorUIResource| getAcceleratorSelectedForeground()
+
+Returns the accelerator selected foreground color. This returns the value ofgetBlack(). 
+
+
+
+    Returns: the accelerator selected foreground color 
+
+*javax.swing.plaf.metal.MetalTheme.getBlack()*
+
+protected |javax.swing.plaf.ColorUIResource| getBlack()
+
+Returns the black color. This returns opaque black (0xFF000000). 
+
+
+
+    Returns: the black color 
+
+*javax.swing.plaf.metal.MetalTheme.getControl()*
+
+public |javax.swing.plaf.ColorUIResource| getControl()
+
+Returns the control color. This returns the value ofgetSecondary3(). 
+
+
+
+    Returns: the control color 
+
+*javax.swing.plaf.metal.MetalTheme.getControlDarkShadow()*
+
+public |javax.swing.plaf.ColorUIResource| getControlDarkShadow()
+
+Returns the control dark shadow color. This returns the value ofgetSecondary1(). 
+
+
+
+    Returns: the control dark shadow color 
+
+*javax.swing.plaf.metal.MetalTheme.getControlDisabled()*
+
+public |javax.swing.plaf.ColorUIResource| getControlDisabled()
+
+Returns the control disabled color. This returns the value ofgetSecondary2(). 
+
+
+
+    Returns: the control disabled color 
+
+*javax.swing.plaf.metal.MetalTheme.getControlHighlight()*
+
+public |javax.swing.plaf.ColorUIResource| getControlHighlight()
+
+Returns the control highlight color. This returns the value ofgetWhite(). 
+
+
+
+    Returns: the control highlight color 
+
+*javax.swing.plaf.metal.MetalTheme.getControlInfo()*
+
+public |javax.swing.plaf.ColorUIResource| getControlInfo()
+
+Returns the control info color. This returns the value ofgetBlack(). 
+
+
+
+    Returns: the control info color 
+
+*javax.swing.plaf.metal.MetalTheme.getControlShadow()*
+
+public |javax.swing.plaf.ColorUIResource| getControlShadow()
+
+Returns the control shadow color. This returns the value ofgetSecondary2(). 
+
+
+
+    Returns: the control shadow color 
+
+*javax.swing.plaf.metal.MetalTheme.getControlTextColor()*
+
+public |javax.swing.plaf.ColorUIResource| getControlTextColor()
+
+Returns the control text color. This returns the value ofgetControlInfo(). 
+
+
+
+    Returns: the control text color 
+
+*javax.swing.plaf.metal.MetalTheme.getControlTextFont()*
+
+public abstract |javax.swing.plaf.FontUIResource| getControlTextFont()
+
+Returns the control text font. 
+
+
+
+    Returns: the control text font 
+
+*javax.swing.plaf.metal.MetalTheme.getDesktopColor()*
+
+public |javax.swing.plaf.ColorUIResource| getDesktopColor()
+
+Returns the desktop color. This returns the value ofgetPrimary2(). 
+
+
+
+    Returns: the desktop color 
+
+*javax.swing.plaf.metal.MetalTheme.getFocusColor()*
+
+public |javax.swing.plaf.ColorUIResource| getFocusColor()
+
+Returns the focus color. This returns the value ofgetPrimary2(). 
+
+
+
+    Returns: the focus color 
+
+*javax.swing.plaf.metal.MetalTheme.getHighlightedTextColor()*
+
+public |javax.swing.plaf.ColorUIResource| getHighlightedTextColor()
+
+Returns the highlighted text color. This returns the value ofgetControlTextColor(). 
+
+
+
+    Returns: the highlighted text color 
+
+*javax.swing.plaf.metal.MetalTheme.getInactiveControlTextColor()*
+
+public |javax.swing.plaf.ColorUIResource| getInactiveControlTextColor()
+
+Returns the inactive control text color. This returns the value ofgetControlDisabled(). 
+
+
+
+    Returns: the inactive control text color 
+
+*javax.swing.plaf.metal.MetalTheme.getInactiveSystemTextColor()*
+
+public |javax.swing.plaf.ColorUIResource| getInactiveSystemTextColor()
+
+Returns the inactive system text color. This returns the value ofgetSecondary2(). 
+
+
+
+    Returns: the inactive system text color 
+
+*javax.swing.plaf.metal.MetalTheme.getMenuBackground()*
+
+public |javax.swing.plaf.ColorUIResource| getMenuBackground()
+
+Returns the menu background color. This returns the value ofgetSecondary3(). 
+
+
+
+    Returns: the menu background color 
+
+*javax.swing.plaf.metal.MetalTheme.getMenuDisabledForeground()*
+
+public |javax.swing.plaf.ColorUIResource| getMenuDisabledForeground()
+
+Returns the menu disabled foreground color. This returns the value ofgetSecondary2(). 
+
+
+
+    Returns: the menu disabled foreground color 
+
+*javax.swing.plaf.metal.MetalTheme.getMenuForeground()*
+
+public |javax.swing.plaf.ColorUIResource| getMenuForeground()
+
+Returns the menu foreground color. This returns the value ofgetBlack(). 
+
+
+
+    Returns: the menu foreground color 
+
+*javax.swing.plaf.metal.MetalTheme.getMenuSelectedBackground()*
+
+public |javax.swing.plaf.ColorUIResource| getMenuSelectedBackground()
+
+Returns the menu selected background color. This returns the value ofgetPrimary2(). 
+
+
+
+    Returns: the menu selected background color 
+
+*javax.swing.plaf.metal.MetalTheme.getMenuSelectedForeground()*
+
+public |javax.swing.plaf.ColorUIResource| getMenuSelectedForeground()
+
+Returns the menu selected foreground color. This returns the value ofgetBlack(). 
+
+
+
+    Returns: the menu selected foreground color 
+
+*javax.swing.plaf.metal.MetalTheme.getMenuTextFont()*
+
+public abstract |javax.swing.plaf.FontUIResource| getMenuTextFont()
+
+Returns the menu text font. 
+
+
+
+    Returns: the menu text font 
+
+*javax.swing.plaf.metal.MetalTheme.getName()*
+
+public abstract |java.lang.String| getName()
+
+Returns the name of this theme. 
+
+
+
+    Returns: the name of this theme 
+
+*javax.swing.plaf.metal.MetalTheme.getPrimary1()*
+
+protected abstract |javax.swing.plaf.ColorUIResource| getPrimary1()
+
+Returns the primary 1 color. 
+
+
+
+    Returns: the primary 1 color 
+
+*javax.swing.plaf.metal.MetalTheme.getPrimary2()*
+
+protected abstract |javax.swing.plaf.ColorUIResource| getPrimary2()
+
+Returns the primary 2 color. 
+
+
+
+    Returns: the primary 2 color 
+
+*javax.swing.plaf.metal.MetalTheme.getPrimary3()*
+
+protected abstract |javax.swing.plaf.ColorUIResource| getPrimary3()
+
+Returns the primary 3 color. 
+
+
+
+    Returns: the primary 3 color 
+
+*javax.swing.plaf.metal.MetalTheme.getPrimaryControl()*
+
+public |javax.swing.plaf.ColorUIResource| getPrimaryControl()
+
+Returns the primary control color. This returns the value ofgetPrimary3(). 
+
+
+
+    Returns: the primary control color 
+
+*javax.swing.plaf.metal.MetalTheme.getPrimaryControlDarkShadow()*
+
+public |javax.swing.plaf.ColorUIResource| getPrimaryControlDarkShadow()
+
+Returns the primary control dark shadow color. This returns the value ofgetPrimary1(). 
+
+
+
+    Returns: the primary control dark shadow color 
+
+*javax.swing.plaf.metal.MetalTheme.getPrimaryControlHighlight()*
+
+public |javax.swing.plaf.ColorUIResource| getPrimaryControlHighlight()
+
+Returns the primary control highlight color. This returns the value ofgetWhite(). 
+
+
+
+    Returns: the primary control highlight color 
+
+*javax.swing.plaf.metal.MetalTheme.getPrimaryControlInfo()*
+
+public |javax.swing.plaf.ColorUIResource| getPrimaryControlInfo()
+
+Returns the primary control info color. This returns the value ofgetBlack(). 
+
+
+
+    Returns: the primary control info color 
+
+*javax.swing.plaf.metal.MetalTheme.getPrimaryControlShadow()*
+
+public |javax.swing.plaf.ColorUIResource| getPrimaryControlShadow()
+
+Returns the primary control shadow color. This returns the value ofgetPrimary2(). 
+
+
+
+    Returns: the primary control shadow color 
+
+*javax.swing.plaf.metal.MetalTheme.getSecondary1()*
+
+protected abstract |javax.swing.plaf.ColorUIResource| getSecondary1()
+
+Returns the secondary 1 color. 
+
+
+
+    Returns: the secondary 1 color 
+
+*javax.swing.plaf.metal.MetalTheme.getSecondary2()*
+
+protected abstract |javax.swing.plaf.ColorUIResource| getSecondary2()
+
+Returns the secondary 2 color. 
+
+
+
+    Returns: the secondary 2 color 
+
+*javax.swing.plaf.metal.MetalTheme.getSecondary3()*
+
+protected abstract |javax.swing.plaf.ColorUIResource| getSecondary3()
+
+Returns the secondary 3 color. 
+
+
+
+    Returns: the secondary 3 color 
+
+*javax.swing.plaf.metal.MetalTheme.getSeparatorBackground()*
+
+public |javax.swing.plaf.ColorUIResource| getSeparatorBackground()
+
+Returns the separator background color. This returns the value ofgetWhite(). 
+
+
+
+    Returns: the separator background color 
+
+*javax.swing.plaf.metal.MetalTheme.getSeparatorForeground()*
+
+public |javax.swing.plaf.ColorUIResource| getSeparatorForeground()
+
+Returns the separator foreground color. This returns the value ofgetPrimary1(). 
+
+
+
+    Returns: the separator foreground color 
+
+*javax.swing.plaf.metal.MetalTheme.getSubTextFont()*
+
+public abstract |javax.swing.plaf.FontUIResource| getSubTextFont()
+
+Returns the sub-text font. 
+
+
+
+    Returns: the sub-text font 
+
+*javax.swing.plaf.metal.MetalTheme.getSystemTextColor()*
+
+public |javax.swing.plaf.ColorUIResource| getSystemTextColor()
+
+Returns the system text color. This returns the value ofgetBlack(). 
+
+
+
+    Returns: the system text color 
+
+*javax.swing.plaf.metal.MetalTheme.getSystemTextFont()*
+
+public abstract |javax.swing.plaf.FontUIResource| getSystemTextFont()
+
+Returns the system text font. 
+
+
+
+    Returns: the system text font 
+
+*javax.swing.plaf.metal.MetalTheme.getTextHighlightColor()*
+
+public |javax.swing.plaf.ColorUIResource| getTextHighlightColor()
+
+Returns the text highlight color. This returns the value ofgetPrimary3(). 
+
+
+
+    Returns: the text highlight color 
+
+*javax.swing.plaf.metal.MetalTheme.getUserTextColor()*
+
+public |javax.swing.plaf.ColorUIResource| getUserTextColor()
+
+Returns the user text color. This returns the value ofgetBlack(). 
+
+
+
+    Returns: the user text color 
+
+*javax.swing.plaf.metal.MetalTheme.getUserTextFont()*
+
+public abstract |javax.swing.plaf.FontUIResource| getUserTextFont()
+
+Returns the user text font. 
+
+
+
+    Returns: the user text font 
+
+*javax.swing.plaf.metal.MetalTheme.getWhite()*
+
+protected |javax.swing.plaf.ColorUIResource| getWhite()
+
+Returns the white color. This returns opaque white (0xFFFFFFFF). 
+
+
+
+    Returns: the white color 
+
+*javax.swing.plaf.metal.MetalTheme.getWindowBackground()*
+
+public |javax.swing.plaf.ColorUIResource| getWindowBackground()
+
+Returns the window background color. This returns the value ofgetWhite(). 
+
+
+
+    Returns: the window background color 
+
+*javax.swing.plaf.metal.MetalTheme.getWindowTitleBackground()*
+
+public |javax.swing.plaf.ColorUIResource| getWindowTitleBackground()
+
+Returns the window title background color. This returns the value ofgetPrimary3(). 
+
+
+
+    Returns: the window title background color 
+
+*javax.swing.plaf.metal.MetalTheme.getWindowTitleFont()*
+
+public abstract |javax.swing.plaf.FontUIResource| getWindowTitleFont()
+
+Returns the window title font. 
+
+
+
+    Returns: the window title font 
+
+*javax.swing.plaf.metal.MetalTheme.getWindowTitleForeground()*
+
+public |javax.swing.plaf.ColorUIResource| getWindowTitleForeground()
+
+Returns the window title foreground color. This returns the value ofgetBlack(). 
+
+
+
+    Returns: the window title foreground color 
+
+*javax.swing.plaf.metal.MetalTheme.getWindowTitleInactiveBackground()*
+
+public |javax.swing.plaf.ColorUIResource| getWindowTitleInactiveBackground()
+
+Returns the window title inactive background color. This returns the value ofgetSecondary3(). 
+
+
+
+    Returns: the window title inactive background color 
+
+*javax.swing.plaf.metal.MetalTheme.getWindowTitleInactiveForeground()*
+
+public |javax.swing.plaf.ColorUIResource| getWindowTitleInactiveForeground()
+
+Returns the window title inactive foreground color. This returns the value ofgetBlack(). 
+
+
+
+    Returns: the window title inactive foreground color 
+
+

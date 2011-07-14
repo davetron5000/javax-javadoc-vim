@@ -1,0 +1,19 @@
+*javax.lang.model.type.PrimitiveType* *PrimitiveType* Represents a primitive type.
+
+public interface interface PrimitiveType
+
+  implements |javax.lang.model.type.TypeMirror|
+
+|javax.lang.model.type.PrimitiveType_Description|
+|javax.lang.model.type.PrimitiveType_Fields|
+|javax.lang.model.type.PrimitiveType_Constructors|
+|javax.lang.model.type.PrimitiveType_Methods|
+
+================================================================================================================================
+
+*javax.lang.model.type.PrimitiveType_Description*
+
+Represents a primitive type. These includeboolean,byte,short,int,long,char,float, anddouble. 
+
+
+

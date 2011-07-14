@@ -1,0 +1,179 @@
+*javax.swing.plaf.metal.OceanTheme* *OceanTheme* The default theme for theMetalLookAndFeel.
+
+public class OceanTheme
+  extends    |javax.swing.plaf.metal.DefaultMetalTheme|
+
+|javax.swing.plaf.metal.OceanTheme_Description|
+|javax.swing.plaf.metal.OceanTheme_Fields|
+|javax.swing.plaf.metal.OceanTheme_Constructors|
+|javax.swing.plaf.metal.OceanTheme_Methods|
+
+================================================================================================================================
+
+*javax.swing.plaf.metal.OceanTheme_Constructors*
+|javax.swing.plaf.metal.OceanTheme()|Creates an instance of OceanTheme
+
+*javax.swing.plaf.metal.OceanTheme_Methods*
+|javax.swing.plaf.metal.OceanTheme.addCustomEntriesToTable(UIDefaults)|Add this theme's custom entries to the defaults table.
+|javax.swing.plaf.metal.OceanTheme.getBlack()|Returns the black color.
+|javax.swing.plaf.metal.OceanTheme.getControlTextColor()|Returns the control text color.
+|javax.swing.plaf.metal.OceanTheme.getDesktopColor()|Returns the desktop color.
+|javax.swing.plaf.metal.OceanTheme.getInactiveControlTextColor()|Returns the inactive control text color.
+|javax.swing.plaf.metal.OceanTheme.getMenuDisabledForeground()|Returns the menu disabled foreground color.
+|javax.swing.plaf.metal.OceanTheme.getName()|Return the name of this theme, "Ocean".
+|javax.swing.plaf.metal.OceanTheme.getPrimary1()|Returns the primary 1 color.
+|javax.swing.plaf.metal.OceanTheme.getPrimary2()|Returns the primary 2 color.
+|javax.swing.plaf.metal.OceanTheme.getPrimary3()|Returns the primary 3 color.
+|javax.swing.plaf.metal.OceanTheme.getSecondary1()|Returns the secondary 1 color.
+|javax.swing.plaf.metal.OceanTheme.getSecondary2()|Returns the secondary 2 color.
+|javax.swing.plaf.metal.OceanTheme.getSecondary3()|Returns the secondary 3 color.
+
+*javax.swing.plaf.metal.OceanTheme_Description*
+
+The default theme for theMetalLookAndFeel. 
+
+The designers of the Metal Look and Feel strive to keep the default look up to date, possibly through the use of new themes in 
+the future. Therefore, developers should only use this class directly when they wish to customize the "Ocean" look, or force it 
+to be the current theme, regardless of future updates. 
+
+All colors returned byOceanThemeare completely opaque. 
+
+
+
+*javax.swing.plaf.metal.OceanTheme()*
+
+public OceanTheme()
+
+Creates an instance of OceanTheme 
+
+
+*javax.swing.plaf.metal.OceanTheme.addCustomEntriesToTable(UIDefaults)*
+
+public void addCustomEntriesToTable(javax.swing.UIDefaults table)
+
+Add this theme's custom entries to the defaults table. 
+
+
+    table - the defaults table, non-null 
+
+*javax.swing.plaf.metal.OceanTheme.getBlack()*
+
+protected |javax.swing.plaf.ColorUIResource| getBlack()
+
+Returns the black color. This returns a color with an rgb hex value of0x333333. 
+
+
+
+    Returns: the black color 
+
+*javax.swing.plaf.metal.OceanTheme.getControlTextColor()*
+
+public |javax.swing.plaf.ColorUIResource| getControlTextColor()
+
+Returns the control text color. This returns a color with an rgb hex value of0x333333. 
+
+
+
+    Returns: the control text color 
+
+*javax.swing.plaf.metal.OceanTheme.getDesktopColor()*
+
+public |javax.swing.plaf.ColorUIResource| getDesktopColor()
+
+Returns the desktop color. This returns a color with an rgb hex value of0xFFFFFF. 
+
+
+
+    Returns: the desktop color 
+
+*javax.swing.plaf.metal.OceanTheme.getInactiveControlTextColor()*
+
+public |javax.swing.plaf.ColorUIResource| getInactiveControlTextColor()
+
+Returns the inactive control text color. This returns a color with an rgb hex value of0x999999. 
+
+
+
+    Returns: the inactive control text color 
+
+*javax.swing.plaf.metal.OceanTheme.getMenuDisabledForeground()*
+
+public |javax.swing.plaf.ColorUIResource| getMenuDisabledForeground()
+
+Returns the menu disabled foreground color. This returns a color with an rgb hex value of0x999999. 
+
+
+
+    Returns: the menu disabled foreground color 
+
+*javax.swing.plaf.metal.OceanTheme.getName()*
+
+public |java.lang.String| getName()
+
+Return the name of this theme, "Ocean". 
+
+
+
+    Returns: 
+
+*javax.swing.plaf.metal.OceanTheme.getPrimary1()*
+
+protected |javax.swing.plaf.ColorUIResource| getPrimary1()
+
+Returns the primary 1 color. This returns a color with an rgb hex value of0x6382BF. 
+
+
+
+    Returns: the primary 1 color 
+
+*javax.swing.plaf.metal.OceanTheme.getPrimary2()*
+
+protected |javax.swing.plaf.ColorUIResource| getPrimary2()
+
+Returns the primary 2 color. This returns a color with an rgb hex value of0xA3B8CC. 
+
+
+
+    Returns: the primary 2 color 
+
+*javax.swing.plaf.metal.OceanTheme.getPrimary3()*
+
+protected |javax.swing.plaf.ColorUIResource| getPrimary3()
+
+Returns the primary 3 color. This returns a color with an rgb hex value of0xB8CFE5. 
+
+
+
+    Returns: the primary 3 color 
+
+*javax.swing.plaf.metal.OceanTheme.getSecondary1()*
+
+protected |javax.swing.plaf.ColorUIResource| getSecondary1()
+
+Returns the secondary 1 color. This returns a color with an rgb hex value of0x7A8A99. 
+
+
+
+    Returns: the secondary 1 color 
+
+*javax.swing.plaf.metal.OceanTheme.getSecondary2()*
+
+protected |javax.swing.plaf.ColorUIResource| getSecondary2()
+
+Returns the secondary 2 color. This returns a color with an rgb hex value of0xB8CFE5. 
+
+
+
+    Returns: the secondary 2 color 
+
+*javax.swing.plaf.metal.OceanTheme.getSecondary3()*
+
+protected |javax.swing.plaf.ColorUIResource| getSecondary3()
+
+Returns the secondary 3 color. This returns a color with an rgb hex value of0xEEEEEE. 
+
+
+
+    Returns: the secondary 3 color 
+
+

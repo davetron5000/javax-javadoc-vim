@@ -1,0 +1,98 @@
+*javax.swing.event.RowSorterEvent* *RowSorterEvent* RowSorterEvent provides notification of changes to
+ a RowSorter.
+
+public class RowSorterEvent
+  extends    |java.util.EventObject|
+
+|javax.swing.event.RowSorterEvent_Description|
+|javax.swing.event.RowSorterEvent_Fields|
+|javax.swing.event.RowSorterEvent_Constructors|
+|javax.swing.event.RowSorterEvent_Methods|
+
+================================================================================================================================
+
+*javax.swing.event.RowSorterEvent_Constructors*
+|javax.swing.event.RowSorterEvent(RowSorter)|Creates a RowSorterEvent of type  SORT_ORDER_CHANGED.
+|javax.swing.event.RowSorterEvent(RowSorter,RowSorterEvent.Type,int[])|Creates a RowSorterEvent.
+
+*javax.swing.event.RowSorterEvent_Methods*
+|javax.swing.event.RowSorterEvent.convertPreviousRowIndexToModel(int)|Returns the location of index in terms of the  model prio
+|javax.swing.event.RowSorterEvent.getPreviousRowCount()|Returns the number of rows before the sort.
+|javax.swing.event.RowSorterEvent.getSource()|Returns the source of the event as a RowSorter.
+|javax.swing.event.RowSorterEvent.getType()|Returns the type of event.
+
+*javax.swing.event.RowSorterEvent_Description*
+
+RowSorterEvent provides notification of changes to a RowSorter. Two types of notification are possible: 
+
+Type.SORT_ORDER_CHANGED: indicates the sort order has changed. This is typically followed by a notification of: Type.SORTED: 
+indicates the contents of the model have been transformed in some way. For example, the contents may have been sorted or 
+filtered. 
+
+
+
+*javax.swing.event.RowSorterEvent(RowSorter)*
+
+public RowSorterEvent(javax.swing.RowSorter source)
+
+Creates a RowSorterEvent of type SORT_ORDER_CHANGED. 
+
+    source - the source of the change 
+
+*javax.swing.event.RowSorterEvent(RowSorter,RowSorterEvent.Type,int[])*
+
+public RowSorterEvent(
+  javax.swing.RowSorter source,
+  javax.swing.event.RowSorterEvent.Type type,
+  int[] previousRowIndexToModel)
+
+Creates a RowSorterEvent. 
+
+    source - the source of the change 
+    type - the type of event 
+    previousRowIndexToModel - the mapping from model indices to view indices prior to the sort, may be null 
+
+*javax.swing.event.RowSorterEvent.convertPreviousRowIndexToModel(int)*
+
+public int convertPreviousRowIndexToModel(int index)
+
+Returns the location of index in terms of the model prior to the sort. This method is only useful for events of type SORTED. 
+This method will return -1 if the index is not valid, or the locations prior to the sort have not been provided. 
+
+
+    index - the index in terms of the view 
+
+    Returns: the index in terms of the model prior to the sort, or -1 if the location is not valid or the mapping was not provided. 
+
+*javax.swing.event.RowSorterEvent.getPreviousRowCount()*
+
+public int getPreviousRowCount()
+
+Returns the number of rows before the sort. This method is only useful for events of type SORTED and if the last locations have 
+not been provided will return 0. 
+
+
+
+    Returns: the number of rows in terms of the view prior to the sort 
+
+*javax.swing.event.RowSorterEvent.getSource()*
+
+public |javax.swing.RowSorter| getSource()
+
+Returns the source of the event as a RowSorter. 
+
+
+
+    Returns: the source of the event as a RowSorter 
+
+*javax.swing.event.RowSorterEvent.getType()*
+
+public |javax.swing.event.RowSorterEvent.Type| getType()
+
+Returns the type of event. 
+
+
+
+    Returns: the type of event 
+
+

@@ -1,0 +1,40 @@
+*javax.swing.GroupLayout.Alignment* *GroupLayout.Alignment* Enumeration of the possible waysParallelGroupcan align
+ its children
+
+public static final enumGroupLayout.Alignment
+  extends    |java.lang.Enum|
+
+|javax.swing.GroupLayout.Alignment_Description|
+|javax.swing.GroupLayout.Alignment_Fields|
+|javax.swing.GroupLayout.Alignment_Constructors|
+|javax.swing.GroupLayout.Alignment_Methods|
+
+================================================================================================================================
+
+*javax.swing.GroupLayout.Alignment_Methods*
+|javax.swing.GroupLayout.Alignment.valueOf(String)|
+|javax.swing.GroupLayout.Alignment.values()|
+
+*javax.swing.GroupLayout.Alignment_Description*
+
+Enumeration of the possible waysParallelGroupcan align its children. 
+
+
+
+*javax.swing.GroupLayout.Alignment.valueOf(String)*
+
+public static |javax.swing.GroupLayout.Alignment| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.swing.GroupLayout.Alignment.values()*
+
+public static |javax.swing.GroupLayout.Alignment|[] values()
+
+
+
+
+
+

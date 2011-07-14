@@ -1,0 +1,43 @@
+*javax.tools.JavaFileManager.Location* *JavaFileManager.Location* Interface for locations of file objects.
+
+public static interface interface JavaFileManager.Location
+
+
+|javax.tools.JavaFileManager.Location_Description|
+|javax.tools.JavaFileManager.Location_Fields|
+|javax.tools.JavaFileManager.Location_Constructors|
+|javax.tools.JavaFileManager.Location_Methods|
+
+================================================================================================================================
+
+*javax.tools.JavaFileManager.Location_Methods*
+|javax.tools.JavaFileManager.Location.getName()|Gets the name of this location.
+|javax.tools.JavaFileManager.Location.isOutputLocation()|Determines if this is an output location.
+
+*javax.tools.JavaFileManager.Location_Description*
+
+Interface for locations of file objects. Used by file managers to determine where to place or search for file objects. 
+
+
+
+*javax.tools.JavaFileManager.Location.getName()*
+
+public |java.lang.String| getName()
+
+Gets the name of this location. 
+
+
+
+    Returns: 
+
+*javax.tools.JavaFileManager.Location.isOutputLocation()*
+
+public boolean isOutputLocation()
+
+Determines if this is an output location. An output location is a location that is conventionally used for output. 
+
+
+
+    Returns: true if this is an output location, false otherwise 
+
+

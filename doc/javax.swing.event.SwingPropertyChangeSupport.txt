@@ -1,0 +1,67 @@
+*javax.swing.event.SwingPropertyChangeSupport* *SwingPropertyChangeSupport* This subclass ofjava.beans.PropertyChangeSupportis a
+
+public final class SwingPropertyChangeSupport
+  extends    |java.beans.PropertyChangeSupport|
+
+|javax.swing.event.SwingPropertyChangeSupport_Description|
+|javax.swing.event.SwingPropertyChangeSupport_Fields|
+|javax.swing.event.SwingPropertyChangeSupport_Constructors|
+|javax.swing.event.SwingPropertyChangeSupport_Methods|
+
+================================================================================================================================
+
+*javax.swing.event.SwingPropertyChangeSupport_Constructors*
+|javax.swing.event.SwingPropertyChangeSupport(Object)|Constructs a SwingPropertyChangeSupport object.
+|javax.swing.event.SwingPropertyChangeSupport(Object,boolean)|Constructs a SwingPropertyChangeSupport object.
+
+*javax.swing.event.SwingPropertyChangeSupport_Methods*
+|javax.swing.event.SwingPropertyChangeSupport.firePropertyChange(PropertyChangeEvent)|
+|javax.swing.event.SwingPropertyChangeSupport.isNotifyOnEDT()|ReturnsnotifyOnEDTproperty.
+
+*javax.swing.event.SwingPropertyChangeSupport_Description*
+
+This subclass ofjava.beans.PropertyChangeSupportis almost identical in functionality. The only difference is if constructed 
+withSwingPropertyChangeSupport(sourceBean, true)it ensures listeners are only ever notified on the Event Dispatch Thread. 
+
+
+
+*javax.swing.event.SwingPropertyChangeSupport(Object)*
+
+public SwingPropertyChangeSupport(java.lang.Object sourceBean)
+
+Constructs a SwingPropertyChangeSupport object. 
+
+    sourceBean - The bean to be given as the source for any events. 
+
+*javax.swing.event.SwingPropertyChangeSupport(Object,boolean)*
+
+public SwingPropertyChangeSupport(
+  java.lang.Object sourceBean,
+  boolean notifyOnEDT)
+
+Constructs a SwingPropertyChangeSupport object. 
+
+    sourceBean - the bean to be given as the source for any events 
+    notifyOnEDT - whether to notify listeners on the Event Dispatch Thread only 
+
+*javax.swing.event.SwingPropertyChangeSupport.firePropertyChange(PropertyChangeEvent)*
+
+public void firePropertyChange(java.beans.PropertyChangeEvent evt)
+
+If (|javax.swing.event.SwingPropertyChangeSupport|) istrueand called off the Event Dispatch Thread this implementation 
+usesSwingUtilities.invokeLaterto send out the notification on the Event Dispatch Thread. This ensures listeners are only ever 
+notified on the Event Dispatch Thread. 
+
+
+
+*javax.swing.event.SwingPropertyChangeSupport.isNotifyOnEDT()*
+
+public final boolean isNotifyOnEDT()
+
+ReturnsnotifyOnEDTproperty. 
+
+
+
+    Returns: {@code notifyOnEDT} property 
+
+

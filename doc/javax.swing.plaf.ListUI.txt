@@ -1,0 +1,86 @@
+*javax.swing.plaf.ListUI* *ListUI* TheJListpluggable look and feel delegate.
+
+public abstract class ListUI
+  extends    |javax.swing.plaf.ComponentUI|
+
+|javax.swing.plaf.ListUI_Description|
+|javax.swing.plaf.ListUI_Fields|
+|javax.swing.plaf.ListUI_Constructors|
+|javax.swing.plaf.ListUI_Methods|
+
+================================================================================================================================
+
+*javax.swing.plaf.ListUI_Constructors*
+|javax.swing.plaf.ListUI()|
+
+*javax.swing.plaf.ListUI_Methods*
+|javax.swing.plaf.ListUI.getCellBounds(JList,int,int)|Returns the bounding rectangle, in the given list's coordinate system,  f
+|javax.swing.plaf.ListUI.indexToLocation(JList,int)|Returns the origin in the givenJList, of the specified item,  in the list's
+|javax.swing.plaf.ListUI.locationToIndex(JList,Point)|Returns the cell index in the specifiedJListclosest to the  given locatio
+
+*javax.swing.plaf.ListUI_Description*
+
+TheJListpluggable look and feel delegate. 
+
+
+
+*javax.swing.plaf.ListUI()*
+
+public ListUI()
+
+
+
+
+*javax.swing.plaf.ListUI.getCellBounds(JList,int,int)*
+
+public abstract |java.awt.Rectangle| getCellBounds(
+  javax.swing.JList list,
+  int index1,
+  int index2)
+
+Returns the bounding rectangle, in the given list's coordinate system, for the range of cells specified by the two indices. The 
+indices can be supplied in any order. 
+
+If the smaller index is outside the list's range of cells, this method returnsnull. If the smaller index is valid, but the 
+larger index is outside the list's range, the bounds of just the first index is returned. Otherwise, the bounds of the valid 
+range is returned. 
+
+
+    list - the list 
+    index1 - the first index in the range 
+    index2 - the second index in the range 
+
+    Returns: the bounding rectangle for the range of cells, or {@code null} 
+
+*javax.swing.plaf.ListUI.indexToLocation(JList,int)*
+
+public abstract |java.awt.Point| indexToLocation(
+  javax.swing.JList list,
+  int index)
+
+Returns the origin in the givenJList, of the specified item, in the list's coordinate system. Returnsnullif the index isn't 
+valid. 
+
+
+    list - the list 
+    index - the cell index 
+
+    Returns: the origin of the cell, or {@code null} 
+
+*javax.swing.plaf.ListUI.locationToIndex(JList,Point)*
+
+public abstract int locationToIndex(
+  javax.swing.JList list,
+  java.awt.Point location)
+
+Returns the cell index in the specifiedJListclosest to the given location in the list's coordinate system. To determine if the 
+cell actually contains the specified location, compare the point against the cell's bounds, as provided bygetCellBounds. This 
+method returns-1if the list's model is empty. 
+
+
+    list - the list 
+    location - the coordinates of the point 
+
+    Returns: the cell index closest to the given location, or {@code -1} 
+
+

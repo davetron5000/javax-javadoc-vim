@@ -1,0 +1,339 @@
+*javax.swing.undo.UndoManager* *UndoManager* UndoManagermanages a list ofUndoableEdits,
+ providing a way to undo or redo the app
+
+public class UndoManager
+  extends    |javax.swing.undo.CompoundEdit|
+  implements |javax.swing.event.UndoableEditListener|
+
+|javax.swing.undo.UndoManager_Description|
+|javax.swing.undo.UndoManager_Fields|
+|javax.swing.undo.UndoManager_Constructors|
+|javax.swing.undo.UndoManager_Methods|
+
+================================================================================================================================
+
+*javax.swing.undo.UndoManager_Constructors*
+|javax.swing.undo.UndoManager()|Creates a new UndoManager.
+
+*javax.swing.undo.UndoManager_Methods*
+|javax.swing.undo.UndoManager.addEdit(UndoableEdit)|Adds an UndoableEdit to this  UndoManager, if it's possible.
+|javax.swing.undo.UndoManager.canRedo()|Returns true if edits may be redone.
+|javax.swing.undo.UndoManager.canUndo()|Returns true if edits may be undone.
+|javax.swing.undo.UndoManager.canUndoOrRedo()|Returns true if it is possible to invoke undo or  redo.
+|javax.swing.undo.UndoManager.discardAllEdits()|Empties the undo manager sending each edit a die message  in the process.
+|javax.swing.undo.UndoManager.editToBeRedone()|Returns the the next significant edit to be redone if redo  is invoked.
+|javax.swing.undo.UndoManager.editToBeUndone()|Returns the the next significant edit to be undone if undo  is invoked.
+|javax.swing.undo.UndoManager.end()|Turns this UndoManager into a normal  CompoundEdit.
+|javax.swing.undo.UndoManager.getLimit()|Returns the maximum number of edits thisUndoManagerholds.
+|javax.swing.undo.UndoManager.getRedoPresentationName()|Returns a description of the redoable form of this edit.
+|javax.swing.undo.UndoManager.getUndoOrRedoPresentationName()|Convenience method that returns either   getUndoPresentationName 
+|javax.swing.undo.UndoManager.getUndoPresentationName()|Returns a description of the undoable form of this edit.
+|javax.swing.undo.UndoManager.redo()|Redoes the appropriate edits.
+|javax.swing.undo.UndoManager.redoTo(UndoableEdit)|Redoes all changes from the index of the next edit to  edit, updating the in
+|javax.swing.undo.UndoManager.setLimit(int)|Sets the maximum number of edits this UndoManager  holds.
+|javax.swing.undo.UndoManager.toString()|Returns a string that displays and identifies this  object's properties.
+|javax.swing.undo.UndoManager.trimEdits(int,int)|Removes edits in the specified range.
+|javax.swing.undo.UndoManager.trimForLimit()|Reduces the number of queued edits to a range of size limit,  centered on the inde
+|javax.swing.undo.UndoManager.undo()|Undoes the appropriate edits.
+|javax.swing.undo.UndoManager.undoableEditHappened(UndoableEditEvent)|An UndoableEditListener method.
+|javax.swing.undo.UndoManager.undoOrRedo()|Convenience method that invokes one of undo or  redo.
+|javax.swing.undo.UndoManager.undoTo(UndoableEdit)|Undoes all changes from the index of the next edit to  edit, updating the in
+
+*javax.swing.undo.UndoManager_Description*
+
+UndoManagermanages a list ofUndoableEdits, providing a way to undo or redo the appropriate edits. There are two ways to add 
+edits to an UndoManager. Add the edit directly using the addEdit method, or add the UndoManager to a bean that supports 
+UndoableEditListener. The following examples creates an UndoManager and adds it as an UndoableEditListener to a JTextField: 
+
+UndoManager undoManager = new UndoManager(); JTextField tf = ...; tf.getDocument().addUndoableEditListener(undoManager); 
+
+UndoManager maintains an ordered list of edits and the index of the next edit in that list. The index of the next edit is 
+either the size of the current list of edits, or if undo has been invoked it corresponds to the index of the last significant 
+edit that was undone. When undo is invoked all edits from the index of the next edit to the last significant edit are undone, 
+in reverse order. For example, consider an UndoManager consisting of the following edits: A b c D. Edits with a upper-case 
+letter in bold are significant, those in lower-case and italicized are insignificant. 
+
+
+
+
+
+Figure 1 
+
+As shown in figure 1, if D was just added, the index of the next edit will be 4. Invoking undo results in invoking undo on D 
+and setting the index of the next edit to 3 (edit c), as shown in the following figure. 
+
+
+
+
+
+Figure 2 
+
+The last significant edit is A, so that invoking undo again invokes undo on c, b, and A, in that order, setting the index of 
+the next edit to 0, as shown in the following figure. 
+
+
+
+
+
+Figure 3 
+
+Invoking redo results in invoking redo on all edits between the index of the next edit and the next significant edit (or the 
+end of the list). Continuing with the previous example if redo were invoked, redo would in turn be invoked on A, b and c. In 
+addition the index of the next edit is set to 3 (as shown in figure 2). 
+
+Adding an edit to an UndoManager results in removing all edits from the index of the next edit to the end of the list. 
+Continuing with the previous example, if a new edit, e, is added the edit D is removed from the list (after having die invoked 
+on it). If c is not incorporated by the next edit (c.addEdit(e) returns true), or replaced by it (e.replaceEdit(c) returns 
+true), the new edit is added after c, as shown in the following figure. 
+
+
+
+
+
+Figure 4 
+
+Once end has been invoked on an UndoManager the superclass behavior is used for all UndoableEdit methods. Refer to CompoundEdit 
+for more details on its behavior. 
+
+Unlike the rest of Swing, this class is thread safe. 
+
+Warning: Serialized objects of this class will not be compatible with future Swing releases. The current serialization support 
+is appropriate for short term storage or RMI between applications running the same version of Swing. As of 1.4, support for 
+long term storage of all JavaBeansTM has been added to the java.beans package. Please see (|java.beans.XMLEncoder|) . 
+
+
+
+*javax.swing.undo.UndoManager()*
+
+public UndoManager()
+
+Creates a new UndoManager. 
+
+
+*javax.swing.undo.UndoManager.addEdit(UndoableEdit)*
+
+public synchronized boolean addEdit(javax.swing.undo.UndoableEdit anEdit)
+
+Adds an UndoableEdit to this UndoManager, if it's possible. This removes all edits from the index of the next edit to the end 
+of the edits list. If end has been invoked the edit is not added and false is returned. If end hasn't been invoked this returns 
+true. 
+
+
+    anEdit - the edit to be added 
+
+    Returns: true if anEdit can be incorporated into this edit 
+
+*javax.swing.undo.UndoManager.canRedo()*
+
+public synchronized boolean canRedo()
+
+Returns true if edits may be redone. If end has been invoked, this returns the value from super. Otherwise, this returns true 
+if there are any edits to be redone (editToBeRedone returns non-null). 
+
+
+
+    Returns: true if there are edits to be redone 
+
+*javax.swing.undo.UndoManager.canUndo()*
+
+public synchronized boolean canUndo()
+
+Returns true if edits may be undone. If end has been invoked, this returns the value from super. Otherwise this returns true if 
+there are any edits to be undone (editToBeUndone returns non-null). 
+
+
+
+    Returns: true if there are edits to be undone 
+
+*javax.swing.undo.UndoManager.canUndoOrRedo()*
+
+public synchronized boolean canUndoOrRedo()
+
+Returns true if it is possible to invoke undo or redo. 
+
+
+
+    Returns: true if invoking canUndoOrRedo is valid 
+
+*javax.swing.undo.UndoManager.discardAllEdits()*
+
+public synchronized void discardAllEdits()
+
+Empties the undo manager sending each edit a die message in the process. 
+
+
+
+*javax.swing.undo.UndoManager.editToBeRedone()*
+
+protected |javax.swing.undo.UndoableEdit| editToBeRedone()
+
+Returns the the next significant edit to be redone if redo is invoked. This returns null if there are no edits to be redone. 
+
+
+
+    Returns: the next significant edit to be redone 
+
+*javax.swing.undo.UndoManager.editToBeUndone()*
+
+protected |javax.swing.undo.UndoableEdit| editToBeUndone()
+
+Returns the the next significant edit to be undone if undo is invoked. This returns null if there are no edits to be undone. 
+
+
+
+    Returns: the next significant edit to be undone 
+
+*javax.swing.undo.UndoManager.end()*
+
+public synchronized void end()
+
+Turns this UndoManager into a normal CompoundEdit. This removes all edits that have been undone. 
+
+
+
+*javax.swing.undo.UndoManager.getLimit()*
+
+public synchronized int getLimit()
+
+Returns the maximum number of edits thisUndoManagerholds. A value less than 0 indicates the number of edits is not limited. 
+
+
+
+    Returns: the maximum number of edits this {@code UndoManager} holds 
+
+*javax.swing.undo.UndoManager.getRedoPresentationName()*
+
+public synchronized |java.lang.String| getRedoPresentationName()
+
+Returns a description of the redoable form of this edit. If end has been invoked this calls into super. Otherwise if there are 
+edits to be redone, this returns the value from the next significant edit that will be redone. If there are no edits to be 
+redone and end has not been invoked this returns the value from the UIManager property "AbstractUndoableEdit.redoText". 
+
+
+
+    Returns: a description of the redoable form of this edit 
+
+*javax.swing.undo.UndoManager.getUndoOrRedoPresentationName()*
+
+public synchronized |java.lang.String| getUndoOrRedoPresentationName()
+
+Convenience method that returns either getUndoPresentationName or getRedoPresentationName. If the index of the next edit equals 
+the size of the edits list, getUndoPresentationName is returned, otherwise getRedoPresentationName is returned. 
+
+
+
+    Returns: undo or redo name 
+
+*javax.swing.undo.UndoManager.getUndoPresentationName()*
+
+public synchronized |java.lang.String| getUndoPresentationName()
+
+Returns a description of the undoable form of this edit. If end has been invoked this calls into super. Otherwise if there are 
+edits to be undone, this returns the value from the next significant edit that will be undone. If there are no edits to be 
+undone and end has not been invoked this returns the value from the UIManager property "AbstractUndoableEdit.undoText". 
+
+
+
+    Returns: a description of the undoable form of this edit 
+
+*javax.swing.undo.UndoManager.redo()*
+
+public synchronized void redo()
+  throws |javax.swing.undo.CannotRedoException|
+         
+Redoes the appropriate edits. If end has been invoked this calls through to the superclass. Otherwise this invokes redo on all 
+edits between the index of the next edit and the next significant edit, updating the index of the next edit appropriately. 
+
+
+
+*javax.swing.undo.UndoManager.redoTo(UndoableEdit)*
+
+protected void redoTo(javax.swing.undo.UndoableEdit edit)
+  throws |javax.swing.undo.CannotRedoException|
+         
+Redoes all changes from the index of the next edit to edit, updating the index of the next edit appropriately. 
+
+
+
+*javax.swing.undo.UndoManager.setLimit(int)*
+
+public synchronized void setLimit(int l)
+
+Sets the maximum number of edits this UndoManager holds. A value less than 0 indicates the number of edits is not limited. If 
+edits need to be discarded to shrink the limit, die will be invoked on them in the reverse order they were added. The default 
+is 100. 
+
+
+    l - the new limit 
+
+*javax.swing.undo.UndoManager.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string that displays and identifies this object's properties. 
+
+
+
+    Returns: a String representation of this object 
+
+*javax.swing.undo.UndoManager.trimEdits(int,int)*
+
+protected void trimEdits(
+  int from,
+  int to)
+
+Removes edits in the specified range. All edits in the given range (inclusive, and in reverse order) will have die invoked on 
+them and are removed from the list of edits. This has no effect if from > to. 
+
+
+    from - the minimum index to remove 
+    to - the maximum index to remove 
+
+*javax.swing.undo.UndoManager.trimForLimit()*
+
+protected void trimForLimit()
+
+Reduces the number of queued edits to a range of size limit, centered on the index of the next edit. 
+
+
+
+*javax.swing.undo.UndoManager.undo()*
+
+public synchronized void undo()
+  throws |javax.swing.undo.CannotUndoException|
+         
+Undoes the appropriate edits. If end has been invoked this calls through to the superclass, otherwise this invokes undo on all 
+edits between the index of the next edit and the last significant edit, updating the index of the next edit appropriately. 
+
+
+
+*javax.swing.undo.UndoManager.undoableEditHappened(UndoableEditEvent)*
+
+public void undoableEditHappened(javax.swing.event.UndoableEditEvent e)
+
+An UndoableEditListener method. This invokes addEdit with e.getEdit(). 
+
+
+    e - the UndoableEditEvent the UndoableEditEvent will be added from 
+
+*javax.swing.undo.UndoManager.undoOrRedo()*
+
+public synchronized void undoOrRedo()
+  throws |javax.swing.undo.CannotRedoException|
+         |javax.swing.undo.CannotUndoException|
+         
+Convenience method that invokes one of undo or redo. If any edits have been undone (the index of the next edit is less than the 
+length of the edits list) this invokes redo, otherwise it invokes undo. 
+
+
+
+*javax.swing.undo.UndoManager.undoTo(UndoableEdit)*
+
+protected void undoTo(javax.swing.undo.UndoableEdit edit)
+  throws |javax.swing.undo.CannotUndoException|
+         
+Undoes all changes from the index of the next edit to edit, updating the index of the next edit appropriately. 
+
+
+
+

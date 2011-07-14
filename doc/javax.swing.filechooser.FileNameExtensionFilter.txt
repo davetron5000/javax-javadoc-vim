@@ -1,0 +1,91 @@
+*javax.swing.filechooser.FileNameExtensionFilter* *FileNameExtensionFilter* An implementation ofFileFilterthat filters using a
+ 
+
+public final class FileNameExtensionFilter
+  extends    |javax.swing.filechooser.FileFilter|
+
+|javax.swing.filechooser.FileNameExtensionFilter_Description|
+|javax.swing.filechooser.FileNameExtensionFilter_Fields|
+|javax.swing.filechooser.FileNameExtensionFilter_Constructors|
+|javax.swing.filechooser.FileNameExtensionFilter_Methods|
+
+================================================================================================================================
+
+*javax.swing.filechooser.FileNameExtensionFilter_Constructors*
+|javax.swing.filechooser.FileNameExtensionFilter(String,String...)|Creates aFileNameExtensionFilterwith the specified  descript
+
+*javax.swing.filechooser.FileNameExtensionFilter_Methods*
+|javax.swing.filechooser.FileNameExtensionFilter.accept(File)|Tests the specified file, returning true if the file is  accepted
+|javax.swing.filechooser.FileNameExtensionFilter.getDescription()|The description of this filter.
+|javax.swing.filechooser.FileNameExtensionFilter.getExtensions()|Returns the set of file name extensions files are tested again
+|javax.swing.filechooser.FileNameExtensionFilter.toString()|Returns a string representation of theFileNameExtensionFilter.
+
+*javax.swing.filechooser.FileNameExtensionFilter_Description*
+
+An implementation ofFileFilterthat filters using a specified set of extensions. The extension for a file is the portion of the 
+file name after the last ".". Files whose name does not contain a "." have no file name extension. File name extension 
+comparisons are case insensitive. 
+
+The following example creates aFileNameExtensionFilterthat will showjpgfiles: 
+
+FileFilter filter = new FileNameExtensionFilter("JPEG file", "jpg", "jpeg"); JFileChooser fileChooser = ...; 
+fileChooser.addChoosableFileFilter(filter); 
+
+
+
+*javax.swing.filechooser.FileNameExtensionFilter(String,String...)*
+
+public FileNameExtensionFilter(
+  java.lang.String description,
+  java.lang.String[] extensions)
+
+Creates aFileNameExtensionFilterwith the specified description and file name extensions. The 
+returnedFileNameExtensionFilterwill accept all directories and any file with a file name extension contained inextensions. 
+
+    description - textual description for the filter, may be {@code null} 
+    extensions - the accepted file name extensions 
+
+*javax.swing.filechooser.FileNameExtensionFilter.accept(File)*
+
+public boolean accept(java.io.File f)
+
+Tests the specified file, returning true if the file is accepted, false otherwise. True is returned if the extension matches 
+one of the file name extensions of thisFileFilter, or the file is a directory. 
+
+
+    f - the {@code File} to test 
+
+    Returns: true if the file is to be accepted, false otherwise 
+
+*javax.swing.filechooser.FileNameExtensionFilter.getDescription()*
+
+public |java.lang.String| getDescription()
+
+The description of this filter. For example: "JPG and GIF Images." 
+
+
+
+    Returns: the description of this filter 
+
+*javax.swing.filechooser.FileNameExtensionFilter.getExtensions()*
+
+public |java.lang.String|[] getExtensions()
+
+Returns the set of file name extensions files are tested against. 
+
+
+
+    Returns: the set of file name extensions files are tested against 
+
+*javax.swing.filechooser.FileNameExtensionFilter.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string representation of theFileNameExtensionFilter. This method is intended to be used for debugging purposes, and 
+the content and format of the returned string may vary between implementations. 
+
+
+
+    Returns: a string representation of this {@code FileNameExtensionFilter} 
+
+

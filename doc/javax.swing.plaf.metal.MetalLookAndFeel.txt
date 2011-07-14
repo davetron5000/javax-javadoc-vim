@@ -1,0 +1,752 @@
+*javax.swing.plaf.metal.MetalLookAndFeel* *MetalLookAndFeel* The Java Look and Feel, otherwise known as Metal.
+
+public class MetalLookAndFeel
+  extends    |javax.swing.plaf.basic.BasicLookAndFeel|
+
+|javax.swing.plaf.metal.MetalLookAndFeel_Description|
+|javax.swing.plaf.metal.MetalLookAndFeel_Fields|
+|javax.swing.plaf.metal.MetalLookAndFeel_Constructors|
+|javax.swing.plaf.metal.MetalLookAndFeel_Methods|
+
+================================================================================================================================
+
+*javax.swing.plaf.metal.MetalLookAndFeel_Constructors*
+|javax.swing.plaf.metal.MetalLookAndFeel()|
+
+*javax.swing.plaf.metal.MetalLookAndFeel_Methods*
+|javax.swing.plaf.metal.MetalLookAndFeel.createDefaultTheme()|Ensures the currentMetalThemeisnon-null.
+|javax.swing.plaf.metal.MetalLookAndFeel.getAcceleratorForeground()|Returns the accelerator foreground color of the current the
+|javax.swing.plaf.metal.MetalLookAndFeel.getAcceleratorSelectedForeground()|Returns the accelerator selected foreground color o
+|javax.swing.plaf.metal.MetalLookAndFeel.getBlack()|Returns the black color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getControl()|Returns the control color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getControlDarkShadow()|Returns the control dark shadow color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getControlDisabled()|Returns the control disabled color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getControlHighlight()|Returns the control highlight color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getControlInfo()|Returns the control info color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getControlShadow()|Returns the control shadow color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getControlTextColor()|Returns the control text color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getControlTextFont()|Returns the control text font of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getCurrentTheme()|Return the theme currently being used by MetalLookAndFeel.
+|javax.swing.plaf.metal.MetalLookAndFeel.getDefaults()|Returns the look and feel defaults.
+|javax.swing.plaf.metal.MetalLookAndFeel.getDescription()|Returns a short description of this look and feel.
+|javax.swing.plaf.metal.MetalLookAndFeel.getDesktopColor()|Returns the desktop color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getDisabledIcon(JComponent,Icon)|Returns an Icon with a disabled appearance.
+|javax.swing.plaf.metal.MetalLookAndFeel.getDisabledSelectedIcon(JComponent,Icon)|Returns an Icon for use by disabled  componen
+|javax.swing.plaf.metal.MetalLookAndFeel.getFocusColor()|Returns the focus color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getHighlightedTextColor()|Returns the highlighted text color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getID()|Returns an identifier for this look and feel.
+|javax.swing.plaf.metal.MetalLookAndFeel.getInactiveControlTextColor()|Returns the inactive control text color of the current t
+|javax.swing.plaf.metal.MetalLookAndFeel.getInactiveSystemTextColor()|Returns the inactive system text color of the current the
+|javax.swing.plaf.metal.MetalLookAndFeel.getLayoutStyle()|Returns aLayoutStyleimplementing the Java look and feel  design guide
+|javax.swing.plaf.metal.MetalLookAndFeel.getMenuBackground()|Returns the menu background color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getMenuDisabledForeground()|Returns the menu disabled foreground color of the current 
+|javax.swing.plaf.metal.MetalLookAndFeel.getMenuForeground()|Returns the menu foreground color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getMenuSelectedBackground()|Returns the menu selected background color of the current 
+|javax.swing.plaf.metal.MetalLookAndFeel.getMenuSelectedForeground()|Returns the menu selected foreground color of the current 
+|javax.swing.plaf.metal.MetalLookAndFeel.getMenuTextFont()|Returns the menu text font of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getName()|Returns the name of this look and feel.
+|javax.swing.plaf.metal.MetalLookAndFeel.getPrimaryControl()|Returns the primary control color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getPrimaryControlDarkShadow()|Returns the primary control dark shadow color of the cur
+|javax.swing.plaf.metal.MetalLookAndFeel.getPrimaryControlHighlight()|Returns the primary control highlight color of the curren
+|javax.swing.plaf.metal.MetalLookAndFeel.getPrimaryControlInfo()|Returns the primary control info color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getPrimaryControlShadow()|Returns the primary control shadow color of the current them
+|javax.swing.plaf.metal.MetalLookAndFeel.getSeparatorBackground()|Returns the separator background color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getSeparatorForeground()|Returns the separator foreground color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getSubTextFont()|Returns the sub-text font of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getSupportsWindowDecorations()|Returnstrue; metal can provideWindowdecorations.
+|javax.swing.plaf.metal.MetalLookAndFeel.getSystemTextColor()|Returns the system text color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getSystemTextFont()|Returns the sytem text font of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getTextHighlightColor()|Returns the text highlight color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getUserTextColor()|Returns the user text color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getUserTextFont()|Returns the user text font of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getWhite()|Returns the white color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getWindowBackground()|Returns the window background color of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getWindowTitleBackground()|Returns the window title background color of the current  t
+|javax.swing.plaf.metal.MetalLookAndFeel.getWindowTitleFont()|Returns the window title font of the current theme.
+|javax.swing.plaf.metal.MetalLookAndFeel.getWindowTitleForeground()|Returns the window title foreground color of the current  t
+|javax.swing.plaf.metal.MetalLookAndFeel.getWindowTitleInactiveBackground()|Returns the window title inactive background color 
+|javax.swing.plaf.metal.MetalLookAndFeel.getWindowTitleInactiveForeground()|Returns the window title inactive foreground color 
+|javax.swing.plaf.metal.MetalLookAndFeel.initClassDefaults(UIDefaults)|Populatestablewith mappings fromuiClassIDto  the fully q
+|javax.swing.plaf.metal.MetalLookAndFeel.initComponentDefaults(UIDefaults)|Populatestablewith the defaults for metal.
+|javax.swing.plaf.metal.MetalLookAndFeel.initSystemColorDefaults(UIDefaults)|Populatestablewith system colors.
+|javax.swing.plaf.metal.MetalLookAndFeel.isNativeLookAndFeel()|Returnsfalse;MetalLookAndFeelis not a native  look and feel.
+|javax.swing.plaf.metal.MetalLookAndFeel.isSupportedLookAndFeel()|Returnstrue;MetalLookAndFeelcan be run on  any platform.
+|javax.swing.plaf.metal.MetalLookAndFeel.provideErrorFeedback(Component)|
+|javax.swing.plaf.metal.MetalLookAndFeel.setCurrentTheme(MetalTheme)|Set the theme used by MetalLookAndFeel.
+
+*javax.swing.plaf.metal.MetalLookAndFeel_Description*
+
+The Java Look and Feel, otherwise known as Metal. 
+
+Each of theComponentUIs provided byMetalLookAndFeelderives its behavior from the defaults table. Unless otherwise noted each of 
+theComponentUIimplementations in this package document the set of defaults they use. Unless otherwise noted the defaults are 
+installed at the timeinstallUIis invoked, and follow the recommendations outlined inLookAndFeelfor installing defaults. 
+MetalLookAndFeelderives it's color palette and fonts fromMetalTheme. The default theme isOceanTheme. The theme can be changed 
+using thesetCurrentThememethod, refer to it for details on changing the theme. Prior to 1.5 the default theme 
+wasDefaultMetalTheme. The system property"swing.metalTheme"can be set to"steel"to indicate the default should 
+beDefaultMetalTheme. 
+
+Warning: Serialized objects of this class will not be compatible with future Swing releases. The current serialization support 
+is appropriate for short term storage or RMI between applications running the same version of Swing. As of 1.4, support for 
+long term storage of all JavaBeansTM has been added to the java.beans package. Please see (|java.beans.XMLEncoder|) . 
+
+
+
+*javax.swing.plaf.metal.MetalLookAndFeel()*
+
+public MetalLookAndFeel()
+
+
+
+
+*javax.swing.plaf.metal.MetalLookAndFeel.createDefaultTheme()*
+
+protected void createDefaultTheme()
+
+Ensures the currentMetalThemeisnon-null. This is a cover method forgetCurrentTheme. 
+
+
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getAcceleratorForeground()*
+
+public static |javax.swing.plaf.ColorUIResource| getAcceleratorForeground()
+
+Returns the accelerator foreground color of the current theme. This is a cover method 
+forgetCurrentTheme().getAcceleratorForeground(). 
+
+
+
+    Returns: the separator accelerator foreground color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getAcceleratorSelectedForeground()*
+
+public static |javax.swing.plaf.ColorUIResource| getAcceleratorSelectedForeground()
+
+Returns the accelerator selected foreground color of the current theme. This is a cover method 
+forgetCurrentTheme().getAcceleratorSelectedForeground(). 
+
+
+
+    Returns: the accelerator selected foreground color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getBlack()*
+
+public static |javax.swing.plaf.ColorUIResource| getBlack()
+
+Returns the black color of the current theme. This is a cover method forgetCurrentTheme().getBlack(). 
+
+
+
+    Returns: the black color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getControl()*
+
+public static |javax.swing.plaf.ColorUIResource| getControl()
+
+Returns the control color of the current theme. This is a cover method forgetCurrentTheme().getControl(). 
+
+
+
+    Returns: the control color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getControlDarkShadow()*
+
+public static |javax.swing.plaf.ColorUIResource| getControlDarkShadow()
+
+Returns the control dark shadow color of the current theme. This is a cover method forgetCurrentTheme().getControlDarkShadow(). 
+
+
+
+    Returns: the control dark shadow color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getControlDisabled()*
+
+public static |javax.swing.plaf.ColorUIResource| getControlDisabled()
+
+Returns the control disabled color of the current theme. This is a cover method forgetCurrentTheme().getControlDisabled(). 
+
+
+
+    Returns: the control disabled color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getControlHighlight()*
+
+public static |javax.swing.plaf.ColorUIResource| getControlHighlight()
+
+Returns the control highlight color of the current theme. This is a cover method forgetCurrentTheme().getControlHighlight(). 
+
+
+
+    Returns: the control highlight color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getControlInfo()*
+
+public static |javax.swing.plaf.ColorUIResource| getControlInfo()
+
+Returns the control info color of the current theme. This is a cover method forgetCurrentTheme().getControlInfo(). 
+
+
+
+    Returns: the control info color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getControlShadow()*
+
+public static |javax.swing.plaf.ColorUIResource| getControlShadow()
+
+Returns the control shadow color of the current theme. This is a cover method forgetCurrentTheme().getControlShadow(). 
+
+
+
+    Returns: the control shadow color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getControlTextColor()*
+
+public static |javax.swing.plaf.ColorUIResource| getControlTextColor()
+
+Returns the control text color of the current theme. This is a cover method forgetCurrentTheme().getControlTextColor(). 
+
+
+
+    Returns: the control text color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getControlTextFont()*
+
+public static |javax.swing.plaf.FontUIResource| getControlTextFont()
+
+Returns the control text font of the current theme. This is a cover method forgetCurrentTheme().getControlTextColor(). 
+
+
+
+    Returns: the control text font 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getCurrentTheme()*
+
+public static |javax.swing.plaf.metal.MetalTheme| getCurrentTheme()
+
+Return the theme currently being used by MetalLookAndFeel. If the current theme isnull, the default theme is created. 
+
+
+
+    Returns: the current theme 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getDefaults()*
+
+public |javax.swing.UIDefaults| getDefaults()
+
+Returns the look and feel defaults. This invokes, in 
+order,createDefaultTheme(),super.getDefaults()andgetCurrentTheme().addCustomEntriesToTable(table). 
+
+While this method is public, it should only be invoked by theUIManagerwhen the look and feel is set as the current look and 
+feel and afterinitializehas been invoked. 
+
+
+
+    Returns: the look and feel defaults 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getDescription()*
+
+public |java.lang.String| getDescription()
+
+Returns a short description of this look and feel. This returns"The Java(tm) Look and Feel". 
+
+
+
+    Returns: a short description for the look and feel 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getDesktopColor()*
+
+public static |javax.swing.plaf.ColorUIResource| getDesktopColor()
+
+Returns the desktop color of the current theme. This is a cover method forgetCurrentTheme().getDesktopColor(). 
+
+
+
+    Returns: the desktop color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getDisabledIcon(JComponent,Icon)*
+
+public |javax.swing.Icon| getDisabledIcon(
+  javax.swing.JComponent component,
+  javax.swing.Icon icon)
+
+Returns an Icon with a disabled appearance. This method is used to generate a disabled Icon when one has not been specified. 
+For example, if you create a JButton and only specify an Icon via setIcon this method will be called to generate the disabled 
+Icon. If null is passed as icon this method returns null. 
+
+Some look and feels might not render the disabled Icon, in which case they will ignore this. 
+
+
+    component - JComponent that will display the Icon, may be null 
+    icon - Icon to generate disable icon from. 
+
+    Returns: Disabled icon, or null if a suitable Icon can not be generated. 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getDisabledSelectedIcon(JComponent,Icon)*
+
+public |javax.swing.Icon| getDisabledSelectedIcon(
+  javax.swing.JComponent component,
+  javax.swing.Icon icon)
+
+Returns an Icon for use by disabled components that are also selected. This method is used to generate an Icon for components 
+that are in both the disabled and selected states but do not have a specific Icon for this state. For example, if you create a 
+JButton and only specify an Icon via setIcon this method will be called to generate the disabled and selected Icon. If null is 
+passed as icon this method returns null. 
+
+Some look and feels might not render the disabled and selected Icon, in which case they will ignore this. 
+
+
+    component - JComponent that will display the Icon, may be null 
+    icon - Icon to generate disabled and selected icon from. 
+
+    Returns: Disabled and Selected icon, or null if a suitable Icon can not be generated. 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getFocusColor()*
+
+public static |javax.swing.plaf.ColorUIResource| getFocusColor()
+
+Returns the focus color of the current theme. This is a cover method forgetCurrentTheme().getFocusColor(). 
+
+
+
+    Returns: the focus color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getHighlightedTextColor()*
+
+public static |javax.swing.plaf.ColorUIResource| getHighlightedTextColor()
+
+Returns the highlighted text color of the current theme. This is a cover method forgetCurrentTheme().getHighlightedTextColor(). 
+
+
+
+    Returns: the highlighted text color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getID()*
+
+public |java.lang.String| getID()
+
+Returns an identifier for this look and feel. This returns"Metal". 
+
+
+
+    Returns: the identifier of this look and feel 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getInactiveControlTextColor()*
+
+public static |javax.swing.plaf.ColorUIResource| getInactiveControlTextColor()
+
+Returns the inactive control text color of the current theme. This is a cover method 
+forgetCurrentTheme().getInactiveControlTextColor(). 
+
+
+
+    Returns: the inactive control text color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getInactiveSystemTextColor()*
+
+public static |javax.swing.plaf.ColorUIResource| getInactiveSystemTextColor()
+
+Returns the inactive system text color of the current theme. This is a cover method 
+forgetCurrentTheme().getInactiveSystemTextColor(). 
+
+
+
+    Returns: the inactive system text color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getLayoutStyle()*
+
+public |javax.swing.LayoutStyle| getLayoutStyle()
+
+Returns aLayoutStyleimplementing the Java look and feel design guidelines as specified at 
+http://java.sun.com/products/jlf/ed2/book/HIG.Visual2.html. 
+
+
+
+    Returns: LayoutStyle implementing the Java look and feel design guidelines 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getMenuBackground()*
+
+public static |javax.swing.plaf.ColorUIResource| getMenuBackground()
+
+Returns the menu background color of the current theme. This is a cover method forgetCurrentTheme().getMenuBackground(). 
+
+
+
+    Returns: the menu background color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getMenuDisabledForeground()*
+
+public static |javax.swing.plaf.ColorUIResource| getMenuDisabledForeground()
+
+Returns the menu disabled foreground color of the current theme. This is a cover method 
+forgetCurrentTheme().getMenuDisabledForeground(). 
+
+
+
+    Returns: the menu disabled foreground color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getMenuForeground()*
+
+public static |javax.swing.plaf.ColorUIResource| getMenuForeground()
+
+Returns the menu foreground color of the current theme. This is a cover method forgetCurrentTheme().getMenuForeground(). 
+
+
+
+    Returns: the menu foreground color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getMenuSelectedBackground()*
+
+public static |javax.swing.plaf.ColorUIResource| getMenuSelectedBackground()
+
+Returns the menu selected background color of the current theme. This is a cover method 
+forgetCurrentTheme().getMenuSelectedBackground(). 
+
+
+
+    Returns: the menu selected background color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getMenuSelectedForeground()*
+
+public static |javax.swing.plaf.ColorUIResource| getMenuSelectedForeground()
+
+Returns the menu selected foreground color of the current theme. This is a cover method 
+forgetCurrentTheme().getMenuSelectedForeground(). 
+
+
+
+    Returns: the menu selected foreground color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getMenuTextFont()*
+
+public static |javax.swing.plaf.FontUIResource| getMenuTextFont()
+
+Returns the menu text font of the current theme. This is a cover method forgetCurrentTheme().getMenuTextFont(). 
+
+
+
+    Returns: the menu text font 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getName()*
+
+public |java.lang.String| getName()
+
+Returns the name of this look and feel. This returns"Metal". 
+
+
+
+    Returns: the name of this look and feel 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getPrimaryControl()*
+
+public static |javax.swing.plaf.ColorUIResource| getPrimaryControl()
+
+Returns the primary control color of the current theme. This is a cover method forgetCurrentTheme().getPrimaryControl(). 
+
+
+
+    Returns: the primary control color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getPrimaryControlDarkShadow()*
+
+public static |javax.swing.plaf.ColorUIResource| getPrimaryControlDarkShadow()
+
+Returns the primary control dark shadow color of the current theme. This is a cover method 
+forgetCurrentTheme().getPrimaryControlDarkShadow(). 
+
+
+
+    Returns: the primary control dark shadow color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getPrimaryControlHighlight()*
+
+public static |javax.swing.plaf.ColorUIResource| getPrimaryControlHighlight()
+
+Returns the primary control highlight color of the current theme. This is a cover method 
+forgetCurrentTheme().getPrimaryControlHighlight(). 
+
+
+
+    Returns: the primary control highlight color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getPrimaryControlInfo()*
+
+public static |javax.swing.plaf.ColorUIResource| getPrimaryControlInfo()
+
+Returns the primary control info color of the current theme. This is a cover method 
+forgetCurrentTheme().getPrimaryControlInfo(). 
+
+
+
+    Returns: the primary control info color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getPrimaryControlShadow()*
+
+public static |javax.swing.plaf.ColorUIResource| getPrimaryControlShadow()
+
+Returns the primary control shadow color of the current theme. This is a cover method 
+forgetCurrentTheme().getPrimaryControlShadow(). 
+
+
+
+    Returns: the primary control shadow color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getSeparatorBackground()*
+
+public static |javax.swing.plaf.ColorUIResource| getSeparatorBackground()
+
+Returns the separator background color of the current theme. This is a cover method 
+forgetCurrentTheme().getSeparatorBackground(). 
+
+
+
+    Returns: the separator background color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getSeparatorForeground()*
+
+public static |javax.swing.plaf.ColorUIResource| getSeparatorForeground()
+
+Returns the separator foreground color of the current theme. This is a cover method 
+forgetCurrentTheme().getSeparatorForeground(). 
+
+
+
+    Returns: the separator foreground color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getSubTextFont()*
+
+public static |javax.swing.plaf.FontUIResource| getSubTextFont()
+
+Returns the sub-text font of the current theme. This is a cover method forgetCurrentTheme().getSubTextFont(). 
+
+
+
+    Returns: the sub-text font 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getSupportsWindowDecorations()*
+
+public boolean getSupportsWindowDecorations()
+
+Returnstrue; metal can provideWindowdecorations. 
+
+
+
+    Returns: 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getSystemTextColor()*
+
+public static |javax.swing.plaf.ColorUIResource| getSystemTextColor()
+
+Returns the system text color of the current theme. This is a cover method forgetCurrentTheme().getSystemTextColor(). 
+
+
+
+    Returns: the system text color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getSystemTextFont()*
+
+public static |javax.swing.plaf.FontUIResource| getSystemTextFont()
+
+Returns the sytem text font of the current theme. This is a cover method forgetCurrentTheme().getSystemTextFont(). 
+
+
+
+    Returns: the system text font 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getTextHighlightColor()*
+
+public static |javax.swing.plaf.ColorUIResource| getTextHighlightColor()
+
+Returns the text highlight color of the current theme. This is a cover method forgetCurrentTheme().getTextHighlightColor(). 
+
+
+
+    Returns: the text highlight color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getUserTextColor()*
+
+public static |javax.swing.plaf.ColorUIResource| getUserTextColor()
+
+Returns the user text color of the current theme. This is a cover method forgetCurrentTheme().getUserTextColor(). 
+
+
+
+    Returns: the user text color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getUserTextFont()*
+
+public static |javax.swing.plaf.FontUIResource| getUserTextFont()
+
+Returns the user text font of the current theme. This is a cover method forgetCurrentTheme().getUserTextFont(). 
+
+
+
+    Returns: the user text font 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getWhite()*
+
+public static |javax.swing.plaf.ColorUIResource| getWhite()
+
+Returns the white color of the current theme. This is a cover method forgetCurrentTheme().getWhite(). 
+
+
+
+    Returns: the white color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getWindowBackground()*
+
+public static |javax.swing.plaf.ColorUIResource| getWindowBackground()
+
+Returns the window background color of the current theme. This is a cover method forgetCurrentTheme().getWindowBackground(). 
+
+
+
+    Returns: the window background color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getWindowTitleBackground()*
+
+public static |javax.swing.plaf.ColorUIResource| getWindowTitleBackground()
+
+Returns the window title background color of the current theme. This is a cover method 
+forgetCurrentTheme().getWindowTitleBackground(). 
+
+
+
+    Returns: the window title background color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getWindowTitleFont()*
+
+public static |javax.swing.plaf.FontUIResource| getWindowTitleFont()
+
+Returns the window title font of the current theme. This is a cover method forgetCurrentTheme().getWindowTitleFont(). 
+
+
+
+    Returns: the window title font 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getWindowTitleForeground()*
+
+public static |javax.swing.plaf.ColorUIResource| getWindowTitleForeground()
+
+Returns the window title foreground color of the current theme. This is a cover method 
+forgetCurrentTheme().getWindowTitleForeground(). 
+
+
+
+    Returns: the window title foreground color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getWindowTitleInactiveBackground()*
+
+public static |javax.swing.plaf.ColorUIResource| getWindowTitleInactiveBackground()
+
+Returns the window title inactive background color of the current theme. This is a cover method 
+forgetCurrentTheme().getWindowTitleInactiveBackground(). 
+
+
+
+    Returns: the window title inactive background color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.getWindowTitleInactiveForeground()*
+
+public static |javax.swing.plaf.ColorUIResource| getWindowTitleInactiveForeground()
+
+Returns the window title inactive foreground color of the current theme. This is a cover method 
+forgetCurrentTheme().getWindowTitleInactiveForeground(). 
+
+
+
+    Returns: the window title inactive foreground color 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.initClassDefaults(UIDefaults)*
+
+protected void initClassDefaults(javax.swing.UIDefaults table)
+
+Populatestablewith mappings fromuiClassIDto the fully qualified name of the ui class.MetalLookAndFeelregisters an entry for 
+each of the classes in the packagejavax.swing.plaf.metalthat are named MetalXXXUI. The stringXXXis one of Swing's uiClassIDs. 
+For theuiClassIDsthat do not have a class in metal, the corresponding class injavax.swing.plaf.basicis used. For example, metal 
+does not have a class named"MetalColorChooserUI", as such,javax.swing.plaf.basic.BasicColorChooserUIis used. 
+
+
+    table - the {@code UIDefaults} instance the entries are added to 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.initComponentDefaults(UIDefaults)*
+
+protected void initComponentDefaults(javax.swing.UIDefaults table)
+
+Populatestablewith the defaults for metal. 
+
+
+    table - the {@code UIDefaults} to add the values to 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.initSystemColorDefaults(UIDefaults)*
+
+protected void initSystemColorDefaults(javax.swing.UIDefaults table)
+
+Populatestablewith system colors. The following values are added totable: 
+
+Key Value 
+
+"desktop" theme.getDesktopColor() "activeCaption" theme.getWindowTitleBackground() "activeCaptionText" 
+theme.getWindowTitleForeground() "activeCaptionBorder" theme.getPrimaryControlShadow() "inactiveCaption" 
+theme.getWindowTitleInactiveBackground() "inactiveCaptionText" theme.getWindowTitleInactiveForeground() "inactiveCaptionBorder" 
+theme.getControlShadow() "window" theme.getWindowBackground() "windowBorder" theme.getControl() "windowText" 
+theme.getUserTextColor() "menu" theme.getMenuBackground() "menuText" theme.getMenuForeground() "text" 
+theme.getWindowBackground() "textText" theme.getUserTextColor() "textHighlight" theme.getTextHighlightColor() 
+"textHighlightText" theme.getHighlightedTextColor() "textInactiveText" theme.getInactiveSystemTextColor() "control" 
+theme.getControl() "controlText" theme.getControlTextColor() "controlHighlight" theme.getControlHighlight() 
+"controlLtHighlight" theme.getControlHighlight() "controlShadow" theme.getControlShadow() "controlDkShadow" 
+theme.getControlDarkShadow() "scrollbar" theme.getControl() "info" theme.getPrimaryControl() "infoText" 
+theme.getPrimaryControlInfo() The valuethemecorresponds to the currentMetalTheme. 
+
+
+    table - the {@code UIDefaults} object the values are added to 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.isNativeLookAndFeel()*
+
+public boolean isNativeLookAndFeel()
+
+Returnsfalse;MetalLookAndFeelis not a native look and feel. 
+
+
+
+    Returns: {@code false} 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.isSupportedLookAndFeel()*
+
+public boolean isSupportedLookAndFeel()
+
+Returnstrue;MetalLookAndFeelcan be run on any platform. 
+
+
+
+    Returns: 
+
+*javax.swing.plaf.metal.MetalLookAndFeel.provideErrorFeedback(Component)*
+
+public void provideErrorFeedback(java.awt.Component component)
+
+
+
+
+
+*javax.swing.plaf.metal.MetalLookAndFeel.setCurrentTheme(MetalTheme)*
+
+public static void setCurrentTheme(javax.swing.plaf.metal.MetalTheme theme)
+
+Set the theme used by MetalLookAndFeel. 
+
+After the theme is set,MetalLookAndFeelneeds to be re-installed and the uis need to be recreated. The following shows how to do 
+this: 
+
+MetalLookAndFeel.setCurrentTheme(theme); 
+
+// re-install the Metal Look and Feel UIManager.setLookAndFeel(new MetalLookAndFeel()); 
+
+// Update the ComponentUIs for all Components. This // needs to be invoked for all windows. 
+SwingUtilities.updateComponentTreeUI(rootComponent); 
+
+If this is not done the results are undefined. 
+
+
+    theme - the theme to use 
+
+

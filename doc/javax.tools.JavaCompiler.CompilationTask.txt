@@ -1,0 +1,58 @@
+*javax.tools.JavaCompiler.CompilationTask* *JavaCompiler.CompilationTask* Interface representing a future for a compilation task
+
+public static interface interface JavaCompiler.CompilationTask
+
+  implements |java.util.concurrent.Callable|
+
+|javax.tools.JavaCompiler.CompilationTask_Description|
+|javax.tools.JavaCompiler.CompilationTask_Fields|
+|javax.tools.JavaCompiler.CompilationTask_Constructors|
+|javax.tools.JavaCompiler.CompilationTask_Methods|
+
+================================================================================================================================
+
+*javax.tools.JavaCompiler.CompilationTask_Methods*
+|javax.tools.JavaCompiler.CompilationTask.call()|Performs this compilation task.
+|javax.tools.JavaCompiler.CompilationTask.setLocale(Locale)|Set the locale to be applied when formatting diagnostics and  other
+|javax.tools.JavaCompiler.CompilationTask.setProcessors(Iterable<?extendsProcessor>)|Sets processors (for annotation processing
+
+*javax.tools.JavaCompiler.CompilationTask_Description*
+
+Interface representing a future for a compilation task. The compilation task has not yet started. To start the task, call the 
+call(|javax.tools.JavaCompiler.CompilationTask|) method. 
+
+Before calling the call method, additional aspects of the task can be configured, for example, by calling the 
+setProcessors(|javax.tools.JavaCompiler.CompilationTask|) method. 
+
+
+
+*javax.tools.JavaCompiler.CompilationTask.call()*
+
+public |java.lang.Boolean| call()
+
+Performs this compilation task. The compilation may only be performed once. Subsequent calls to this method throw 
+IllegalStateException. 
+
+
+
+    Returns: true if and only all the files compiled without errors; false otherwise 
+
+*javax.tools.JavaCompiler.CompilationTask.setLocale(Locale)*
+
+public void setLocale(java.util.Locale locale)
+
+Set the locale to be applied when formatting diagnostics and other localized data. 
+
+
+    locale - the locale to apply; {@code null} means apply no locale 
+
+*javax.tools.JavaCompiler.CompilationTask.setProcessors(Iterable<?extendsProcessor>)*
+
+public void setProcessors(java.lang.Iterable<? extends javax.annotation.processing.Processor> processors)
+
+Sets processors (for annotation processing). This will bypass the normal discovery mechanism. 
+
+
+    processors - processors (for annotation processing) 
+
+

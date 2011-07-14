@@ -1,0 +1,62 @@
+*javax.swing.JList.DropLocation* *JList.DropLocation* A subclass of TransferHandler.DropLocation representing
+ a drop location f
+
+public static final class JList.DropLocation
+  extends    |javax.swing.TransferHandler.DropLocation|
+
+|javax.swing.JList.DropLocation_Description|
+|javax.swing.JList.DropLocation_Fields|
+|javax.swing.JList.DropLocation_Constructors|
+|javax.swing.JList.DropLocation_Methods|
+
+================================================================================================================================
+
+*javax.swing.JList.DropLocation_Methods*
+|javax.swing.JList.DropLocation.getIndex()|Returns the index where dropped data should be placed in the  list.
+|javax.swing.JList.DropLocation.isInsert()|Returns whether or not this location represents an insert  location.
+|javax.swing.JList.DropLocation.toString()|Returns a string representation of this drop location.
+
+*javax.swing.JList.DropLocation_Description*
+
+A subclass of TransferHandler.DropLocation representing a drop location for a JList. 
+
+
+
+*javax.swing.JList.DropLocation.getIndex()*
+
+public int getIndex()
+
+Returns the index where dropped data should be placed in the list. Interpretation of the value depends on the drop mode set on 
+the associated component. If the drop mode is either DropMode.USE_SELECTION or DropMode.ON, the return value is an index of a 
+row in the list. If the drop mode is DropMode.INSERT, the return value refers to the index where the data should be inserted. 
+If the drop mode is DropMode.ON_OR_INSERT, the value of isInsert() indicates whether the index is an index of a row, or an 
+insert index. 
+
+-1 indicates that the drop occurred over empty space, and no index could be calculated. 
+
+
+
+    Returns: the drop index 
+
+*javax.swing.JList.DropLocation.isInsert()*
+
+public boolean isInsert()
+
+Returns whether or not this location represents an insert location. 
+
+
+
+    Returns: whether or not this is an insert location 
+
+*javax.swing.JList.DropLocation.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string representation of this drop location. This method is intended to be used for debugging purposes, and the 
+content and format of the returned string may vary between implementations. 
+
+
+
+    Returns: a string representation of this drop location 
+
+

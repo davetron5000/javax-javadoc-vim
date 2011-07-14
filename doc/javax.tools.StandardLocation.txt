@@ -1,0 +1,71 @@
+*javax.tools.StandardLocation* *StandardLocation* Standard locations of file objects.
+
+public final enumStandardLocation
+  extends    |java.lang.Enum|
+  implements |javax.tools.JavaFileManager.Location|
+
+|javax.tools.StandardLocation_Description|
+|javax.tools.StandardLocation_Fields|
+|javax.tools.StandardLocation_Constructors|
+|javax.tools.StandardLocation_Methods|
+
+================================================================================================================================
+
+*javax.tools.StandardLocation_Methods*
+|javax.tools.StandardLocation.getName()|
+|javax.tools.StandardLocation.isOutputLocation()|
+|javax.tools.StandardLocation.locationFor(String)|Gets a location object with the given name.
+|javax.tools.StandardLocation.valueOf(String)|
+|javax.tools.StandardLocation.values()|
+
+*javax.tools.StandardLocation_Description*
+
+Standard locations of file objects. 
+
+
+
+*javax.tools.StandardLocation.getName()*
+
+public |java.lang.String| getName()
+
+
+
+
+
+*javax.tools.StandardLocation.isOutputLocation()*
+
+public boolean isOutputLocation()
+
+
+
+
+
+*javax.tools.StandardLocation.locationFor(String)*
+
+public static |javax.tools.JavaFileManager.Location| locationFor(java.lang.String name)
+
+Gets a location object with the given name. The following property must hold:locationFor(x) == locationFor(y)if and only 
+ifx.equals(y). The returned location will be an output location if and only if name ends with"_OUTPUT". 
+
+
+    name - 
+
+    Returns: 
+
+*javax.tools.StandardLocation.valueOf(String)*
+
+public static |javax.tools.StandardLocation| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.tools.StandardLocation.values()*
+
+public static |javax.tools.StandardLocation|[] values()
+
+
+
+
+
+

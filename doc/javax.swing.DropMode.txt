@@ -1,0 +1,40 @@
+*javax.swing.DropMode* *DropMode* Drop modes, used to determine the method by which a component
+ tracks and indicates a drop loc
+
+public final enumDropMode
+  extends    |java.lang.Enum|
+
+|javax.swing.DropMode_Description|
+|javax.swing.DropMode_Fields|
+|javax.swing.DropMode_Constructors|
+|javax.swing.DropMode_Methods|
+
+================================================================================================================================
+
+*javax.swing.DropMode_Methods*
+|javax.swing.DropMode.valueOf(String)|
+|javax.swing.DropMode.values()|
+
+*javax.swing.DropMode_Description*
+
+Drop modes, used to determine the method by which a component tracks and indicates a drop location during drag and drop. 
+
+
+
+*javax.swing.DropMode.valueOf(String)*
+
+public static |javax.swing.DropMode| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.swing.DropMode.values()*
+
+public static |javax.swing.DropMode|[] values()
+
+
+
+
+
+

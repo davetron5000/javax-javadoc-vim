@@ -1,0 +1,139 @@
+*javax.tools.FileObject* *FileObject* File abstraction for tools.
+
+public interface interface FileObject
+
+
+|javax.tools.FileObject_Description|
+|javax.tools.FileObject_Fields|
+|javax.tools.FileObject_Constructors|
+|javax.tools.FileObject_Methods|
+
+================================================================================================================================
+
+*javax.tools.FileObject_Methods*
+|javax.tools.FileObject.delete()|Deletes this file object.
+|javax.tools.FileObject.getCharContent(boolean)|Gets the character content of this file object, if available.
+|javax.tools.FileObject.getLastModified()|Gets the time this file object was last modified.
+|javax.tools.FileObject.getName()|Gets a user-friendly name for this file object.
+|javax.tools.FileObject.openInputStream()|Gets an InputStream for this file object.
+|javax.tools.FileObject.openOutputStream()|Gets an OutputStream for this file object.
+|javax.tools.FileObject.openReader(boolean)|Gets a reader for this object.
+|javax.tools.FileObject.openWriter()|Gets a Writer for this file object.
+|javax.tools.FileObject.toUri()|Returns a URI identifying this file object.
+
+*javax.tools.FileObject_Description*
+
+File abstraction for tools. In this context, file means an abstraction of regular files and other sources of data. For example, 
+a file object can be used to represent regular files, memory cache, or data in databases. 
+
+All methods in this interface might throw a SecurityException if a security exception occurs. 
+
+Unless explicitly allowed, all methods in this interface might throw a NullPointerException if given anullargument. 
+
+
+
+*javax.tools.FileObject.delete()*
+
+public boolean delete()
+
+Deletes this file object. In case of errors, returns false. 
+
+
+
+    Returns: true if and only if this file object is successfully deleted; false otherwise 
+
+*javax.tools.FileObject.getCharContent(boolean)*
+
+public |java.lang.CharSequence| getCharContent(boolean ignoreEncodingErrors)
+  throws |java.io.IOException|
+         
+Gets the character content of this file object, if available. Any byte that cannot be decoded will be replaced by the default 
+translation character. In addition, a diagnostic may be reported unlessignoreEncodingErrorsis true. 
+
+
+    ignoreEncodingErrors - ignore encoding errors if true 
+
+    Returns: a CharSequence if available; {@code null} otherwise 
+
+*javax.tools.FileObject.getLastModified()*
+
+public long getLastModified()
+
+Gets the time this file object was last modified. The time is measured in milliseconds since the epoch (00:00:00 GMT, January 
+1, 1970). 
+
+
+
+    Returns: the time this file object was last modified; or 0 if the file object does not exist, if an I/O error occurred, or if the 
+             operation is not supported 
+
+*javax.tools.FileObject.getName()*
+
+public |java.lang.String| getName()
+
+Gets a user-friendly name for this file object. The exact value returned is not specified but implementations should take care 
+to preserve names as given by the user. For example, if the user writes the filename"BobsApp\Test.java"on the command line, 
+this method should return"BobsApp\Test.java"whereas the toUri(|javax.tools.FileObject|) method might 
+returnfile:///C:/Documents%20and%20Settings/UncleBob/BobsApp/Test.java. 
+
+
+
+    Returns: a user-friendly name 
+
+*javax.tools.FileObject.openInputStream()*
+
+public |java.io.InputStream| openInputStream()
+  throws |java.io.IOException|
+         
+Gets an InputStream for this file object. 
+
+
+
+    Returns: an InputStream 
+
+*javax.tools.FileObject.openOutputStream()*
+
+public |java.io.OutputStream| openOutputStream()
+  throws |java.io.IOException|
+         
+Gets an OutputStream for this file object. 
+
+
+
+    Returns: an OutputStream 
+
+*javax.tools.FileObject.openReader(boolean)*
+
+public |java.io.Reader| openReader(boolean ignoreEncodingErrors)
+  throws |java.io.IOException|
+         
+Gets a reader for this object. The returned reader will replace bytes that cannot be decoded with the default translation 
+character. In addition, the reader may report a diagnostic unlessignoreEncodingErrorsis true. 
+
+
+    ignoreEncodingErrors - ignore encoding errors if true 
+
+    Returns: 
+
+*javax.tools.FileObject.openWriter()*
+
+public |java.io.Writer| openWriter()
+  throws |java.io.IOException|
+         
+Gets a Writer for this file object. 
+
+
+
+    Returns: 
+
+*javax.tools.FileObject.toUri()*
+
+public |java.net.URI| toUri()
+
+Returns a URI identifying this file object. 
+
+
+
+    Returns: 
+
+

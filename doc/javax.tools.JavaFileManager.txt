@@ -1,0 +1,289 @@
+*javax.tools.JavaFileManager* *JavaFileManager* File manager for tools operating on Java programming language
+ source and class 
+
+public interface interface JavaFileManager
+
+  implements |java.io.Closeable|
+             |java.io.Flushable|
+             |javax.tools.OptionChecker|
+
+|javax.tools.JavaFileManager_Description|
+|javax.tools.JavaFileManager_Fields|
+|javax.tools.JavaFileManager_Constructors|
+|javax.tools.JavaFileManager_Methods|
+
+================================================================================================================================
+
+*javax.tools.JavaFileManager_Methods*
+|javax.tools.JavaFileManager.close()|Releases any resources opened by this file manager directly or  indirectly.
+|javax.tools.JavaFileManager.flush()|Flushes any resources opened for output by this file manager  directly or indirectly.
+|javax.tools.JavaFileManager.getClassLoader(JavaFileManager.Location)|Gets a class loader for loading plug-ins from the given  
+|javax.tools.JavaFileManager.getFileForInput(JavaFileManager.Location,String,String)|Gets aFileObject file objectfor input  rep
+|javax.tools.JavaFileManager.getFileForOutput(JavaFileManager.Location,String,String,FileObject)|Gets aFileObject file objectfo
+|javax.tools.JavaFileManager.getJavaFileForInput(JavaFileManager.Location,String,JavaFileObject.Kind)|Gets aJavaFileObject file
+|javax.tools.JavaFileManager.getJavaFileForOutput(JavaFileManager.Location,String,JavaFileObject.Kind,FileObject)|Gets aJavaFil
+|javax.tools.JavaFileManager.handleOption(String,Iterator<String>)|Handles one option.
+|javax.tools.JavaFileManager.hasLocation(JavaFileManager.Location)|Determines if a location is known to this file manager.
+|javax.tools.JavaFileManager.inferBinaryName(JavaFileManager.Location,JavaFileObject)|Infers a binary name of a file object bas
+|javax.tools.JavaFileManager.isSameFile(FileObject,FileObject)|Compares two file objects and return true if they represent the 
+|javax.tools.JavaFileManager.list(JavaFileManager.Location,String,Set<JavaFileObject.Kind>,boolean)|Lists all file objects matc
+
+*javax.tools.JavaFileManager_Description*
+
+File manager for tools operating on Java programming language source and class files. In this context, file means an 
+abstraction of regular files and other sources of data. 
+
+When constructing new JavaFileObjects, the file manager must determine where to create them. For example, if a file manager 
+manages regular files on a file system, it would most likely have a current/working directory to use as default location when 
+creating or finding files. A number of hints can be provided to a file manager as to where to create files. Any file manager 
+might choose to ignore these hints. 
+
+Some methods in this interface use class names. Such class names must be given in the Java Virtual Machine internal form of 
+fully qualified class and interface names. For convenience '.' and '/' are interchangeable. The internal form is defined in 
+chapter four of the Java Virtual Machine Specification. 
+
+Discussion: this means that the names "java/lang.package-info", "java/lang/package-info", "java.lang.package-info", are valid 
+and equivalent. Compare to binary name as defined in the Java Language Specification (JLS) section 13.1 "The Form of a Binary". 
+
+The case of names is significant. All names should be treated as case-sensitive. For example, some file systems have 
+case-insensitive, case-aware file names. File objects representing such files should take care to preserve case by using 
+(|java.io.File|) or similar means. If the system is not case-aware, file objects must use other means to preserve case. 
+
+Relative names: some methods in this interface use relative names. A relative name is a non-null, non-empty sequence of path 
+segments separated by '/'. '.' or '..' are invalid path segments. A valid relative name must match the "path-rootless" rule of 
+RFC3986, section3.3. Informally, this should be true: 
+
+
+
+URI. create(|java.net.URI|) (relativeName). normalize(|java.net.URI|) (). getPath(|java.net.URI|) ().equals(relativeName) 
+
+All methods in this interface might throw a SecurityException. 
+
+An object of this interface is not required to support multi-threaded access, that is, be synchronized. However, it must 
+support concurrent access to different file objects created by this object. 
+
+Implementation note: a consequence of this requirement is that a trivial implementation of output to a 
+(|java.util.jar.JarOutputStream|) is not a sufficient implementation. That is, rather than creating a JavaFileObject that 
+returns the JarOutputStream directly, the contents must be cached until closed and then written to the JarOutputStream. 
+
+Unless explicitly allowed, all methods in this interface might throw a NullPointerException if given anullargument. 
+
+
+
+*javax.tools.JavaFileManager.close()*
+
+public void close()
+  throws |java.io.IOException|
+         
+Releases any resources opened by this file manager directly or indirectly. This might render this file manager useless and the 
+effect of subsequent calls to methods on this object or any objects obtained through this object is undefined unless explicitly 
+allowed. However, closing a file manager which has already been closed has no effect. 
+
+
+
+*javax.tools.JavaFileManager.flush()*
+
+public void flush()
+  throws |java.io.IOException|
+         
+Flushes any resources opened for output by this file manager directly or indirectly. Flushing a closed file manager has no 
+effect. 
+
+
+
+*javax.tools.JavaFileManager.getClassLoader(JavaFileManager.Location)*
+
+public |java.lang.ClassLoader| getClassLoader(javax.tools.JavaFileManager.Location location)
+
+Gets a class loader for loading plug-ins from the given location. For example, to load annotation processors, a compiler will 
+request a class loader for the ANNOTATION_PROCESSOR_PATH(|javax.tools.StandardLocation|) location. 
+
+
+    location - a location 
+
+    Returns: a class loader for the given location; or {@code null} if loading plug-ins from the given location is disabled or if the 
+             location is not known 
+
+*javax.tools.JavaFileManager.getFileForInput(JavaFileManager.Location,String,String)*
+
+public |javax.tools.FileObject| getFileForInput(
+  javax.tools.JavaFileManager.Location location,
+  java.lang.String packageName,
+  java.lang.String relativeName)
+  throws |java.io.IOException|
+         
+Gets a file object(|javax.tools.FileObject|) for input representing the specified relative name in the specified package in the 
+given location. 
+
+If the returned object represents a source(|javax.tools.JavaFileObject.Kind|) or class(|javax.tools.JavaFileObject.Kind|) file, 
+it must be an instance of (|javax.tools.JavaFileObject|) . 
+
+Informally, the file object returned by this method is located in the concatenation of the location, package name, and relative 
+name. For example, to locate the properties file "resources/compiler.properties" in the package "com.sun.tools.javac" in the 
+SOURCE_PATH(|javax.tools.StandardLocation|) location, this method might be called like so: 
+
+getFileForInput(SOURCE_PATH, "com.sun.tools.javac", "resources/compiler.properties"); 
+
+If the call was executed on Windows, with SOURCE_PATH set to "C:\DocumentsandSettings\UncleBob\src\share\classes", a valid 
+result would be a file object representing the file 
+"C:\DocumentsandSettings\UncleBob\src\share\classes\com\sun\tools\javac\resources\compiler.properties". 
+
+
+    location - a location 
+    packageName - a package name 
+    relativeName - a relative name 
+
+    Returns: a file object, might return {@code null} if the file does not exist 
+
+*javax.tools.JavaFileManager.getFileForOutput(JavaFileManager.Location,String,String,FileObject)*
+
+public |javax.tools.FileObject| getFileForOutput(
+  javax.tools.JavaFileManager.Location location,
+  java.lang.String packageName,
+  java.lang.String relativeName,
+  javax.tools.FileObject sibling)
+  throws |java.io.IOException|
+         
+Gets a file object(|javax.tools.FileObject|) for output representing the specified relative name in the specified package in 
+the given location. 
+
+Optionally, this file manager might consider the sibling as a hint for where to place the output. The exact semantics of this 
+hint is unspecified. Sun's compiler, javac, for example, will place class files in the same directories as originating source 
+files unless a class file output directory is provided. To facilitate this behavior, javac might provide the originating source 
+file as sibling when calling this method. 
+
+If the returned object represents a source(|javax.tools.JavaFileObject.Kind|) or class(|javax.tools.JavaFileObject.Kind|) file, 
+it must be an instance of (|javax.tools.JavaFileObject|) . 
+
+Informally, the file object returned by this method is located in the concatenation of the location, package name, and relative 
+name or next to the sibling argument. See getFileForInput(|javax.tools.JavaFileManager|) for an example. 
+
+
+    location - a location 
+    packageName - a package name 
+    relativeName - a relative name 
+    sibling - a file object to be used as hint for placement; might be {@code null} 
+
+    Returns: a file object 
+
+*javax.tools.JavaFileManager.getJavaFileForInput(JavaFileManager.Location,String,JavaFileObject.Kind)*
+
+public |javax.tools.JavaFileObject| getJavaFileForInput(
+  javax.tools.JavaFileManager.Location location,
+  java.lang.String className,
+  javax.tools.JavaFileObject.Kind kind)
+  throws |java.io.IOException|
+         
+Gets a file object(|javax.tools.JavaFileObject|) for input representing the specified class of the specified kind in the given 
+location. 
+
+
+    location - a location 
+    className - the name of a class 
+    kind - the kind of file, must be one of {@link JavaFileObject.Kind#SOURCE SOURCE} or {@link JavaFileObject.Kind#CLASS CLASS} 
+
+    Returns: a file object, might return {@code null} if the file does not exist 
+
+*javax.tools.JavaFileManager.getJavaFileForOutput(JavaFileManager.Location,String,JavaFileObject.Kind,FileObject)*
+
+public |javax.tools.JavaFileObject| getJavaFileForOutput(
+  javax.tools.JavaFileManager.Location location,
+  java.lang.String className,
+  javax.tools.JavaFileObject.Kind kind,
+  javax.tools.FileObject sibling)
+  throws |java.io.IOException|
+         
+Gets a file object(|javax.tools.JavaFileObject|) for output representing the specified class of the specified kind in the given 
+location. 
+
+Optionally, this file manager might consider the sibling as a hint for where to place the output. The exact semantics of this 
+hint is unspecified. Sun's compiler, javac, for example, will place class files in the same directories as originating source 
+files unless a class file output directory is provided. To facilitate this behavior, javac might provide the originating source 
+file as sibling when calling this method. 
+
+
+    location - a location 
+    className - the name of a class 
+    kind - the kind of file, must be one of {@link JavaFileObject.Kind#SOURCE SOURCE} or {@link JavaFileObject.Kind#CLASS CLASS} 
+    sibling - a file object to be used as hint for placement; might be {@code null} 
+
+    Returns: a file object for output 
+
+*javax.tools.JavaFileManager.handleOption(String,Iterator<String>)*
+
+public boolean handleOption(
+  java.lang.String current,
+  java.util.Iterator<java.lang.String> remaining)
+
+Handles one option. Ifcurrentis an option to this file manager it will consume any arguments to that option fromremainingand 
+return true, otherwise return false. 
+
+
+    current - current option 
+    remaining - remaining options 
+
+    Returns: true if this option was handled by this file manager, false otherwise 
+
+*javax.tools.JavaFileManager.hasLocation(JavaFileManager.Location)*
+
+public boolean hasLocation(javax.tools.JavaFileManager.Location location)
+
+Determines if a location is known to this file manager. 
+
+
+    location - a location 
+
+    Returns: true if the location is known 
+
+*javax.tools.JavaFileManager.inferBinaryName(JavaFileManager.Location,JavaFileObject)*
+
+public |java.lang.String| inferBinaryName(
+  javax.tools.JavaFileManager.Location location,
+  javax.tools.JavaFileObject file)
+
+Infers a binary name of a file object based on a location. The binary name returned might not be a valid JLS binary name. 
+
+
+    location - a location 
+    file - a file object 
+
+    Returns: a binary name or {@code null} the file object is not found in the given location 
+
+*javax.tools.JavaFileManager.isSameFile(FileObject,FileObject)*
+
+public boolean isSameFile(
+  javax.tools.FileObject a,
+  javax.tools.FileObject b)
+
+Compares two file objects and return true if they represent the same underlying object. 
+
+
+    a - a file object 
+    b - a file object 
+
+    Returns: true if the given file objects represent the same underlying object 
+
+*javax.tools.JavaFileManager.list(JavaFileManager.Location,String,Set<JavaFileObject.Kind>,boolean)*
+
+public |java.lang.Iterable|<JavaFileObject> list(
+  javax.tools.JavaFileManager.Location location,
+  java.lang.String packageName,
+  java.util.Set<javax.tools.JavaFileObject.Kind> kinds,
+  boolean recurse)
+  throws |java.io.IOException|
+         
+Lists all file objects matching the given criteria in the given location. List file objects in "subpackages" if recurse is 
+true. 
+
+Note: even if the given location is unknown to this file manager, it may not returnnull. Also, an unknown location may not 
+cause an exception. 
+
+
+    location - a location 
+    packageName - a package name 
+    kinds - return objects only of these kinds 
+    recurse - if true include "subpackages" 
+
+    Returns: an Iterable of file objects matching the given criteria 
+
+

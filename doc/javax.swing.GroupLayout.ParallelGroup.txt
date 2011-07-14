@@ -1,0 +1,164 @@
+*javax.swing.GroupLayout.ParallelGroup* *GroupLayout.ParallelGroup* AGroupthat aligns and sizes it's children.
+
+public class GroupLayout.ParallelGroup
+  extends    |javax.swing.GroupLayout.Group|
+
+|javax.swing.GroupLayout.ParallelGroup_Description|
+|javax.swing.GroupLayout.ParallelGroup_Fields|
+|javax.swing.GroupLayout.ParallelGroup_Constructors|
+|javax.swing.GroupLayout.ParallelGroup_Methods|
+
+================================================================================================================================
+
+*javax.swing.GroupLayout.ParallelGroup_Methods*
+|javax.swing.GroupLayout.ParallelGroup.addComponent(Component)|
+|javax.swing.GroupLayout.ParallelGroup.addComponent(Component,GroupLayout.Alignment)|Adds aComponentto thisParallelGroupwith  t
+|javax.swing.GroupLayout.ParallelGroup.addComponent(Component,GroupLayout.Alignment,int,int,int)|Adds aComponentto thisParallel
+|javax.swing.GroupLayout.ParallelGroup.addComponent(Component,int,int,int)|
+|javax.swing.GroupLayout.ParallelGroup.addGap(int)|
+|javax.swing.GroupLayout.ParallelGroup.addGap(int,int,int)|
+|javax.swing.GroupLayout.ParallelGroup.addGroup(GroupLayout.Alignment,GroupLayout.Group)|Adds aGroupto thisParallelGroupwith th
+|javax.swing.GroupLayout.ParallelGroup.addGroup(GroupLayout.Group)|
+
+*javax.swing.GroupLayout.ParallelGroup_Description*
+
+AGroupthat aligns and sizes it's children.ParallelGroupaligns it's children in four possible ways: along the baseline, 
+centered, anchored to the leading edge, or anchored to the trailing edge. Baseline AParallelGroupthat aligns it's children 
+along the baseline must first decide where the baseline is anchored. The baseline can either be anchored to the top, or 
+anchored to the bottom of the group. That is, the distance between the baseline and the beginning of the group can be a 
+constant distance, or the distance between the end of the group and the baseline can be a constant distance. The possible 
+choices correspond to theBaselineResizeBehaviorconstants CONSTANT_ASCENT(|java.awt.Component.BaselineResizeBehavior|) and 
+CONSTANT_DESCENT(|java.awt.Component.BaselineResizeBehavior|) . 
+
+The baseline anchor may be explicitly specified by thecreateBaselineGroupmethod, or determined based on the elements. If not 
+explicitly specified, the baseline will be anchored to the bottom if all the elements with a baseline, and that are aligned to 
+the baseline, have a baseline resize behavior ofCONSTANT_DESCENT; otherwise the baseline is anchored to the top of the group. 
+
+Elements aligned to the baseline are resizable if they have have a baseline resize behavior 
+ofCONSTANT_ASCENTorCONSTANT_DESCENT. Elements with a baseline resize behavior ofOTHERorCENTER_OFFSETare not resizable. 
+
+The baseline is calculated based on the preferred height of each of the elements that have a baseline. The baseline is 
+calculated using the following algorithm:max(maxNonBaselineHeight, maxAscent + maxDescent), where themaxNonBaselineHeightis the 
+maximum height of all elements that do not have a baseline, or are not aligned along the baseline.maxAscentis the maximum 
+ascent (baseline) of all elements that have a baseline and are aligned along the baseline.maxDescentis the maximum descent 
+(preferred height - baseline) of all elements that have a baseline and are aligned along the baseline. 
+
+AParallelGroupthat aligns it's elements along the baseline is only useful along the vertical axis. If you create a baseline 
+group and use it along the horizontal axis anIllegalStateExceptionis thrown when you askGroupLayoutfor the minimum, preferred 
+or maximum size or attempt to layout the components. 
+
+Elements that are not aligned to the baseline and smaller than the size of theParallelGroupare positioned in one of three ways: 
+centered, anchored to the leading edge, or anchored to the trailing edge. 
+
+Non-baselineParallelGroupParallelGroups created with an alignment other thanBASELINEalign elements that are smaller than the 
+size of the group in one of three ways: centered, anchored to the leading edge, or anchored to the trailing edge. 
+
+The leading edge is based on the axis andComponentOrientation. For the vertical axis the top edge is always the leading edge, 
+and the bottom edge is always the trailing edge. When theComponentOrientationisLEFT_TO_RIGHT, the leading edge is the left edge 
+and the trailing edge the right edge. AComponentOrientationofRIGHT_TO_LEFTflips the left and right edges. Child elements are 
+aligned based on the specified alignment the element was added with. If you do not specify an alignment, the alignment 
+specified for theParallelGroupis used. 
+
+To align elements along the baseline youcreateBaselineGroup, orcreateParallelGroupwith an alignment ofBASELINE. If the group 
+was not created with a baseline alignment, and you attempt to add an element specifying a baseline alignment, 
+anIllegalArgumentExceptionis thrown. 
+
+
+
+*javax.swing.GroupLayout.ParallelGroup.addComponent(Component)*
+
+public |javax.swing.GroupLayout.ParallelGroup| addComponent(java.awt.Component component)
+
+
+
+
+
+*javax.swing.GroupLayout.ParallelGroup.addComponent(Component,GroupLayout.Alignment)*
+
+public |javax.swing.GroupLayout.ParallelGroup| addComponent(
+  java.awt.Component component,
+  javax.swing.GroupLayout.Alignment alignment)
+
+Adds aComponentto thisParallelGroupwith the specified alignment. 
+
+
+    alignment - the alignment 
+    component - the {@code Component} to add 
+
+    Returns: this {@code Group} 
+
+*javax.swing.GroupLayout.ParallelGroup.addComponent(Component,GroupLayout.Alignment,int,int,int)*
+
+public |javax.swing.GroupLayout.ParallelGroup| addComponent(
+  java.awt.Component component,
+  javax.swing.GroupLayout.Alignment alignment,
+  int min,
+  int pref,
+  int max)
+
+Adds aComponentto thisParallelGroupwith the specified alignment and size. 
+
+
+    alignment - the alignment 
+    component - the {@code Component} to add 
+    min - the minimum size 
+    pref - the preferred size 
+    max - the maximum size 
+
+    Returns: this {@code Group} 
+
+*javax.swing.GroupLayout.ParallelGroup.addComponent(Component,int,int,int)*
+
+public |javax.swing.GroupLayout.ParallelGroup| addComponent(
+  java.awt.Component component,
+  int min,
+  int pref,
+  int max)
+
+
+
+
+
+*javax.swing.GroupLayout.ParallelGroup.addGap(int)*
+
+public |javax.swing.GroupLayout.ParallelGroup| addGap(int pref)
+
+
+
+
+
+*javax.swing.GroupLayout.ParallelGroup.addGap(int,int,int)*
+
+public |javax.swing.GroupLayout.ParallelGroup| addGap(
+  int min,
+  int pref,
+  int max)
+
+
+
+
+
+*javax.swing.GroupLayout.ParallelGroup.addGroup(GroupLayout.Alignment,GroupLayout.Group)*
+
+public |javax.swing.GroupLayout.ParallelGroup| addGroup(
+  javax.swing.GroupLayout.Alignment alignment,
+  javax.swing.GroupLayout.Group group)
+
+Adds aGroupto thisParallelGroupwith the specified alignment. If the child is smaller than theGroupit is aligned based on the 
+specified alignment. 
+
+
+    alignment - the alignment 
+    group - the {@code Group} to add 
+
+    Returns: this {@code ParallelGroup} 
+
+*javax.swing.GroupLayout.ParallelGroup.addGroup(GroupLayout.Group)*
+
+public |javax.swing.GroupLayout.ParallelGroup| addGroup(javax.swing.GroupLayout.Group group)
+
+
+
+
+
+

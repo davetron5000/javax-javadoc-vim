@@ -1,0 +1,32 @@
+*javax.swing.event.MouseInputAdapter* *MouseInputAdapter* An empty implementation of theMouseInputListenerinterface, provided
+ a
+
+public abstract class MouseInputAdapter
+  extends    |java.awt.event.MouseAdapter|
+  implements |javax.swing.event.MouseInputListener|
+
+|javax.swing.event.MouseInputAdapter_Description|
+|javax.swing.event.MouseInputAdapter_Fields|
+|javax.swing.event.MouseInputAdapter_Constructors|
+|javax.swing.event.MouseInputAdapter_Methods|
+
+================================================================================================================================
+
+*javax.swing.event.MouseInputAdapter_Constructors*
+|javax.swing.event.MouseInputAdapter()|
+
+*javax.swing.event.MouseInputAdapter_Description*
+
+An empty implementation of theMouseInputListenerinterface, provided as a convenience to simplify the task of creating 
+listeners, by extending and implementing only the methods of interest. This class also provides an empty implementation of 
+theMouseWheelListenerinterface, through its extension from AWT'sMouseAdapter. 
+
+
+
+*javax.swing.event.MouseInputAdapter()*
+
+public MouseInputAdapter()
+
+
+
+

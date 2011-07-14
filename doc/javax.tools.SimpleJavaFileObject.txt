@@ -1,0 +1,213 @@
+*javax.tools.SimpleJavaFileObject* *SimpleJavaFileObject* Provides simple implementations for most methods in JavaFileObject.
+
+public class SimpleJavaFileObject
+  extends    |java.lang.Object|
+  implements |javax.tools.JavaFileObject|
+
+|javax.tools.SimpleJavaFileObject_Description|
+|javax.tools.SimpleJavaFileObject_Fields|
+|javax.tools.SimpleJavaFileObject_Constructors|
+|javax.tools.SimpleJavaFileObject_Methods|
+
+================================================================================================================================
+
+*javax.tools.SimpleJavaFileObject_Fields*
+|javax.tools.JavaFileObject.Kind_javax.tools.SimpleJavaFileObject.kind|
+|java.net.URI_javax.tools.SimpleJavaFileObject.uri|
+
+*javax.tools.SimpleJavaFileObject_Constructors*
+|javax.tools.SimpleJavaFileObject(URI,JavaFileObject.Kind)|Construct a SimpleJavaFileObject of the given kind and with the  giv
+
+*javax.tools.SimpleJavaFileObject_Methods*
+|javax.tools.SimpleJavaFileObject.delete()|This implementation does nothing.
+|javax.tools.SimpleJavaFileObject.getAccessLevel()|This implementation returnsnull.
+|javax.tools.SimpleJavaFileObject.getCharContent(boolean)|This implementation always throwsUnsupportedOperationException.
+|javax.tools.SimpleJavaFileObject.getKind()|
+|javax.tools.SimpleJavaFileObject.getLastModified()|This implementation returns0L.
+|javax.tools.SimpleJavaFileObject.getName()|
+|javax.tools.SimpleJavaFileObject.getNestingKind()|This implementation returnsnull.
+|javax.tools.SimpleJavaFileObject.isNameCompatible(String,JavaFileObject.Kind)|This implementation compares the path of its URI
+|javax.tools.SimpleJavaFileObject.openInputStream()|This implementation always throwsUnsupportedOperationException.
+|javax.tools.SimpleJavaFileObject.openOutputStream()|This implementation always throwsUnsupportedOperationException.
+|javax.tools.SimpleJavaFileObject.openReader(boolean)|Wraps the result of#getCharContentin a Reader.
+|javax.tools.SimpleJavaFileObject.openWriter()|Wraps the result of openOutputStream in a Writer.
+|javax.tools.SimpleJavaFileObject.toString()|
+|javax.tools.SimpleJavaFileObject.toUri()|
+
+*javax.tools.SimpleJavaFileObject_Description*
+
+Provides simple implementations for most methods in JavaFileObject. This class is designed to be subclassed and used as a basis 
+for JavaFileObject implementations. Subclasses can override the implementation and specification of any method of this class as 
+long as the general contract of JavaFileObject is obeyed. 
+
+
+
+*javax.tools.JavaFileObject.Kind_javax.tools.SimpleJavaFileObject.kind*
+
+The kind of this file object. 
+
+
+*java.net.URI_javax.tools.SimpleJavaFileObject.uri*
+
+A URI for this file object. 
+
+
+
+*javax.tools.SimpleJavaFileObject(URI,JavaFileObject.Kind)*
+
+protected SimpleJavaFileObject(
+  java.net.URI uri,
+  javax.tools.JavaFileObject.Kind kind)
+
+Construct a SimpleJavaFileObject of the given kind and with the given URI. 
+
+    uri - the URI for this file object 
+    kind - the kind of this file object 
+
+*javax.tools.SimpleJavaFileObject.delete()*
+
+public boolean delete()
+
+This implementation does nothing. Subclasses can change this behavior as long as the contract of (|javax.tools.FileObject|) is 
+obeyed. 
+
+
+
+    Returns: {@code false} 
+
+*javax.tools.SimpleJavaFileObject.getAccessLevel()*
+
+public |javax.lang.model.element.Modifier| getAccessLevel()
+
+This implementation returnsnull. Subclasses can change this behavior as long as the contract of (|javax.tools.JavaFileObject|) 
+is obeyed. 
+
+
+
+*javax.tools.SimpleJavaFileObject.getCharContent(boolean)*
+
+public |java.lang.CharSequence| getCharContent(boolean ignoreEncodingErrors)
+  throws |java.io.IOException|
+         
+This implementation always throws (|java.lang.UnsupportedOperationException|) . Subclasses can change this behavior as long as 
+the contract of (|javax.tools.FileObject|) is obeyed. 
+
+
+
+*javax.tools.SimpleJavaFileObject.getKind()*
+
+public |javax.tools.JavaFileObject.Kind| getKind()
+
+
+
+
+
+    Returns: {@code this.kind} 
+
+*javax.tools.SimpleJavaFileObject.getLastModified()*
+
+public long getLastModified()
+
+This implementation returns0L. Subclasses can change this behavior as long as the contract of (|javax.tools.FileObject|) is 
+obeyed. 
+
+
+
+    Returns: 
+
+*javax.tools.SimpleJavaFileObject.getName()*
+
+public |java.lang.String| getName()
+
+
+
+
+
+*javax.tools.SimpleJavaFileObject.getNestingKind()*
+
+public |javax.lang.model.element.NestingKind| getNestingKind()
+
+This implementation returnsnull. Subclasses can change this behavior as long as the contract of (|javax.tools.JavaFileObject|) 
+is obeyed. 
+
+
+
+*javax.tools.SimpleJavaFileObject.isNameCompatible(String,JavaFileObject.Kind)*
+
+public boolean isNameCompatible(
+  java.lang.String simpleName,
+  javax.tools.JavaFileObject.Kind kind)
+
+This implementation compares the path of its URI to the given simple name. This method returns true if the given kind is equal 
+to the kind of this object, and if the path is equal tosimpleName + kind.extensionor if it ends with"/" + simpleName + 
+kind.extension. 
+
+This method calls (|javax.tools.SimpleJavaFileObject|) and (|javax.tools.SimpleJavaFileObject|) and does not access the fields 
+(|javax.tools.SimpleJavaFileObject|) and (|javax.tools.SimpleJavaFileObject|) directly. 
+
+Subclasses can change this behavior as long as the contract of (|javax.tools.JavaFileObject|) is obeyed. 
+
+
+
+*javax.tools.SimpleJavaFileObject.openInputStream()*
+
+public |java.io.InputStream| openInputStream()
+  throws |java.io.IOException|
+         
+This implementation always throws (|java.lang.UnsupportedOperationException|) . Subclasses can change this behavior as long as 
+the contract of (|javax.tools.FileObject|) is obeyed. 
+
+
+
+*javax.tools.SimpleJavaFileObject.openOutputStream()*
+
+public |java.io.OutputStream| openOutputStream()
+  throws |java.io.IOException|
+         
+This implementation always throws (|java.lang.UnsupportedOperationException|) . Subclasses can change this behavior as long as 
+the contract of (|javax.tools.FileObject|) is obeyed. 
+
+
+
+*javax.tools.SimpleJavaFileObject.openReader(boolean)*
+
+public |java.io.Reader| openReader(boolean ignoreEncodingErrors)
+  throws |java.io.IOException|
+         
+Wraps the result of (|javax.tools.SimpleJavaFileObject|) in a Reader. Subclasses can change this behavior as long as the 
+contract of (|javax.tools.FileObject|) is obeyed. 
+
+
+    ignoreEncodingErrors - {@inheritDoc} 
+
+    Returns: a Reader wrapping the result of getCharContent 
+
+*javax.tools.SimpleJavaFileObject.openWriter()*
+
+public |java.io.Writer| openWriter()
+  throws |java.io.IOException|
+         
+Wraps the result of openOutputStream in a Writer. Subclasses can change this behavior as long as the contract of 
+(|javax.tools.FileObject|) is obeyed. 
+
+
+
+    Returns: a Writer wrapping the result of openOutputStream 
+
+*javax.tools.SimpleJavaFileObject.toString()*
+
+public |java.lang.String| toString()
+
+
+
+
+
+*javax.tools.SimpleJavaFileObject.toUri()*
+
+public |java.net.URI| toUri()
+
+
+
+
+
+

@@ -1,0 +1,536 @@
+*javax.swing.GroupLayout* *GroupLayout* GroupLayoutis aLayoutManagerthat hierarchically
+ groups components in order to position 
+
+public class GroupLayout
+  extends    |java.lang.Object|
+  implements |java.awt.LayoutManager2|
+
+|javax.swing.GroupLayout_Description|
+|javax.swing.GroupLayout_Fields|
+|javax.swing.GroupLayout_Constructors|
+|javax.swing.GroupLayout_Methods|
+
+================================================================================================================================
+
+*javax.swing.GroupLayout_Fields*
+|int_javax.swing.GroupLayout.DEFAULT_SIZE|
+|int_javax.swing.GroupLayout.PREFERRED_SIZE|
+
+*javax.swing.GroupLayout_Constructors*
+|javax.swing.GroupLayout(Container)|Creates aGroupLayoutfor the specifiedContainer.
+
+*javax.swing.GroupLayout_Methods*
+|javax.swing.GroupLayout.addLayoutComponent(Component,Object)|Notification that aComponenthas been added to  the parent contain
+|javax.swing.GroupLayout.addLayoutComponent(String,Component)|Notification that aComponenthas been added to  the parent contain
+|javax.swing.GroupLayout.createBaselineGroup(boolean,boolean)|Creates and returns aParallelGroupthat aligns it's  elements alon
+|javax.swing.GroupLayout.createParallelGroup()|Creates and returns aParallelGroupwith an alignment ofAlignment.LEADING.
+|javax.swing.GroupLayout.createParallelGroup(GroupLayout.Alignment)|Creates and returns aParallelGroupwith the specified  align
+|javax.swing.GroupLayout.createParallelGroup(GroupLayout.Alignment,boolean)|Creates and returns aParallelGroupwith the specifie
+|javax.swing.GroupLayout.createSequentialGroup()|Creates and returns aSequentialGroup.
+|javax.swing.GroupLayout.getAutoCreateContainerGaps()|Returnstrueif gaps between the container and components that  border the 
+|javax.swing.GroupLayout.getAutoCreateGaps()|Returnstrueif gaps between components are automatically  created.
+|javax.swing.GroupLayout.getHonorsVisibility()|Returns whether component visiblity is considered when sizing and  positioning c
+|javax.swing.GroupLayout.getLayoutAlignmentX(Container)|Returns the alignment along the x axis.
+|javax.swing.GroupLayout.getLayoutAlignmentY(Container)|Returns the alignment along the y axis.
+|javax.swing.GroupLayout.getLayoutStyle()|Returns theLayoutStyleused for calculating the preferred  gap between components.
+|javax.swing.GroupLayout.invalidateLayout(Container)|Invalidates the layout, indicating that if the layout manager  has cached 
+|javax.swing.GroupLayout.layoutContainer(Container)|Lays out the specified container.
+|javax.swing.GroupLayout.linkSize(Component...)|Forces the specified components to have the same size  regardless of their pref
+|javax.swing.GroupLayout.linkSize(int,Component...)|Forces the specified components to have the same size along the  specified 
+|javax.swing.GroupLayout.maximumLayoutSize(Container)|Returns the maximum size for the specified container.
+|javax.swing.GroupLayout.minimumLayoutSize(Container)|Returns the minimum size for the specified container.
+|javax.swing.GroupLayout.preferredLayoutSize(Container)|Returns the preferred size for the specified container.
+|javax.swing.GroupLayout.removeLayoutComponent(Component)|Notification that aComponenthas been removed from  the parent contain
+|javax.swing.GroupLayout.replace(Component,Component)|Replaces an existing component with a new one.
+|javax.swing.GroupLayout.setAutoCreateContainerGaps(boolean)|Sets whether a gap between the container and components that  touc
+|javax.swing.GroupLayout.setAutoCreateGaps(boolean)|Sets whether a gap between components should automatically be  created.
+|javax.swing.GroupLayout.setHonorsVisibility(boolean)|Sets whether component visiblity is considered when sizing and  positioni
+|javax.swing.GroupLayout.setHonorsVisibility(Component,Boolean)|Sets whether the component's visiblity is considered for  sizin
+|javax.swing.GroupLayout.setHorizontalGroup(GroupLayout.Group)|Sets theGroupthat positions and sizes  components along the hori
+|javax.swing.GroupLayout.setLayoutStyle(LayoutStyle)|Sets theLayoutStyleused to calculate the preferred  gaps between component
+|javax.swing.GroupLayout.setVerticalGroup(GroupLayout.Group)|Sets theGroupthat positions and sizes  components along the vertic
+|javax.swing.GroupLayout.toString()|Returns a string representation of thisGroupLayout.
+
+*javax.swing.GroupLayout_Description*
+
+GroupLayoutis aLayoutManagerthat hierarchically groups components in order to position them in aContainer.GroupLayoutis 
+intended for use by builders, but may be hand-coded as well. Grouping is done by instances of the 
+Group(|javax.swing.GroupLayout.Group|) class.GroupLayoutsupports two types of groups. A sequential group positions its child 
+elements sequentially, one after another. A parallel group aligns its child elements in one of four ways. 
+
+Each group may contain any number of elements, where an element is aGroup,Component, or gap. A gap can be thought of as an 
+invisible component with a minimum, preferred and maximum size. In additionGroupLayoutsupports a preferred gap, whose value 
+comes fromLayoutStyle. 
+
+Elements are similar to a spring. Each element has a range as specified by a minimum, preferred and maximum. Gaps have either a 
+developer-specified range, or a range determined byLayoutStyle. The range forComponents is determined from 
+theComponent'sgetMinimumSize,getPreferredSizeandgetMaximumSizemethods. In addition, when addingComponents you may specify a 
+particular range to use instead of that from the component. The range for aGroupis determined by the type of group. 
+AParallelGroup's range is the maximum of the ranges of its elements. ASequentialGroup's range is the sum of the ranges of its 
+elements. GroupLayouttreats each axis independently. That is, there is a group representing the horizontal axis, and a group 
+representing the vertical axis. The horizontal group is responsible for determining the minimum, preferred and maximum size 
+along the horizontal axis as well as setting the x and width of the components contained in it. The vertical group is 
+responsible for determining the minimum, preferred and maximum size along the vertical axis as well as setting the y and height 
+of the components contained in it. EachComponentmust exist in both a horizontal and vertical group, otherwise 
+anIllegalStateExceptionis thrown during layout, or when the minimum, preferred or maximum size is requested. 
+
+The following diagram shows a sequential group along the horizontal axis. The sequential group contains three components. A 
+parallel group was used along the vertical axis. 
+
+
+
+To reinforce that each axis is treated independently the diagram shows the range of each group and element along each axis. The 
+range of each component has been projected onto the axes, and the groups are rendered in blue (horizontal) and red (vertical). 
+For readability there is a gap between each of the elements in the sequential group. 
+
+The sequential group along the horizontal axis is rendered as a solid blue line. Notice the sequential group is the sum of the 
+children elements it contains. 
+
+Along the vertical axis the parallel group is the maximum of the height of each of the components. As all three components have 
+the same height, the parallel group has the same height. 
+
+The following diagram shows the same three components, but with the parallel group along the horizontal axis and the sequential 
+group along the vertical axis. 
+
+
+
+Asc1is the largest of the three components, the parallel group is sized toc1. Asc2andc3are smaller thanc1they are aligned based 
+on the alignment specified for the component (if specified) or the default alignment of the parallel group. In the 
+diagramc2andc3were created with an alignment ofLEADING. If the component orientation were right-to-left thenc2andc3would be 
+positioned on the opposite side. 
+
+The following diagram shows a sequential group along both the horizontal and vertical axis. 
+
+GroupLayoutprovides the ability to insert gaps betweenComponents. The size of the gap is determined by an instance 
+ofLayoutStyle. This may be turned on using thesetAutoCreateGapsmethod. Similarly, you may use 
+thesetAutoCreateContainerGapsmethod to insert gaps between components that touch the edge of the parent container and the 
+container. 
+
+The following builds a panel consisting of two labels in one column, followed by two textfields in the next column: 
+
+JComponent panel = ...; GroupLayout layout = new GroupLayout(panel); panel.setLayout(layout); 
+
+// Turn on automatically adding gaps between components layout.setAutoCreateGaps(true); 
+
+// Turn on automatically creating gaps between components that touch // the edge of the container and the container. 
+layout.setAutoCreateContainerGaps(true); 
+
+// Create a sequential group for the horizontal axis. 
+
+GroupLayout.SequentialGroup hGroup = layout.createSequentialGroup(); 
+
+// The sequential group in turn contains two parallel groups. // One parallel group contains the labels, the other the text 
+fields. // Putting the labels in a parallel group along the horizontal axis // positions them at the same x location. // // 
+Variable indentation is used to reinforce the level of grouping. hGroup.addGroup(layout.createParallelGroup(). 
+addComponent(label1).addComponent(label2)); hGroup.addGroup(layout.createParallelGroup(). addComponent(tf1).addComponent(tf2)); 
+layout.setHorizontalGroup(hGroup); 
+
+// Create a sequential group for the vertical axis. GroupLayout.SequentialGroup vGroup = layout.createSequentialGroup(); 
+
+// The sequential group contains two parallel groups that align // the contents along the baseline. The first parallel group 
+contains // the first label and text field, and the second parallel group contains // the second label and text field. By using 
+a sequential group // the labels and text fields are positioned vertically after one another. 
+vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE). addComponent(label1).addComponent(tf1)); 
+vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE). addComponent(label2).addComponent(tf2)); 
+layout.setVerticalGroup(vGroup); 
+
+When run the following is produced. 
+
+
+
+This layout consists of the following. The horizontal axis consists of a sequential group containing two parallel groups. The 
+first parallel group contains the labels, and the second parallel group contains the text fields. The vertical axis consists of 
+a sequential group containing two parallel groups. The parallel groups are configured to align their components along the 
+baseline. The first parallel group contains the first label and first text field, and the second group consists of the second 
+label and second text field. 
+
+There are a couple of things to notice in this code: 
+
+You need not explicitly add the components to the container; this is indirectly done by using one of theaddmethods ofGroup. The 
+variousaddmethods return the caller. This allows for easy chaining of invocations. For 
+example,group.addComponent(label1).addComponent(label2);is equivalent togroup.addComponent(label1); 
+group.addComponent(label2);. There are no public constructors forGroups; instead use the create methods ofGroupLayout. 
+
+
+
+*int_javax.swing.GroupLayout.DEFAULT_SIZE*
+
+Indicates the size from the component or gap should be used for a particular range value. 
+
+
+*int_javax.swing.GroupLayout.PREFERRED_SIZE*
+
+Indicates the preferred size from the component or gap should be used for a particular range value. 
+
+
+
+*javax.swing.GroupLayout(Container)*
+
+public GroupLayout(java.awt.Container host)
+
+Creates aGroupLayoutfor the specifiedContainer. 
+
+    host - the {@code Container} the {@code GroupLayout} is the {@code LayoutManager} for 
+
+*javax.swing.GroupLayout.addLayoutComponent(Component,Object)*
+
+public void addLayoutComponent(
+  java.awt.Component component,
+  java.lang.Object constraints)
+
+Notification that aComponenthas been added to the parent container. You should not invoke this method directly, instead you 
+should use one of theGroupmethods to add aComponent. 
+
+
+    component - the component added 
+    constraints - description of where to place the component 
+
+*javax.swing.GroupLayout.addLayoutComponent(String,Component)*
+
+public void addLayoutComponent(
+  java.lang.String name,
+  java.awt.Component component)
+
+Notification that aComponenthas been added to the parent container. You should not invoke this method directly, instead you 
+should use one of theGroupmethods to add aComponent. 
+
+
+    name - the string to be associated with the component 
+    component - the {@code Component} to be added 
+
+*javax.swing.GroupLayout.createBaselineGroup(boolean,boolean)*
+
+public |javax.swing.GroupLayout.ParallelGroup| createBaselineGroup(
+  boolean resizable,
+  boolean anchorBaselineToTop)
+
+Creates and returns aParallelGroupthat aligns it's elements along the baseline. 
+
+
+    resizable - whether the group is resizable 
+    anchorBaselineToTop - whether the baseline is anchored to the top or bottom of the group 
+
+*javax.swing.GroupLayout.createParallelGroup()*
+
+public |javax.swing.GroupLayout.ParallelGroup| createParallelGroup()
+
+Creates and returns aParallelGroupwith an alignment ofAlignment.LEADING. This is a cover method for the more 
+generalcreateParallelGroup(Alignment)method. 
+
+
+
+    Returns: a new {@code ParallelGroup} 
+
+*javax.swing.GroupLayout.createParallelGroup(GroupLayout.Alignment)*
+
+public |javax.swing.GroupLayout.ParallelGroup| createParallelGroup(javax.swing.GroupLayout.Alignment alignment)
+
+Creates and returns aParallelGroupwith the specified alignment. This is a cover method for the more 
+generalcreateParallelGroup(Alignment,boolean)method withtruesupplied for the second argument. 
+
+
+    alignment - the alignment for the elements of the group 
+
+    Returns: a new {@code ParallelGroup} 
+
+*javax.swing.GroupLayout.createParallelGroup(GroupLayout.Alignment,boolean)*
+
+public |javax.swing.GroupLayout.ParallelGroup| createParallelGroup(
+  javax.swing.GroupLayout.Alignment alignment,
+  boolean resizable)
+
+Creates and returns aParallelGroupwith the specified alignment and resize behavior. Thealignmentargument specifies how children 
+elements are positioned that do not fill the group. For example, if aParallelGroupwith an alignment ofTRAILINGis given 100 and 
+a child only needs 50, the child is positioned at the position 50 (with a component orientation of left-to-right). 
+
+Baseline alignment is only useful when used along the vertical axis. AParallelGroupcreated with a baseline alignment along the 
+horizontal axis is treated asLEADING. 
+
+Refer to ParallelGroup(|javax.swing.GroupLayout.ParallelGroup|) for details on the behavior of baseline groups. 
+
+
+    alignment - the alignment for the elements of the group 
+    resizable - {@code true} if the group is resizable; if the group is not resizable the preferred size is used for the minimum and maximum 
+       size of the group 
+
+    Returns: a new {@code ParallelGroup} 
+
+*javax.swing.GroupLayout.createSequentialGroup()*
+
+public |javax.swing.GroupLayout.SequentialGroup| createSequentialGroup()
+
+Creates and returns aSequentialGroup. 
+
+
+
+    Returns: a new {@code SequentialGroup} 
+
+*javax.swing.GroupLayout.getAutoCreateContainerGaps()*
+
+public boolean getAutoCreateContainerGaps()
+
+Returnstrueif gaps between the container and components that border the container are automatically created. 
+
+
+
+    Returns: {@code true} if gaps between the container and components that border the container are automatically created 
+
+*javax.swing.GroupLayout.getAutoCreateGaps()*
+
+public boolean getAutoCreateGaps()
+
+Returnstrueif gaps between components are automatically created. 
+
+
+
+    Returns: {@code true} if gaps between components are automatically created 
+
+*javax.swing.GroupLayout.getHonorsVisibility()*
+
+public boolean getHonorsVisibility()
+
+Returns whether component visiblity is considered when sizing and positioning components. 
+
+
+
+    Returns: whether component visiblity is considered when sizing and positioning components 
+
+*javax.swing.GroupLayout.getLayoutAlignmentX(Container)*
+
+public float getLayoutAlignmentX(java.awt.Container parent)
+
+Returns the alignment along the x axis. This specifies how the component would like to be aligned relative to other components. 
+The value should be a number between 0 and 1 where 0 represents alignment along the origin, 1 is aligned the furthest away from 
+the origin, 0.5 is centered, etc. 
+
+
+    parent - the {@code Container} hosting this {@code LayoutManager} 
+
+    Returns: the alignment; this implementation returns {@code .5} 
+
+*javax.swing.GroupLayout.getLayoutAlignmentY(Container)*
+
+public float getLayoutAlignmentY(java.awt.Container parent)
+
+Returns the alignment along the y axis. This specifies how the component would like to be aligned relative to other components. 
+The value should be a number between 0 and 1 where 0 represents alignment along the origin, 1 is aligned the furthest away from 
+the origin, 0.5 is centered, etc. 
+
+
+    parent - the {@code Container} hosting this {@code LayoutManager} 
+
+    Returns: alignment; this implementation returns {@code .5} 
+
+*javax.swing.GroupLayout.getLayoutStyle()*
+
+public |javax.swing.LayoutStyle| getLayoutStyle()
+
+Returns theLayoutStyleused for calculating the preferred gap between components. This returns the value specified 
+tosetLayoutStyle, which may benull. 
+
+
+
+    Returns: the {@code LayoutStyle} used for calculating the preferred gap between components 
+
+*javax.swing.GroupLayout.invalidateLayout(Container)*
+
+public void invalidateLayout(java.awt.Container parent)
+
+Invalidates the layout, indicating that if the layout manager has cached information it should be discarded. 
+
+
+    parent - the {@code Container} hosting this LayoutManager 
+
+*javax.swing.GroupLayout.layoutContainer(Container)*
+
+public void layoutContainer(java.awt.Container parent)
+
+Lays out the specified container. 
+
+
+    parent - the container to be laid out 
+
+*javax.swing.GroupLayout.linkSize(Component...)*
+
+public void linkSize(java.awt.Component[] components)
+
+Forces the specified components to have the same size regardless of their preferred, minimum or maximum sizes. Components that 
+are linked are given the maximum of the preferred size of each of the linked components. For example, if you link two 
+components with a preferred width of 10 and 20, both components are given a width of 20. 
+
+This can be used multiple times to force any number of components to share the same size. 
+
+Linked Components are not be resizable. 
+
+
+    components - the {@code Component}s that are to have the same size 
+
+*javax.swing.GroupLayout.linkSize(int,Component...)*
+
+public void linkSize(
+  int axis,
+  java.awt.Component[] components)
+
+Forces the specified components to have the same size along the specified axis regardless of their preferred, minimum or 
+maximum sizes. Components that are linked are given the maximum of the preferred size of each of the linked components. For 
+example, if you link two components along the horizontal axis and the preferred width is 10 and 20, both components are given a 
+width of 20. 
+
+This can be used multiple times to force any number of components to share the same size. 
+
+LinkedComponents are not be resizable. 
+
+
+    components - the {@code Component}s that are to have the same size 
+    axis - the axis to link the size along; one of {@code SwingConstants.HORIZONTAL} or {@code SwingConstans.VERTICAL} 
+
+*javax.swing.GroupLayout.maximumLayoutSize(Container)*
+
+public |java.awt.Dimension| maximumLayoutSize(java.awt.Container parent)
+
+Returns the maximum size for the specified container. 
+
+
+    parent - the container to return the size for 
+
+    Returns: the maximum size for {@code parent} 
+
+*javax.swing.GroupLayout.minimumLayoutSize(Container)*
+
+public |java.awt.Dimension| minimumLayoutSize(java.awt.Container parent)
+
+Returns the minimum size for the specified container. 
+
+
+    parent - the container to return the size for 
+
+    Returns: the minimum size for {@code parent} 
+
+*javax.swing.GroupLayout.preferredLayoutSize(Container)*
+
+public |java.awt.Dimension| preferredLayoutSize(java.awt.Container parent)
+
+Returns the preferred size for the specified container. 
+
+
+    parent - the container to return the preferred size for 
+
+    Returns: the preferred size for {@code parent} 
+
+*javax.swing.GroupLayout.removeLayoutComponent(Component)*
+
+public void removeLayoutComponent(java.awt.Component component)
+
+Notification that aComponenthas been removed from the parent container. You should not invoke this method directly, instead 
+invokeremoveon the parentContainer. 
+
+
+    component - the component to be removed 
+
+*javax.swing.GroupLayout.replace(Component,Component)*
+
+public void replace(
+  java.awt.Component existingComponent,
+  java.awt.Component newComponent)
+
+Replaces an existing component with a new one. 
+
+
+    existingComponent - the component that should be removed and replaced with {@code newComponent} 
+    newComponent - the component to put in {@code existingComponent}'s place 
+
+*javax.swing.GroupLayout.setAutoCreateContainerGaps(boolean)*
+
+public void setAutoCreateContainerGaps(boolean autoCreateContainerPadding)
+
+Sets whether a gap between the container and components that touch the border of the container should automatically be created. 
+The default isfalse. 
+
+
+    autoCreateContainerPadding - whether a gap between the container and components that touch the border of the container should automatically be created 
+
+*javax.swing.GroupLayout.setAutoCreateGaps(boolean)*
+
+public void setAutoCreateGaps(boolean autoCreatePadding)
+
+Sets whether a gap between components should automatically be created. For example, if this istrueand you add two components to 
+aSequentialGroupa gap between the two components is automatically be created. The default isfalse. 
+
+
+    autoCreatePadding - whether a gap between components is automatically created 
+
+*javax.swing.GroupLayout.setHonorsVisibility(boolean)*
+
+public void setHonorsVisibility(boolean honorsVisibility)
+
+Sets whether component visiblity is considered when sizing and positioning components. A value oftrueindicates that non-visible 
+components should not be treated as part of the layout. A value offalseindicates that components should be positioned and sized 
+regardless of visibility. 
+
+A value offalseis useful when the visibility of components is dynamically adjusted and you don't want surrounding components 
+and the sizing to change. 
+
+The specified value is used for components that do not have an explicit visibility specified. 
+
+The default istrue. 
+
+
+    honorsVisibility - whether component visiblity is considered when sizing and positioning components 
+
+*javax.swing.GroupLayout.setHonorsVisibility(Component,Boolean)*
+
+public void setHonorsVisibility(
+  java.awt.Component component,
+  java.lang.Boolean honorsVisibility)
+
+Sets whether the component's visiblity is considered for sizing and positioning. A value ofBoolean.TRUEindicates that 
+ifcomponentis not visible it should not be treated as part of the layout. A value offalseindicates thatcomponentis positioned 
+and sized regardless of it's visibility. A value ofnullindicates the value specified by the single argument 
+methodsetHonorsVisibilityshould be used. 
+
+Ifcomponentis not a child of theContainerthisGroupLayoutis managine, it will be added to theContainer. 
+
+
+    component - the component 
+    honorsVisibility - whether {@code component}'s visiblity should be considered for sizing and positioning 
+
+*javax.swing.GroupLayout.setHorizontalGroup(GroupLayout.Group)*
+
+public void setHorizontalGroup(javax.swing.GroupLayout.Group group)
+
+Sets theGroupthat positions and sizes components along the horizontal axis. 
+
+
+    group - the {@code Group} that positions and sizes components along the horizontal axis 
+
+*javax.swing.GroupLayout.setLayoutStyle(LayoutStyle)*
+
+public void setLayoutStyle(javax.swing.LayoutStyle layoutStyle)
+
+Sets theLayoutStyleused to calculate the preferred gaps between components. A value ofnullindicates the shared instance 
+ofLayoutStyleshould be used. 
+
+
+    layoutStyle - the {@code LayoutStyle} to use 
+
+*javax.swing.GroupLayout.setVerticalGroup(GroupLayout.Group)*
+
+public void setVerticalGroup(javax.swing.GroupLayout.Group group)
+
+Sets theGroupthat positions and sizes components along the vertical axis. 
+
+
+    group - the {@code Group} that positions and sizes components along the vertical axis 
+
+*javax.swing.GroupLayout.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string representation of thisGroupLayout. This method is intended to be used for debugging purposes, and the content 
+and format of the returned string may vary between implementations. 
+
+
+
+    Returns: a string representation of this {@code GroupLayout} 
+
+

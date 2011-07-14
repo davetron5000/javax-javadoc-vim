@@ -1,0 +1,39 @@
+*javax.swing.event.RowSorterEvent.Type* *RowSorterEvent.Type* Enumeration of the types of RowSorterEvents.
+
+public static final enumRowSorterEvent.Type
+  extends    |java.lang.Enum|
+
+|javax.swing.event.RowSorterEvent.Type_Description|
+|javax.swing.event.RowSorterEvent.Type_Fields|
+|javax.swing.event.RowSorterEvent.Type_Constructors|
+|javax.swing.event.RowSorterEvent.Type_Methods|
+
+================================================================================================================================
+
+*javax.swing.event.RowSorterEvent.Type_Methods*
+|javax.swing.event.RowSorterEvent.Type.valueOf(String)|
+|javax.swing.event.RowSorterEvent.Type.values()|
+
+*javax.swing.event.RowSorterEvent.Type_Description*
+
+Enumeration of the types of RowSorterEvents. 
+
+
+
+*javax.swing.event.RowSorterEvent.Type.valueOf(String)*
+
+public static |javax.swing.event.RowSorterEvent.Type| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.swing.event.RowSorterEvent.Type.values()*
+
+public static |javax.swing.event.RowSorterEvent.Type|[] values()
+
+
+
+
+
+

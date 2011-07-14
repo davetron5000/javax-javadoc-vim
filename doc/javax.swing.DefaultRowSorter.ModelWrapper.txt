@@ -1,0 +1,113 @@
+*javax.swing.DefaultRowSorter.ModelWrapper* *DefaultRowSorter.ModelWrapper* DefaultRowSorter.ModelWrapper is responsible for pro
+
+protected abstract static class DefaultRowSorter.ModelWrapper<M,I>
+  extends    |java.lang.Object|
+
+|javax.swing.DefaultRowSorter.ModelWrapper_Description|
+|javax.swing.DefaultRowSorter.ModelWrapper_Fields|
+|javax.swing.DefaultRowSorter.ModelWrapper_Constructors|
+|javax.swing.DefaultRowSorter.ModelWrapper_Methods|
+
+================================================================================================================================
+
+*javax.swing.DefaultRowSorter.ModelWrapper_Constructors*
+|javax.swing.DefaultRowSorter.ModelWrapper()|Creates a new ModelWrapper.
+
+*javax.swing.DefaultRowSorter.ModelWrapper_Methods*
+|javax.swing.DefaultRowSorter.ModelWrapper.getColumnCount()|Returns the number of columns in the model.
+|javax.swing.DefaultRowSorter.ModelWrapper.getIdentifier(int)|Returns the identifier for the specified row.
+|javax.swing.DefaultRowSorter.ModelWrapper.getModel()|Returns the underlying model that this Model is  wrapping.
+|javax.swing.DefaultRowSorter.ModelWrapper.getRowCount()|Returns the number of rows in the model.
+|javax.swing.DefaultRowSorter.ModelWrapper.getStringValueAt(int,int)|Returns the value as a String at the specified  index.
+|javax.swing.DefaultRowSorter.ModelWrapper.getValueAt(int,int)|Returns the value at the specified index.
+
+*javax.swing.DefaultRowSorter.ModelWrapper_Description*
+
+DefaultRowSorter.ModelWrapper is responsible for providing the data that gets sorted by DefaultRowSorter. You normally do not 
+interact directly with ModelWrapper. Subclasses of DefaultRowSorter provide an implementation of ModelWrapper wrapping another 
+model. For example, TableRowSorter provides a ModelWrapper that wraps a TableModel. 
+
+ModelWrapper makes a distinction between values as Objects and Strings. This allows implementations to provide a custom string 
+converter to be used instead of invoking toString on the object. 
+
+
+
+*javax.swing.DefaultRowSorter.ModelWrapper()*
+
+protected DefaultRowSorter.ModelWrapper()
+
+Creates a new ModelWrapper. 
+
+
+*javax.swing.DefaultRowSorter.ModelWrapper.getColumnCount()*
+
+public abstract int getColumnCount()
+
+Returns the number of columns in the model. 
+
+
+
+    Returns: the number of columns in the model 
+
+*javax.swing.DefaultRowSorter.ModelWrapper.getIdentifier(int)*
+
+public abstract |I| getIdentifier(int row)
+
+Returns the identifier for the specified row. The return value of this is used as the identifier for the RowFilter.Entry that 
+is passed to the RowFilter. 
+
+
+    row - the row to return the identifier for, in terms of the underlying model 
+
+    Returns: the identifier 
+
+*javax.swing.DefaultRowSorter.ModelWrapper.getModel()*
+
+public abstract |M| getModel()
+
+Returns the underlying model that this Model is wrapping. 
+
+
+
+    Returns: the underlying model 
+
+*javax.swing.DefaultRowSorter.ModelWrapper.getRowCount()*
+
+public abstract int getRowCount()
+
+Returns the number of rows in the model. 
+
+
+
+    Returns: the number of rows in the model 
+
+*javax.swing.DefaultRowSorter.ModelWrapper.getStringValueAt(int,int)*
+
+public |java.lang.String| getStringValueAt(
+  int row,
+  int column)
+
+Returns the value as a String at the specified index. This implementation uses toString on the result from getValueAt (making 
+sure to return an empty string for null values). Subclasses that override this method should never return null. 
+
+
+    row - the row index 
+    column - the column index 
+
+    Returns: the value at the specified index as a String 
+
+*javax.swing.DefaultRowSorter.ModelWrapper.getValueAt(int,int)*
+
+public abstract |java.lang.Object| getValueAt(
+  int row,
+  int column)
+
+Returns the value at the specified index. 
+
+
+    row - the row index 
+    column - the column index 
+
+    Returns: the value at the specified index 
+
+

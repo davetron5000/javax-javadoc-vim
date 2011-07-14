@@ -1,0 +1,129 @@
+*javax.tools.ForwardingFileObject* *ForwardingFileObject* Forwards calls to a given file object.
+
+public class ForwardingFileObject<F extends javax.tools.FileObject>
+  extends    |java.lang.Object|
+  implements |javax.tools.FileObject|
+
+|javax.tools.ForwardingFileObject_Description|
+|javax.tools.ForwardingFileObject_Fields|
+|javax.tools.ForwardingFileObject_Constructors|
+|javax.tools.ForwardingFileObject_Methods|
+
+================================================================================================================================
+
+*javax.tools.ForwardingFileObject_Fields*
+|F extends javax.tools.FileObject_javax.tools.ForwardingFileObject.fileObject|
+
+*javax.tools.ForwardingFileObject_Constructors*
+|javax.tools.ForwardingFileObject(F)|Creates a new instance of ForwardingFileObject.
+
+*javax.tools.ForwardingFileObject_Methods*
+|javax.tools.ForwardingFileObject.delete()|
+|javax.tools.ForwardingFileObject.getCharContent(boolean)|
+|javax.tools.ForwardingFileObject.getLastModified()|
+|javax.tools.ForwardingFileObject.getName()|
+|javax.tools.ForwardingFileObject.openInputStream()|
+|javax.tools.ForwardingFileObject.openOutputStream()|
+|javax.tools.ForwardingFileObject.openReader(boolean)|
+|javax.tools.ForwardingFileObject.openWriter()|
+|javax.tools.ForwardingFileObject.toUri()|
+
+*javax.tools.ForwardingFileObject_Description*
+
+Forwards calls to a given file object. Subclasses of this class might override some of these methods and might also provide 
+additional fields and methods. 
+
+
+
+*F extends javax.tools.FileObject_javax.tools.ForwardingFileObject.fileObject*
+
+The file object which all methods are delegated to. 
+
+
+
+*javax.tools.ForwardingFileObject(F)*
+
+protected ForwardingFileObject(F extends javax.tools.FileObject fileObject)
+
+Creates a new instance of ForwardingFileObject. 
+
+    fileObject - delegate to this file object 
+
+*javax.tools.ForwardingFileObject.delete()*
+
+public boolean delete()
+
+
+
+
+
+*javax.tools.ForwardingFileObject.getCharContent(boolean)*
+
+public |java.lang.CharSequence| getCharContent(boolean ignoreEncodingErrors)
+  throws |java.io.IOException|
+         
+
+
+
+
+*javax.tools.ForwardingFileObject.getLastModified()*
+
+public long getLastModified()
+
+
+
+
+
+*javax.tools.ForwardingFileObject.getName()*
+
+public |java.lang.String| getName()
+
+
+
+
+
+*javax.tools.ForwardingFileObject.openInputStream()*
+
+public |java.io.InputStream| openInputStream()
+  throws |java.io.IOException|
+         
+
+
+
+
+*javax.tools.ForwardingFileObject.openOutputStream()*
+
+public |java.io.OutputStream| openOutputStream()
+  throws |java.io.IOException|
+         
+
+
+
+
+*javax.tools.ForwardingFileObject.openReader(boolean)*
+
+public |java.io.Reader| openReader(boolean ignoreEncodingErrors)
+  throws |java.io.IOException|
+         
+
+
+
+
+*javax.tools.ForwardingFileObject.openWriter()*
+
+public |java.io.Writer| openWriter()
+  throws |java.io.IOException|
+         
+
+
+
+
+*javax.tools.ForwardingFileObject.toUri()*
+
+public |java.net.URI| toUri()
+
+
+
+
+
+

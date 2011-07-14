@@ -1,0 +1,189 @@
+*javax.tools.StandardJavaFileManager* *StandardJavaFileManager* File manager based onFile java.io.File.
+
+public interface interface StandardJavaFileManager
+
+  implements |javax.tools.JavaFileManager|
+
+|javax.tools.StandardJavaFileManager_Description|
+|javax.tools.StandardJavaFileManager_Fields|
+|javax.tools.StandardJavaFileManager_Constructors|
+|javax.tools.StandardJavaFileManager_Methods|
+
+================================================================================================================================
+
+*javax.tools.StandardJavaFileManager_Methods*
+|javax.tools.StandardJavaFileManager.getJavaFileObjects(File...)|Gets file objects representing the given files.
+|javax.tools.StandardJavaFileManager.getJavaFileObjects(String...)|Gets file objects representing the given file names.
+|javax.tools.StandardJavaFileManager.getJavaFileObjectsFromFiles(Iterable<?extendsFile>)|Gets file objects representing the giv
+|javax.tools.StandardJavaFileManager.getJavaFileObjectsFromStrings(Iterable<String>)|Gets file objects representing the given f
+|javax.tools.StandardJavaFileManager.getLocation(JavaFileManager.Location)|Gets the path associated with the given location.
+|javax.tools.StandardJavaFileManager.isSameFile(FileObject,FileObject)|Compares two file objects and return true if they repres
+|javax.tools.StandardJavaFileManager.setLocation(JavaFileManager.Location,Iterable<?extendsFile>)|Associates the given path wit
+
+*javax.tools.StandardJavaFileManager_Description*
+
+File manager based on java.io.File(|java.io.File|) . A common way to obtain an instance of this class is using 
+getStandardFileManager(|javax.tools.JavaCompiler|) , for example: 
+
+
+
+JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();DiagnosticCollectordiagnostics = newDiagnosticCollector(); 
+StandardJavaFileManager fm = compiler.getStandardFileManager(diagnostics, null, null); 
+
+This file manager creates file objects representing regular files(|java.io.File|) , zip file entries(|java.util.zip.ZipEntry|) 
+, or entries in similar file system based containers. Any file object returned from a file manager implementing this interface 
+must observe the following behavior: 
+
+
+
+File names need not be canonical. 
+
+For file objects representing regular files 
+
+the method (|javax.tools.FileObject|) is equivalent to (|java.io.File|) , 
+
+the method (|javax.tools.FileObject|) is equivalent to (|java.io.File|) , 
+
+the methods (|javax.tools.FileObject|) , (|javax.tools.FileObject|) , and (|javax.tools.FileObject|) must succeed if the 
+following would succeed (ignoring encoding issues): 
+
+new FileInputStream(|java.io.FileInputStream|) (new File(|java.io.File|) ( fileObject(|javax.tools.FileObject|) . 
+toUri(|javax.tools.FileObject|) ())) 
+
+
+
+and the methods (|javax.tools.FileObject|) , and (|javax.tools.FileObject|) must succeed if the following would succeed 
+(ignoring encoding issues): 
+
+new FileOutputStream(|java.io.FileOutputStream|) (new File(|java.io.File|) ( fileObject(|javax.tools.FileObject|) . 
+toUri(|javax.tools.FileObject|) ())) 
+
+
+
+
+
+The URI(|java.net.URI|) returned from (|javax.tools.FileObject|) 
+
+must be absolute(|java.net.URI|) (have a schema), and 
+
+must have a normalized(|java.net.URI|) path component(|java.net.URI|) which can be resolved without any process-specific 
+context such as the current directory (file names must be absolute). 
+
+
+
+
+
+According to these rules, the following URIs, for example, are allowed: 
+
+file:///C:/Documents%20and%20Settings/UncleBob/BobsApp/Test.java 
+
+jar:///C:/Documents%20and%20Settings/UncleBob/lib/vendorA.jar!com/vendora/LibraryClass.class 
+
+Whereas these are not (reason in parentheses): 
+
+file:BobsApp/Test.java (the file name is relative and depend on the current directory) 
+
+jar:lib/vendorA.jar!com/vendora/LibraryClass.class (the first half of the path depends on the current directory, whereas the 
+component after ! is legal) 
+
+Test.java (this URI depends on the current directory and does not have a schema) 
+
+jar:///C:/Documents%20and%20Settings/UncleBob/BobsApp/../lib/vendorA.jar!com/vendora/LibraryClass.class (the path is not 
+normalized) 
+
+
+
+
+
+*javax.tools.StandardJavaFileManager.getJavaFileObjects(File...)*
+
+public |java.lang.Iterable|<? extends javax.tools.JavaFileObject> getJavaFileObjects(java.io.File[] files)
+
+Gets file objects representing the given files. Convenience method equivalent to: 
+
+
+
+getJavaFileObjectsFromFiles( Arrays.asList(|java.util.Arrays|) (files)) 
+
+
+    files - an array of files 
+
+    Returns: a list of file objects 
+
+*javax.tools.StandardJavaFileManager.getJavaFileObjects(String...)*
+
+public |java.lang.Iterable|<? extends javax.tools.JavaFileObject> getJavaFileObjects(java.lang.String[] names)
+
+Gets file objects representing the given file names. Convenience method equivalent to: 
+
+
+
+getJavaFileObjectsFromStrings( Arrays.asList(|java.util.Arrays|) (names)) 
+
+
+    names - a list of file names 
+
+    Returns: a list of file objects 
+
+*javax.tools.StandardJavaFileManager.getJavaFileObjectsFromFiles(Iterable<?extendsFile>)*
+
+public |java.lang.Iterable|<? extends javax.tools.JavaFileObject> getJavaFileObjectsFromFiles(java.lang.Iterable<? extends java.io.File> files)
+
+Gets file objects representing the given files. 
+
+
+    files - a list of files 
+
+    Returns: a list of file objects 
+
+*javax.tools.StandardJavaFileManager.getJavaFileObjectsFromStrings(Iterable<String>)*
+
+public |java.lang.Iterable|<? extends javax.tools.JavaFileObject> getJavaFileObjectsFromStrings(java.lang.Iterable<java.lang.String> names)
+
+Gets file objects representing the given file names. 
+
+
+    names - a list of file names 
+
+    Returns: a list of file objects 
+
+*javax.tools.StandardJavaFileManager.getLocation(JavaFileManager.Location)*
+
+public |java.lang.Iterable|<? extends java.io.File> getLocation(javax.tools.JavaFileManager.Location location)
+
+Gets the path associated with the given location. 
+
+
+    location - a location 
+
+    Returns: a list of files or {@code null} if this location has no associated path 
+
+*javax.tools.StandardJavaFileManager.isSameFile(FileObject,FileObject)*
+
+public boolean isSameFile(
+  javax.tools.FileObject a,
+  javax.tools.FileObject b)
+
+Compares two file objects and return true if they represent the same canonical file, zip file entry, or entry in any file 
+system based container. 
+
+
+    a - a file object 
+    b - a file object 
+
+    Returns: true if the given file objects represent the same canonical file or zip file entry; false otherwise 
+
+*javax.tools.StandardJavaFileManager.setLocation(JavaFileManager.Location,Iterable<?extendsFile>)*
+
+public void setLocation(
+  javax.tools.JavaFileManager.Location location,
+  java.lang.Iterable<? extends java.io.File> path)
+  throws |java.io.IOException|
+         
+Associates the given path with the given location. Any previous value will be discarded. 
+
+
+    location - a location 
+    path - a list of files, if {@code null} use the default path for this location 
+
+

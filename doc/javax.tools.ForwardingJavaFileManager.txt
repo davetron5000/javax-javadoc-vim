@@ -1,0 +1,191 @@
+*javax.tools.ForwardingJavaFileManager* *ForwardingJavaFileManager* Forwards calls to a given file manager.
+
+public class ForwardingJavaFileManager<M extends javax.tools.JavaFileManager>
+  extends    |java.lang.Object|
+  implements |javax.tools.JavaFileManager|
+
+|javax.tools.ForwardingJavaFileManager_Description|
+|javax.tools.ForwardingJavaFileManager_Fields|
+|javax.tools.ForwardingJavaFileManager_Constructors|
+|javax.tools.ForwardingJavaFileManager_Methods|
+
+================================================================================================================================
+
+*javax.tools.ForwardingJavaFileManager_Fields*
+|M extends javax.tools.JavaFileManager_javax.tools.ForwardingJavaFileManager.fileManager|
+
+*javax.tools.ForwardingJavaFileManager_Constructors*
+|javax.tools.ForwardingJavaFileManager(M)|Creates a new instance of ForwardingJavaFileManager.
+
+*javax.tools.ForwardingJavaFileManager_Methods*
+|javax.tools.ForwardingJavaFileManager.close()|
+|javax.tools.ForwardingJavaFileManager.flush()|
+|javax.tools.ForwardingJavaFileManager.getClassLoader(JavaFileManager.Location)|
+|javax.tools.ForwardingJavaFileManager.getFileForInput(JavaFileManager.Location,String,String)|
+|javax.tools.ForwardingJavaFileManager.getFileForOutput(JavaFileManager.Location,String,String,FileObject)|
+|javax.tools.ForwardingJavaFileManager.getJavaFileForInput(JavaFileManager.Location,String,JavaFileObject.Kind)|
+|javax.tools.ForwardingJavaFileManager.getJavaFileForOutput(JavaFileManager.Location,String,JavaFileObject.Kind,FileObject)|
+|javax.tools.ForwardingJavaFileManager.handleOption(String,Iterator<String>)|
+|javax.tools.ForwardingJavaFileManager.hasLocation(JavaFileManager.Location)|
+|javax.tools.ForwardingJavaFileManager.inferBinaryName(JavaFileManager.Location,JavaFileObject)|
+|javax.tools.ForwardingJavaFileManager.isSameFile(FileObject,FileObject)|
+|javax.tools.ForwardingJavaFileManager.isSupportedOption(String)|
+|javax.tools.ForwardingJavaFileManager.list(JavaFileManager.Location,String,Set<JavaFileObject.Kind>,boolean)|
+
+*javax.tools.ForwardingJavaFileManager_Description*
+
+Forwards calls to a given file manager. Subclasses of this class might override some of these methods and might also provide 
+additional fields and methods. 
+
+
+
+*M extends javax.tools.JavaFileManager_javax.tools.ForwardingJavaFileManager.fileManager*
+
+The file manager which all methods are delegated to. 
+
+
+
+*javax.tools.ForwardingJavaFileManager(M)*
+
+protected ForwardingJavaFileManager(M extends javax.tools.JavaFileManager fileManager)
+
+Creates a new instance of ForwardingJavaFileManager. 
+
+    fileManager - delegate to this file manager 
+
+*javax.tools.ForwardingJavaFileManager.close()*
+
+public void close()
+  throws |java.io.IOException|
+         
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.flush()*
+
+public void flush()
+  throws |java.io.IOException|
+         
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.getClassLoader(JavaFileManager.Location)*
+
+public |java.lang.ClassLoader| getClassLoader(javax.tools.JavaFileManager.Location location)
+
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.getFileForInput(JavaFileManager.Location,String,String)*
+
+public |javax.tools.FileObject| getFileForInput(
+  javax.tools.JavaFileManager.Location location,
+  java.lang.String packageName,
+  java.lang.String relativeName)
+  throws |java.io.IOException|
+         
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.getFileForOutput(JavaFileManager.Location,String,String,FileObject)*
+
+public |javax.tools.FileObject| getFileForOutput(
+  javax.tools.JavaFileManager.Location location,
+  java.lang.String packageName,
+  java.lang.String relativeName,
+  javax.tools.FileObject sibling)
+  throws |java.io.IOException|
+         
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.getJavaFileForInput(JavaFileManager.Location,String,JavaFileObject.Kind)*
+
+public |javax.tools.JavaFileObject| getJavaFileForInput(
+  javax.tools.JavaFileManager.Location location,
+  java.lang.String className,
+  javax.tools.JavaFileObject.Kind kind)
+  throws |java.io.IOException|
+         
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.getJavaFileForOutput(JavaFileManager.Location,String,JavaFileObject.Kind,FileObject)*
+
+public |javax.tools.JavaFileObject| getJavaFileForOutput(
+  javax.tools.JavaFileManager.Location location,
+  java.lang.String className,
+  javax.tools.JavaFileObject.Kind kind,
+  javax.tools.FileObject sibling)
+  throws |java.io.IOException|
+         
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.handleOption(String,Iterator<String>)*
+
+public boolean handleOption(
+  java.lang.String current,
+  java.util.Iterator<java.lang.String> remaining)
+
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.hasLocation(JavaFileManager.Location)*
+
+public boolean hasLocation(javax.tools.JavaFileManager.Location location)
+
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.inferBinaryName(JavaFileManager.Location,JavaFileObject)*
+
+public |java.lang.String| inferBinaryName(
+  javax.tools.JavaFileManager.Location location,
+  javax.tools.JavaFileObject file)
+
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.isSameFile(FileObject,FileObject)*
+
+public boolean isSameFile(
+  javax.tools.FileObject a,
+  javax.tools.FileObject b)
+
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.isSupportedOption(String)*
+
+public int isSupportedOption(java.lang.String option)
+
+
+
+
+
+*javax.tools.ForwardingJavaFileManager.list(JavaFileManager.Location,String,Set<JavaFileObject.Kind>,boolean)*
+
+public |java.lang.Iterable|<JavaFileObject> list(
+  javax.tools.JavaFileManager.Location location,
+  java.lang.String packageName,
+  java.util.Set<javax.tools.JavaFileObject.Kind> kinds,
+  boolean recurse)
+  throws |java.io.IOException|
+         
+
+
+
+
+

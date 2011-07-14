@@ -1,0 +1,80 @@
+*javax.tools.JavaFileObject* *JavaFileObject* File abstraction for tools operating on Java programming language
+ source and clas
+
+public interface interface JavaFileObject
+
+  implements |javax.tools.FileObject|
+
+|javax.tools.JavaFileObject_Description|
+|javax.tools.JavaFileObject_Fields|
+|javax.tools.JavaFileObject_Constructors|
+|javax.tools.JavaFileObject_Methods|
+
+================================================================================================================================
+
+*javax.tools.JavaFileObject_Methods*
+|javax.tools.JavaFileObject.getAccessLevel()|Provides a hint about the access level of the class represented  by this file obje
+|javax.tools.JavaFileObject.getKind()|Gets the kind of this file object.
+|javax.tools.JavaFileObject.getNestingKind()|Provides a hint about the nesting level of the class  represented by this file obj
+|javax.tools.JavaFileObject.isNameCompatible(String,JavaFileObject.Kind)|Checks if this file object is compatible with the spec
+
+*javax.tools.JavaFileObject_Description*
+
+File abstraction for tools operating on Java programming language source and class files. 
+
+All methods in this interface might throw a SecurityException if a security exception occurs. 
+
+Unless explicitly allowed, all methods in this interface might throw a NullPointerException if given anullargument. 
+
+
+
+*javax.tools.JavaFileObject.getAccessLevel()*
+
+public |javax.lang.model.element.Modifier| getAccessLevel()
+
+Provides a hint about the access level of the class represented by this file object. If the access level is not known or if 
+this file object does not represent a class file this method returnsnull. 
+
+
+
+    Returns: the access level 
+
+*javax.tools.JavaFileObject.getKind()*
+
+public |javax.tools.JavaFileObject.Kind| getKind()
+
+Gets the kind of this file object. 
+
+
+
+    Returns: 
+
+*javax.tools.JavaFileObject.getNestingKind()*
+
+public |javax.lang.model.element.NestingKind| getNestingKind()
+
+Provides a hint about the nesting level of the class represented by this file object. This method may return 
+(|javax.lang.model.element.NestingKind|) to mean (|javax.lang.model.element.NestingKind|) or 
+(|javax.lang.model.element.NestingKind|) . If the nesting level is not known or this file object does not represent a class 
+file this method returnsnull. 
+
+
+
+    Returns: the nesting kind, or {@code null} if the nesting kind is not known 
+
+*javax.tools.JavaFileObject.isNameCompatible(String,JavaFileObject.Kind)*
+
+public boolean isNameCompatible(
+  java.lang.String simpleName,
+  javax.tools.JavaFileObject.Kind kind)
+
+Checks if this file object is compatible with the specified simple name and kind. A simple name is a single identifier (not 
+qualified) as defined in the Java Language Specification 3rd ed., section 6.2 "Names and Identifiers". 
+
+
+    simpleName - a simple name of a class 
+    kind - 
+
+    Returns: {@code true} if this file object is compatible; false otherwise 
+
+
